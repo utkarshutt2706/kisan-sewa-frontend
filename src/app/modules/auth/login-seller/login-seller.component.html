@@ -8,7 +8,7 @@
             <mat-label>Enter your username</mat-label>
             <input matInput formControlName="username" type="text">
             <mat-error *ngIf="loginSellerForm.controls['username'].invalid">
-                Name is required</mat-error>
+                Please enter a valid username or email ID</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline"
@@ -16,7 +16,7 @@
             <mat-label>Enter your password</mat-label>
             <input matInput formControlName="password" type="password">
             <mat-error *ngIf="loginSellerForm.controls['password'].invalid">
-                Please enter a valid email ID</mat-error>
+                Please enter a valid password</mat-error>
         </mat-form-field>
 
         <div class="btns">

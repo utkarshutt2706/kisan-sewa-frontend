@@ -27,7 +27,7 @@ export class LoginBoothComponent implements OnInit {
                 username: new FormControl(null, [Validators.required, Validators.pattern(regex.emailOrUsername)]),
                 password: new FormControl(null, [Validators.required, Validators.pattern(regex.password)])
             }
-        )
+        );
     }
 
     public onLogin() {

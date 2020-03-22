@@ -5,10 +5,10 @@
         <h2>{{ loginAs }}</h2>
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
-            <mat-label>Enter your username</mat-label>
+            <mat-label>Enter your username or registered email ID</mat-label>
             <input matInput formControlName="username" type="text">
             <mat-error *ngIf="loginBoothForm.controls['username'].invalid">
-                Name is required</mat-error>
+                Please enter a valid username or email ID</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline"
@@ -16,7 +16,7 @@
             <mat-label>Enter your password</mat-label>
             <input matInput formControlName="password" type="password">
             <mat-error *ngIf="loginBoothForm.controls['password'].invalid">
-                Please enter a valid email ID</mat-error>
+                Please enter a valid password</mat-error>
         </mat-form-field>
 
         <div class="btns">
