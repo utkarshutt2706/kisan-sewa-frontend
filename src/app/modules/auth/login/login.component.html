@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="row reg-btns" *ngIf="!isLoggingIn; else loginForm">
+    <div class="col-12 w3-animate-left">
+        <button type="button" class="btn btn-primary"
+            (click)="login('Login as Booth')">Login as Booth</button>
+    </div>
+    <div class="col-12 w3-animate-right">
+        <button type="button" class="btn btn-primary"
+            (click)="login('Login as Farmer')">Login as
+            Farmer</button>
+    </div>
+    <div class="col-12 w3-animate-left">
+        <button type="button" class="btn btn-primary"
+            (click)="login('Login as Seller')">Login as
+            Seller</button>
+    </div>
+</div>
+
+<ng-template #loginForm>
+    <app-login-booth *ngIf="loginAs==='Login as Booth'" [loginAs]="loginAs"
+        (cancel)="cancel()">
+    </app-login-booth>
+    <app-login-seller *ngIf="loginAs==='Login as Seller'" [loginAs]="loginAs"
+        (cancel)="cancel()">
+    </app-login-seller>
+    <app-login-farmer *ngIf="loginAs==='Login as Farmer'" [loginAs]="loginAs"
+        (cancel)="cancel()">
+    </app-login-farmer>
+</ng-template>

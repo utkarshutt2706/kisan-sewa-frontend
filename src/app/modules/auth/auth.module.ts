@@ -12,6 +12,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { RegisterBoothComponent } from './register-booth/register-booth.component';
 import { RegisterFarmerComponent } from './register-farmer/register-farmer.component';
 import { RegisterSellerComponent } from './register-seller/register-seller.component';
+import { LoginSellerComponent } from './login-seller/login-seller.component';
+import { LoginFarmerComponent } from './login-farmer/login-farmer.component';
+import { LoginBoothComponent } from './login-booth/login-booth.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { RegisterSellerComponent } from './register-seller/register-seller.compo
         ResetPasswordComponent,
         RegisterBoothComponent,
         RegisterFarmerComponent,
-        RegisterSellerComponent
+        RegisterSellerComponent,
+        LoginSellerComponent,
+        LoginFarmerComponent,
+        LoginBoothComponent
     ],
     imports: [
         CommonModule,

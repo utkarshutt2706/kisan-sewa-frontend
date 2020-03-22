@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
         this.isRegistering = true;
     }
 
-    cancel() {
+    public cancel() {
         this.registerAs = '';
         this.isRegistering = false;
     }

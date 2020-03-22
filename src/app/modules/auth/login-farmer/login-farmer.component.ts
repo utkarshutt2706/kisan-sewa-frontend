@@ -1,0 +1,41 @@
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { regex } from '../../core/constants';
+
+@Component({
+    selector: 'app-login-farmer',
+    templateUrl: './login-farmer.component.html',
+    styleUrls: ['./login-farmer.component.scss']
+})
+export class LoginFarmerComponent implements OnInit {
+
+    @Input() loginAs: string;
+    @Output() cancel = new EventEmitter<any>();
+
+    public loginFarmerForm: FormGroup;
+
+    constructor() { }
+
+    ngOnInit(): void {
+        this.initForm();
+    }
+
+    private initForm() {
+        this.loginFarmerForm = new FormGroup(
+            {
+                username: new FormControl(null, [Validators.required, Validators.pattern(regex.emailOrUsername)]),
+                password: new FormControl(null, [Validators.required, Validators.pattern(regex.password)])
+            }
+        )
+    }
+
+    public onLogin() {
+        console.log('login');
+    }
+
+    public onCancel() {
+        this.cancel.emit();
+    }
+
+}

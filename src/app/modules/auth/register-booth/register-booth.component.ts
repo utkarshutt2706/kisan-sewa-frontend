@@ -21,7 +21,7 @@ export class RegisterBoothComponent implements OnInit {
         this.initForm();
     }
 
-    initForm() {
+    private initForm() {
         this.registerBoothForm = new FormGroup(
             {
                 name: new FormControl(null, Validators.required),

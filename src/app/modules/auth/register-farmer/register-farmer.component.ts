@@ -21,7 +21,7 @@ export class RegisterFarmerComponent implements OnInit {
         this.initForm();
     }
 
-    initForm() {
+    private initForm() {
         this.registerFarmerForm = new FormGroup(
             {
                 name: new FormControl(null, Validators.required),
@@ -32,7 +32,7 @@ export class RegisterFarmerComponent implements OnInit {
         );
     }
 
-    onRegister() {
+    public onRegister() {
         console.log('Register Farmer');
     }
 
