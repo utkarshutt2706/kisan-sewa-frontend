@@ -1,0 +1,159 @@
+.services {
+  text-align: center;
+}
+
+h2{
+    font-weight: 600;
+}
+
+label{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.why-ola {
+  padding: 30px 0 0 0;
+}
+
+.why-ola .item-list-wrapper {
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+
+.why-ola .wd-50 {
+  width: 50%;
+  float: left;
+}
+
+.why-ola .wd-50:first-child {
+  padding-right: 20px;
+}
+
+.why-ola .wd-50:nth-child(2) {
+  padding-left: 20px;
+}
+
+.why-ola .indiv-item-list {
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px;
+  margin-left: -16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.why-ola .indiv-item-list:hover {
+  background: #fafafa;
+}
+
+.why-ola .indiv-item-list:hover .heading {
+  color: #8ec44a;
+}
+
+.why-ola .indiv-item-list a {
+  cursor: pointer;
+}
+
+.why-ola .indiv-item-list a:hover .heading {
+  color: #8ec44a;
+}
+
+.why-ola .indiv-item-list .wd-30 {
+  width: 30%;
+  float: left;
+}
+
+.why-ola .indiv-item-list .wd-30 img {
+  max-width: 100%;
+  border-radius: 4px;
+  max-height: 110px;
+}
+
+.why-ola .indiv-item-list .wd-70 {
+  width: 70%;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.why-ola .indiv-item-list .heading {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.why-ola .indiv-item-list .info {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.why-ola .last-item {
+  margin-bottom: 20px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .why-ola {
+    padding: 5px 0;
+  }
+  .why-ola .section-heading {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .why-ola .section-sub-heading {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .why-ola .item-list-wrapper {
+    padding: 20px 0 35px 0;
+  }
+  .why-ola .wd-50 {
+    width: 100%;
+  }
+  .why-ola .wd-50:first-child {
+    padding-right: 0;
+  }
+  .why-ola .wd-50:nth-child(2) {
+    padding-left: 0;
+  }
+  .why-ola .indiv-item-list {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 16px 16px;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 0;
+  }
+  .why-ola .indiv-item-list .wd-30 img {
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .why-ola .indiv-item-list .wd-70 {
+    padding-right: 0;
+  }
+  .why-ola .indiv-item-list .heading {
+    font-size: 20px;
+  }
+  .why-ola .indiv-item-list .info {
+    width: 100%;
+    font-size: 16px;
+  }
+  .why-ola .xs-last-item {
+    margin-bottom: 0;
+  }
+}
