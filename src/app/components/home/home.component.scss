@@ -1,37 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  -webkit-font-smoothing: antialiased;
-}
-a:hover {
-  text-decoration: none;
-}
-
-/* Globals type styling */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-label,
-.btn,
-a {
-  font-family: "Open Sans", sans-serif;
-  color: #333;
-}
-
-a {
-  cursor: pointer;
+.loader {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .header {
@@ -137,18 +109,23 @@ a {
   border-color: #fff;
 }
 
-/* Mobile adjustments */
-
 @media (max-width: 768px) {
-  .a-block {
-    text-align: center;
+  .carousel-inner img {
+    min-height: 450px;
+    max-height: 450px;
   }
 }
 
-textarea{
-  overflow: auto;
+@media (max-width: 576px) {
+  .carousel-inner img {
+    min-height: 350px;
+    max-height: 350px;
+  }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+@media (max-width: 400px) {
+  .carousel-inner img {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}

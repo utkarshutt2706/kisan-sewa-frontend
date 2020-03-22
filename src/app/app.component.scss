@@ -1,0 +1,9 @@
+.my-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.my-container main{
+    flex: 1;
+}

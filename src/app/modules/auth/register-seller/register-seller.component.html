@@ -1,0 +1,48 @@
+<div class="row">
+
+    <form class="col-md-6 col-sm-12 w3-animate-zoom"
+        [formGroup]="registerSellerForm" (ngSubmit)="onRegister()">
+        <h2>{{ registerAs }}</h2>
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your name</mat-label>
+            <input matInput placeholder="Enter email/ mobile no."
+                formControlName="name">
+            <mat-error *ngIf="registerSellerForm.controls['name'].invalid">
+                Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your mobile number</mat-label>
+            <input matInput formControlName="phone" type="text">
+            <mat-error *ngIf="registerSellerForm.controls['phone'].invalid">
+                Please enter a valid mobile number</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your email ID</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error *ngIf="registerSellerForm.controls['phone'].invalid">
+                Please enter a valid email ID</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your address</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+            <mat-error *ngIf="registerSellerForm.controls['address'].invalid">
+                Address is required</mat-error>
+        </mat-form-field>
+
+        <div class="btns">
+            <button mat-button class="btn btn-primary"
+                [disabled]="registerSellerForm.invalid"
+                type="submit">Register</button>
+            <button mat-button class="btn btn-default" type="reset"
+                (click)="onCancel()">Cancel</button>
+        </div>
+
+    </form>
+</div>

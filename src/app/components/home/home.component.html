@@ -1,0 +1,108 @@
+<div *ngIf="isLoading; else content" class="loader">
+    <app-loader></app-loader>
+    <p>Please wait</p>
+</div>
+<ng-template #content>
+    <div class="container w3-animate-zoom" style="width: 100%;">
+        <div class="row">
+            <!-- Carousel -->
+            <div id="carousel-example-generic" class="carousel slide"
+                data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to="1">
+                    </li>
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to="2">
+                    </li>
+                    <li data-target="#carousel-example-generic"
+                        data-slide-to="3">
+                    </li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="../assets/images/farmer3.jpg"
+                            alt="Third slide">
+                        <!-- Static Header -->
+                        <div class="header-text hidden-xs">
+                            <div class="col-md-12 text-center">
+                                <h2>
+                                    <span>OUR VISION</span>
+                                </h2>
+                                <br>
+                                <div class="">
+                                    <a
+                                        class="btn btn-theme btn-sm btn-min-block">Get
+                                        Started</a></div>
+                            </div>
+                        </div><!-- /header-text -->
+                    </div>
+                    <div class="item">
+                        <img src="../assets/images/farmer1.jpg"
+                            alt="First slide">
+                        <!-- Static Header -->
+                        <div class="header-text hidden-xs">
+                            <div class="col-md-12 text-center">
+                                <h2>
+                                    <span>OUR VISION</span>
+                                </h2>
+                                <br>
+                                <div class="">
+                                    <a
+                                        class="btn btn-theme btn-sm btn-min-block">Get
+                                        Started</a></div>
+                            </div>
+                        </div><!-- /header-text -->
+                    </div>
+                    <div class="item">
+                        <img src="../assets/images/farmer2.jpg"
+                            alt="Second slide">
+                        <!-- Static Header -->
+                        <div class="header-text hidden-xs">
+                            <div class="col-md-12 text-center">
+                                <h2>
+                                    <span>OUR VISION</span>
+                                </h2>
+                                <br>
+                                <div class="">
+                                    <a
+                                        class="btn btn-theme btn-sm btn-min-block">Get
+                                        Started</a></div>
+                            </div>
+                        </div><!-- /header-text -->
+                    </div>
+                    <div class="item">
+                        <img src="../assets/images/farmer4.jpg"
+                            alt="Second slide">
+                        <!-- Static Header -->
+                        <div class="header-text hidden-xs">
+                            <div class="col-md-12 text-center">
+                                <h2>
+                                    <span>OUR VISION</span>
+                                </h2>
+                                <br>
+                                <div class="">
+                                    <a
+                                        class="btn btn-theme btn-sm btn-min-block">Get
+                                        Started</a></div>
+                            </div>
+                        </div><!-- /header-text -->
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control"
+                    href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control"
+                    href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div><!-- Carousel END -->
+        </div>
+    </div>
+</ng-template>

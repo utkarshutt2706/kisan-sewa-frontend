@@ -1,0 +1,39 @@
+<div class="bloc l-bloc w3-animate-top" id="nav-bloc">
+	<div class="container">
+		<nav class="navbar row">
+			<div class="navbar-header">
+				<a class="navbar-brand" [routerLink]="['/']">Online Kisaan
+					Sewa</a>
+				<button id="nav-toggle" type="button"
+					class="ui-navbar-toggle navbar-toggle"
+					data-toggle="collapse" data-target=".navbar-1">
+					<span class="sr-only">Toggle navigation</span><span
+						class="icon-bar"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-1">
+				<ul class="site-navigation nav">
+					<li>
+						<a [routerLink]="['/']">Home</a>
+					</li>
+					<li>
+						<a [routerLink]="['/about']">About</a>
+					</li>
+					<li>
+						<a [routerLink]="['/services']">Services</a>
+					</li>
+					<li>
+						<a [routerLink]="['/team']">Team</a>
+					</li>
+					<li>
+						<a [routerLink]="['/kisan/login']">Login</a>
+					</li>
+					<li>
+						<a [routerLink]="['/kisan/register']">Register</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row">
+
+    <form class="col-md-6 col-sm-12 w3-animate-zoom"
+        [formGroup]="registerBoothForm" (ngSubmit)="onRegister()">
+        <h2>{{ registerAs }}</h2>
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your name</mat-label>
+            <input matInput formControlName="name" type="text">
+            <mat-error *ngIf="registerBoothForm.controls['name'].invalid">
+                Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your booth name</mat-label>
+            <input matInput formControlName="boothName" type="text">
+            <mat-error *ngIf="registerBoothForm.controls['boothName'].invalid">
+                Booth name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your mobile number</mat-label>
+            <input matInput formControlName="phone" type="text">
+            <mat-error *ngIf="registerBoothForm.controls['phone'].invalid">
+                Please enter a valid mobile number</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your email ID</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error *ngIf="registerBoothForm.controls['phone'].invalid">
+                Please enter a valid email ID</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>Enter your booth address</mat-label>
+            <textarea matInput formControlName="boothAddress"></textarea>
+            <mat-error
+                *ngIf="registerBoothForm.controls['boothAddress'].invalid">
+                Booth address is required</mat-error>
+        </mat-form-field>
+
+        <div class="btns">
+            <button mat-button class="btn btn-primary"
+                [disabled]="registerBoothForm.invalid"
+                type="submit">Register</button>
+            <button mat-button class="btn btn-default" type="reset"
+                (click)="onCancel()">Cancel</button>
+        </div>
+
+    </form>
+</div>
