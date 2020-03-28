@@ -21,8 +21,12 @@
 
         <div class="btns">
             <button mat-button class="btn btn-primary"
+            *ngIf="!isLoading;else loading"
                 [disabled]="loginSellerForm.invalid"
-                type="submit">Register</button>
+                type="submit">Login</button>
+            <ng-template #loading style="height: 34px;">
+                <app-loader></app-loader>
+            </ng-template>
             <button mat-button class="btn btn-default" type="reset"
                 (click)="onCancel()">Cancel</button>
         </div>

@@ -18,7 +18,7 @@ export class AuthService {
 
     public login(form: FormGroup, loginAs: string) {
         form.value.loginAs = loginAs;
-        return this.http.post(`${apiEndPoint.auth}register`, form.value);
+        return this.http.post(`${apiEndPoint.auth}login`, form.value);
     }
 
     public forgotPassword(form: FormGroup, forgotAs: string) {
