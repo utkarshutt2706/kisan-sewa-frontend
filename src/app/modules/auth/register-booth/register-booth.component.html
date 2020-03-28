@@ -38,16 +38,19 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>Enter your booth address</mat-label>
-            <textarea matInput formControlName="boothAddress"></textarea>
-            <mat-error
-                *ngIf="registerBoothForm.controls['boothAddress'].invalid">
+            <textarea matInput formControlName="address"></textarea>
+            <mat-error *ngIf="registerBoothForm.controls['address'].invalid">
                 Booth address is required</mat-error>
         </mat-form-field>
 
         <div class="btns">
             <button mat-button class="btn btn-primary"
+                *ngIf="!isLoading;else loading"
                 [disabled]="registerBoothForm.invalid"
                 type="submit">Register</button>
+            <ng-template #loading style="height: 34px;">
+                <app-loader></app-loader>
+            </ng-template>
             <button mat-button class="btn btn-default" type="reset"
                 (click)="onCancel()">Cancel</button>
         </div>

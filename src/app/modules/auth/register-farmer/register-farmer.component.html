@@ -32,15 +32,18 @@
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>Enter your address</mat-label>
             <textarea matInput formControlName="address"></textarea>
-            <mat-error
-                *ngIf="registerFarmerForm.controls['address'].invalid">
+            <mat-error *ngIf="registerFarmerForm.controls['address'].invalid">
                 Address is required</mat-error>
         </mat-form-field>
 
         <div class="btns">
             <button mat-button class="btn btn-primary"
+                *ngIf="!isLoading;else loading"
                 [disabled]="registerFarmerForm.invalid"
                 type="submit">Register</button>
+            <ng-template #loading style="height: 34px;">
+                <app-loader></app-loader>
+            </ng-template>
             <button mat-button class="btn btn-default" type="reset"
                 (click)="onCancel()">Cancel</button>
         </div>

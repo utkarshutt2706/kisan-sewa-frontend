@@ -7,3 +7,12 @@ export const regex = {
     emailOrUsername: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-.]{2,}$|[a-zA-Z0-9]+',
     password: new RegExp('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$#%^+=])')
 };
+
+const apiURL = 'http://localhost:3000/';
+
+export const apiEndPoint = {
+    auth: `${apiURL}auth/`,
+    booth: `${apiURL}booth/`,
+    seller: `${apiURL}seller/`,
+    farmer: `${apiURL}farmer/`
+};
