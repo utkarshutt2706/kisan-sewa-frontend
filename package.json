@@ -1,6 +1,10 @@
 {
     "name": "kisan-sewa",
     "version": "0.0.0",
+    "engines": {
+        "node": "12.6.1",
+        "npm": "6.13.4"
+    },
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
@@ -53,9 +57,5 @@
         "ts-node": "~8.3.0",
         "tslint": "~5.18.0",
         "typescript": "~3.7.5"
-    },
-    "engines": {
-        "node": "12.6.1",
-        "npm": "6.13.4"
     }
 }
