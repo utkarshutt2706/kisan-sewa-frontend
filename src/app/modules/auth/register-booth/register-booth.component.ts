@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
+import { LoaderService } from '../../core/services/loader.service';
 
 @Component({
     selector: 'app-register-booth',
@@ -21,7 +22,8 @@ export class RegisterBoothComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private snackBar: MatSnackBar,
-        private router: Router
+        private router: Router,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -41,14 +43,17 @@ export class RegisterBoothComponent implements OnInit {
     }
 
     public onRegister() {
+        this.loaderService.showLoader();
         this.authService.register(this.registerBoothForm, 'booth').subscribe(
             (response: any) => {
+                this.loaderService.hideLoader();
                 this.snackBar.open(response.detail, 'Ok', {
                     duration: 10000
                 });
                 this.router.navigateByUrl('/kisan/login');
             },
             error => {
+                this.loaderService.hideLoader();
                 this.snackBar.open(error.error.message, 'Ok');
             },
             () => {}

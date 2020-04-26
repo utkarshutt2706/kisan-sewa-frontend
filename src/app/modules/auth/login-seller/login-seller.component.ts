@@ -47,10 +47,8 @@ export class LoginSellerComponent implements OnInit {
                 this.router.navigateByUrl('');
             },
             error => {
-                setTimeout(() => {
-                    this.loaderService.hideLoader();
-                    this.snackBar.open(error.error.message, 'Ok');
-                }, 3000);
+                this.loaderService.hideLoader();
+                this.snackBar.open(error.error.message, 'Ok');
             },
             () => { }
         );
