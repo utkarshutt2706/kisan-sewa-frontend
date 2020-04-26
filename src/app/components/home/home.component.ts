@@ -7,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    isLoading = true;
-
     constructor() { }
 
     ngOnInit(): void {
-        setTimeout(() => {
-            this.isLoading = false;
-        }, 1000);
     }
 
 }

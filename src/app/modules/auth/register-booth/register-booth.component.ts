@@ -16,7 +16,6 @@ export class RegisterBoothComponent implements OnInit {
     @Input() registerAs: string;
     @Output() cancel = new EventEmitter<any>();
 
-    public isLoading = false;
     public registerBoothForm: FormGroup;
 
     constructor(
@@ -42,17 +41,14 @@ export class RegisterBoothComponent implements OnInit {
     }
 
     public onRegister() {
-        this.isLoading = true;
         this.authService.register(this.registerBoothForm, 'booth').subscribe(
             (response: any) => {
-                this.isLoading = false;
                 this.snackBar.open(response.detail, 'Ok', {
                     duration: 10000
                 });
                 this.router.navigateByUrl('/kisan/login');
             },
             error => {
-                this.isLoading = false;
                 this.snackBar.open(error.error.message, 'Ok');
             },
             () => {}

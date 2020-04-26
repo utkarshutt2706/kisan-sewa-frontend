@@ -4,23 +4,59 @@
 
 .footer {
   padding-top: 10px;
-  text-align: center;
+  // text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 50px 0px;
 }
 
-.text {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 30px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  color: #000000;
-  font-weight: normal;
-  text-decoration: none;
-  font-style: italic;
-  font-variant: small-caps;
-  text-transform: none;
+.foot-left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.name{
+.follow{
+  font-size: 20px;
   font-weight: bold;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Founders Grotesk Text","Work Sans",sans-serif;
+}
+
+.about-icons {
+  margin: 48px 0px 48px 0px;
+}
+.about-icons i {
+  margin-right: 10px;
+  padding: 0px;
+  font-size: 35px;
+  color: #323232;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.about-icons li {
+  margin: 0px;
+  padding: 0;
+  display: inline-block;
+}
+#social-fb:hover {
+  color: #3b5998;
+  transition: all 0.001s;
+}
+#social-tw:hover {
+  color: #4099ff;
+  transition: all 0.001s;
+}
+#social-gp:hover {
+  color: #d34836;
+  transition: all 0.001s;
+}
+#social-em:hover {
+  color: #f39c12;
+  transition: all 0.001s;
+}
+
+.foot-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

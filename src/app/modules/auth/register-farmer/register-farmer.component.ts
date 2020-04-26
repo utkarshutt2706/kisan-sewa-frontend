@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
+import { LoaderService } from '../../core/services/loader.service';
 
 @Component({
     selector: 'app-register-farmer',
@@ -16,13 +17,13 @@ export class RegisterFarmerComponent implements OnInit {
     @Input() registerAs: string;
     @Output() cancel = new EventEmitter<any>();
 
-    public isLoading = false;
     public registerFarmerForm: FormGroup;
 
     constructor(
         private authService: AuthService,
         private snackBar: MatSnackBar,
-        private router: Router
+        private router: Router,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -41,17 +42,17 @@ export class RegisterFarmerComponent implements OnInit {
     }
 
     public onRegister() {
-        this.isLoading = true;
+        this.loaderService.showLoader();
         this.authService.register(this.registerFarmerForm, 'farmer').subscribe(
             (response: any) => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(response.detail, 'Ok', {
                     duration: 10000
                 });
                 this.router.navigateByUrl('/kisan/login');
             },
             error => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(error.error.message, 'Ok');
             },
             () => {}

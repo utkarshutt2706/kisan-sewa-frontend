@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
+import { LoaderService } from '../../core/services/loader.service';
 
 @Component({
     selector: 'app-login-farmer',
@@ -16,13 +17,13 @@ export class LoginFarmerComponent implements OnInit {
     @Input() loginAs: string;
     @Output() cancel = new EventEmitter<any>();
 
-    public isLoading = false;
     public loginFarmerForm: FormGroup;
 
     constructor(
         private authService: AuthService,
         private router: Router,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -39,15 +40,15 @@ export class LoginFarmerComponent implements OnInit {
     }
 
     public onLogin() {
-        this.isLoading = true;
+        this.loaderService.showLoader();
         this.authService.login(this.loginFarmerForm, 'farmer').subscribe(
             (response: any) => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(JSON.stringify(response), 'Ok');
                 this.router.navigateByUrl('');
             },
             error => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(error.error.message, 'Ok');
             },
             () => {}

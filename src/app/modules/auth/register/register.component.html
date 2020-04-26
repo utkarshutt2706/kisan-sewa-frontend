@@ -1,14 +1,14 @@
 <div class="row reg-btns" *ngIf="!isRegistering;else registerForm">
-    <div class="col-12 w3-animate-left">
+    <div class="col-12 w3-animate-right">
         <button type="button" class="btn btn-primary"
             (click)="register('Register as Booth')">Register as Booth</button>
     </div>
-    <div class="col-12 w3-animate-right">
+    <div class="col-12 w3-animate-left">
         <button type="button" class="btn btn-primary"
             (click)="register('Register as Farmer')">Register as
             Farmer</button>
     </div>
-    <div class="col-12 w3-animate-left">
+    <div class="col-12 w3-animate-right">
         <button type="button" class="btn btn-primary"
             (click)="register('Register as Seller')">Register as
             Seller</button>

@@ -15,7 +15,6 @@ import { RegisterSellerComponent } from './register-seller/register-seller.compo
 import { LoginSellerComponent } from './login-seller/login-seller.component';
 import { LoginFarmerComponent } from './login-farmer/login-farmer.component';
 import { LoginBoothComponent } from './login-booth/login-booth.component';
-import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
 
 @NgModule({
     declarations: [
@@ -35,8 +34,7 @@ import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
         AuthRoutingModule,
         ReactiveFormsModule,
         MatInputModule,
-        MatFormFieldModule,
-        LoaderModule
+        MatFormFieldModule
     ]
 })
 export class AuthModule { }

@@ -1,0 +1,11 @@
+<div class="newsletter w3-animate-zoom">
+    <div class="newsletter-title">
+        Sign up for your Modern Farmer Weekly Newsletter
+    </div>
+    <div class="newsletter-form">
+        <form [formGroup]="newsLetterForm" (ngSubmit)="onSubscribe()">
+            <input type="email" formControlName="email" placeholder="Enter your email">
+            <input type="submit">
+        </form>
+    </div>
+</div>

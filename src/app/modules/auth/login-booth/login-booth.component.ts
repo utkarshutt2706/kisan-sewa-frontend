@@ -3,8 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
+import { LoaderService } from '../../core/services/loader.service';
 
 @Component({
     selector: 'app-login-booth',
@@ -16,13 +16,13 @@ export class LoginBoothComponent implements OnInit {
     @Input() loginAs: string;
     @Output() cancel = new EventEmitter<any>();
 
-    public isLoading = false;
     public loginBoothForm: FormGroup;
 
     constructor(
         private authService: AuthService,
         private router: Router,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -39,15 +39,15 @@ export class LoginBoothComponent implements OnInit {
     }
 
     public onLogin() {
-        this.isLoading = true;
+        this.loaderService.showLoader();
         this.authService.login(this.loginBoothForm, 'booth').subscribe(
             (response: any) => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(JSON.stringify(response), 'Ok');
                 this.router.navigateByUrl('');
             },
             error => {
-                this.isLoading = false;
+                this.loaderService.hideLoader();
                 this.snackBar.open(error.error.message, 'Ok');
             },
             () => {}

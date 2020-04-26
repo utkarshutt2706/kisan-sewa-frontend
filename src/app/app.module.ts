@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,10 +14,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { TeamComponent } from './components/team/team.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { LoaderModule } from './shared/components/loader/loader.module';
+import { NewsletterComponent } from './shared/components/newsletter/newsletter.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,9 @@ import { LoaderModule } from './shared/components/loader/loader.module';
         AboutComponent,
         ServicesComponent,
         TeamComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        NewsletterComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,
@@ -33,7 +36,6 @@ import { LoaderModule } from './shared/components/loader/loader.module';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        LoaderModule,
         MatSnackBarModule
     ],
     providers: [
