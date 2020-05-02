@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from './modules/core/services/auth.service';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -8,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
     title = 'Kisan Sewa';
+
+    constructor(public authService: AuthService) {}
 
     ngOnInit(): void {
     }

@@ -6,6 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
 import { LoaderService } from '../../core/services/loader.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
     selector: 'app-register-farmer',
@@ -23,7 +26,8 @@ export class RegisterFarmerComponent implements OnInit {
         private authService: AuthService,
         private snackBar: MatSnackBar,
         private router: Router,
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private dialog: MatDialog
     ) { }
 
     ngOnInit(): void {
@@ -46,16 +50,20 @@ export class RegisterFarmerComponent implements OnInit {
         this.authService.register(this.registerFarmerForm, 'farmer').subscribe(
             (response: any) => {
                 this.loaderService.hideLoader();
-                this.snackBar.open(response.detail, 'Ok', {
-                    duration: 10000
+                const dialogRef = this.dialog.open(SuccessDialogComponent, {
+                    data: { response }
                 });
-                this.router.navigateByUrl('/kisan/login');
+                dialogRef.afterClosed().subscribe(change => {
+                    this.router.navigateByUrl('/kisan/login');
+                });
             },
-            error => {
+            (error: any) => {
                 this.loaderService.hideLoader();
-                this.snackBar.open(error.error.message, 'Ok');
+                this.dialog.open(ErrorDialogComponent, {
+                    data: error.error
+                });
             },
-            () => {}
+            () => { }
         );
     }
 

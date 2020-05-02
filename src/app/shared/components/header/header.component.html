@@ -37,17 +37,31 @@
 								aria-hidden="true" style="font-size: 25px;"></i>
 							Team</a>
 					</li>
-					<li [ngClass]="{active: router.url==='/kisan/login'}">
+					<li [ngClass]="{active: router.url==='/kisan/login'}"
+						*ngIf="!authService.isLoggedIn">
 						<a [routerLink]="['/kisan/login']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-sign-in" aria-hidden="true"
 								style="font-size: 25px;"></i> Login</a>
 					</li>
-					<li [ngClass]="{active: router.url==='/kisan/register'}">
+					<li [ngClass]="{active: router.url==='/kisan/register'}"
+						*ngIf="!authService.isLoggedIn">
 						<a [routerLink]="['/kisan/register']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-user-plus" aria-hidden="true"
 								style="font-size: 25px;"></i> Register</a>
+					</li>
+					<li [ngClass]="{active: router.url==='/kisan/dashboard'}"
+						*ngIf="authService.isLoggedIn">
+						<a (click)="openDashBoard()"
+							data-toggle="collapse" data-target=".navbar-1"><i
+								class="fa fa-sign-in" aria-hidden="true"
+								style="font-size: 25px;"></i> Dashboard</a>
+					</li>
+					<li *ngIf="authService.isLoggedIn">
+						<a (click)="logout()" data-toggle="collapse" data-target=".navbar-1"><i
+								class="fa fa-sign-out" aria-hidden="true"
+								style="font-size: 25px;"></i> Logout</a>
 					</li>
 				</ul>
 			</div>

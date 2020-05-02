@@ -5,7 +5,7 @@
     </header>
     <main>
         <router-outlet></router-outlet>
-        <app-newsletter></app-newsletter>
+        <app-newsletter *ngIf="!authService.isLoggedIn"></app-newsletter>
     </main>
     <footer class="w3-animate-bottom">
         <app-footer></app-footer>

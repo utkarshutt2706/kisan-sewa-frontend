@@ -9,6 +9,9 @@ import { apiEndPoint } from '../constants';
 })
 export class AuthService {
 
+    public isLoggedIn = false;
+    public currentUserType: string;
+
     constructor(private http: HttpClient) { }
 
     public register(form: FormGroup, registerAs: string) {

@@ -1,14 +1,14 @@
 <div class="mat-dialog-style">
     <div class="error-modal-icon">
-        <img src="assets/images/warning_icon.svg" alt="">
+        <img src="assets/images/error.svg" alt="Error">
     </div>
     <div class="content-style" mat-dialog-content>
         <div class="error-content">
-            <p>message here</p>
+            <p>{{message}}</p>
         </div>
     </div>
     <mat-dialog-actions align="center" class="text-center">
-        <button mat-button (click)="Cancel()"
-            class="btn btn-default-lg">Close</button>
+        <button mat-button (click)="onClose()"
+            class="btn btn-primary">Close</button>
     </mat-dialog-actions>
 </div>

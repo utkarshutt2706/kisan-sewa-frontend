@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-success-dialog',
@@ -9,18 +8,27 @@ import { Router } from '@angular/router';
 })
 export class SuccessDialogComponent implements OnInit {
 
+    public message: string;
+    public detail: string;
+
     constructor(
-        @Inject(MAT_DIALOG_DATA) public data,
-        public dialogRef: MatDialogRef<SuccessDialogComponent>,
-        private router: Router
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        public dialogRef: MatDialogRef<SuccessDialogComponent>
     ) { }
 
     ngOnInit() {
+        if(this.data.message) {
+            this.message = this.data.message;
+        } else {
+            this.message = 'Success';
+        }
+        if(this.data.detail) {
+            this.detail = this.data.detail;
+        }
     }
 
-    public close() {
+    public onClose() {
         this.dialogRef.close();
-        this.router.navigate(['/']);
     }
 
 }

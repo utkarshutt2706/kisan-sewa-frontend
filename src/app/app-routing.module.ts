@@ -29,6 +29,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/auth/auth.module').then(mod => mod.AuthModule)
     },
     {
+        path: 'dashboard',
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(mod => mod.DashboardModule)
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }

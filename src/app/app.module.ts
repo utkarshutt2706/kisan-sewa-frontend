@@ -19,6 +19,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { SuccessDialogComponent } from './shared/components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdatePasswordComponent } from './shared/components/update-password/update-password.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
         NewsletterComponent,
         LoaderComponent,
         SuccessDialogComponent,
-        ErrorDialogComponent
+        ErrorDialogComponent,
+        UpdatePasswordComponent
     ],
     imports: [
         BrowserModule,
@@ -51,6 +53,10 @@ import { MatDialogModule } from '@angular/material/dialog';
                 duration: 3000
             }
         }
+    ],
+    entryComponents: [
+        SuccessDialogComponent,
+        ErrorDialogComponent
     ],
     bootstrap: [AppComponent]
 })
