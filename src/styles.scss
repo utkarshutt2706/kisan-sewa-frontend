@@ -34,6 +34,11 @@ a {
   cursor: pointer;
 }
 
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .header {
   padding-top: 20px;
 }
@@ -145,14 +150,19 @@ a {
   }
 }
 
-textarea{
+textarea {
   overflow: auto;
 }
 
-button[type="submit"]{
+button[type="submit"] {
   color: white;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

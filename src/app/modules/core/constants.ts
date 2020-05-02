@@ -8,7 +8,7 @@ export const regex = {
     password: new RegExp('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$#%^+=])')
 };
 
-const apiURL = 'http://localhost:3000/';
+const apiURL = 'https://kisan-sewa-api.herokuapp.com/';
 
 export const apiEndPoint = {
     newsletter: `${apiURL}newsletter`,

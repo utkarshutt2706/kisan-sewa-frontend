@@ -16,6 +16,9 @@ import { TeamComponent } from './components/team/team.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NewsletterComponent } from './shared/components/newsletter/newsletter.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { SuccessDialogComponent } from './shared/components/success-dialog/success-dialog.component';
+import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
@@ -28,7 +31,9 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
         TeamComponent,
         PageNotFoundComponent,
         NewsletterComponent,
-        LoaderComponent
+        LoaderComponent,
+        SuccessDialogComponent,
+        ErrorDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -36,7 +41,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDialogModule
     ],
     providers: [
         {
