@@ -49,7 +49,7 @@ export class LoginFarmerComponent implements OnInit {
                 this.storage.setCurrentUserVerified(response.isVerified);
                 this.storage.setCurrentUserType('booth');
                 this.authService.isLoggedIn = true;
-                this.authService.currentUserType = 'booth';
+                this.authService.currentUserType = 'farmer';
                 this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);
             },
             error => {
