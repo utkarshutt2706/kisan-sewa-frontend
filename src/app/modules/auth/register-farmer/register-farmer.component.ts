@@ -51,7 +51,7 @@ export class RegisterFarmerComponent implements OnInit {
             (response: any) => {
                 this.loaderService.hideLoader();
                 const dialogRef = this.dialog.open(SuccessDialogComponent, {
-                    data: { response }
+                    data: response
                 });
                 dialogRef.afterClosed().subscribe(change => {
                     this.router.navigateByUrl('/kisan/login');
