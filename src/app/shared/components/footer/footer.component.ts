@@ -14,7 +14,12 @@ export class FooterComponent implements OnInit {
     constructor(private storage: StorageService) { }
 
     ngOnInit(): void {
-        this.currentLang = this.storage.getCurrentLang();
+        const currentLanguage = this.storage.getCurrentLang();
+        if(currentLanguage) {
+            this.currentLang = currentLanguage;
+        } else {
+            this.currentLang = 'en';
+        }
     }
 
     public onLanguageChoose(lang: string) {

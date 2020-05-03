@@ -42,7 +42,20 @@
         "goCashless": "Now go cashless and make payments on the go by just a few finger taps"
     },
     "team": {
-
+        "hi": "Hi There !",
+        "ourProfessionals": "Our professionals",
+        "introDev": "I love to introduce myself as a hardcore developer.",
+        "introDesigner": "I love to introduce myself as a hardcore designer.",
+        "introWeb": "I love to introduce myself as a hardcore Web Designer.",
+        "utkarsh": "Utkarsh Srivastava",
+        "utkarshRole": "Full Stack Developer",
+        "rohan": "Rohan Dwivedi",
+        "rohanRole": "Person of little usefulness",
+        "shivam": "Shivam Rajput",
+        "shivamRole": "Useless person",
+        "abhishek": "Abhishek Singh",
+        "abhishekRole": "Not even a person.",
+        "slogan": "Talent wins games, Teamwork wins Championships! Teamwork divided the task and multiplies the success. Alone we can do so little; together we can do so much. The way a team plays as a whole determines its success."
     },
     "login": {
         "login": "Login",
