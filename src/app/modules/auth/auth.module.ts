@@ -39,18 +39,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         MatInputModule,
         MatFormFieldModule,
         HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })
+        TranslateModule
     ]
 })
 export class AuthModule { }
 
-// required for AOT compilation
-export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
-}
+// // required for AOT compilation
+// export function HttpLoaderFactory(http: HttpClient) {
+//     return new TranslateHttpLoader(http);
+// }

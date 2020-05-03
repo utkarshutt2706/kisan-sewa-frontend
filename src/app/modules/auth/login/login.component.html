@@ -1,28 +1,23 @@
 <div class="row reg-btns" *ngIf="!isLoggingIn; else loginForm">
     <div class="col-12 w3-animate-left">
         <button type="button" class="btn btn-primary"
-            (click)="login('Login as Booth')">Login as Booth</button>
+            (click)="login('Login as Booth')">{{'login.loginBooth' | translate}}</button>
     </div>
     <div class="col-12 w3-animate-right">
         <button type="button" class="btn btn-primary"
-            (click)="login('Login as Farmer')">Login as
-            Farmer</button>
+            (click)="login('Login as Farmer')">{{'login.loginFarmer' | translate}}</button>
     </div>
     <div class="col-12 w3-animate-left">
         <button type="button" class="btn btn-primary"
-            (click)="login('Login as Seller')">Login as
-            Seller</button>
+            (click)="login('Login as Seller')">{{'login.loginSeller' | translate}}</button>
     </div>
 </div>
 
 <ng-template #loginForm>
-    <app-login-booth *ngIf="loginAs==='Login as Booth'" [loginAs]="loginAs"
-        (cancel)="cancel()">
+    <app-login-booth *ngIf="loginAs==='Login as Booth'" (cancel)="cancel()">
     </app-login-booth>
-    <app-login-seller *ngIf="loginAs==='Login as Seller'" [loginAs]="loginAs"
-        (cancel)="cancel()">
+    <app-login-seller *ngIf="loginAs==='Login as Seller'" (cancel)="cancel()">
     </app-login-seller>
-    <app-login-farmer *ngIf="loginAs==='Login as Farmer'" [loginAs]="loginAs"
-        (cancel)="cancel()">
+    <app-login-farmer *ngIf="loginAs==='Login as Farmer'" (cancel)="cancel()">
     </app-login-farmer>
 </ng-template>

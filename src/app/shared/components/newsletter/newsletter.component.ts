@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { regex } from '../../../modules/core/constants';
 import { NewsletterService } from 'src/app/modules/core/services/newsletter.service';
 import { LoaderService } from 'src/app/modules/core/services/loader.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -30,7 +31,7 @@ export class NewsletterComponent implements OnInit {
     private initForm() {
         this.newsLetterForm = new FormGroup(
             {
-                email: new FormControl(null, [Validators.required, Validators.email])
+                email: new FormControl(null, [Validators.required, Validators.pattern(regex.emailId)])
             }
         );
     }

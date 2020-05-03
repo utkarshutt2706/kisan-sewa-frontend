@@ -1,28 +1,26 @@
 <div class="row reg-btns" *ngIf="!isRegistering;else registerForm">
     <div class="col-12 w3-animate-right">
         <button type="button" class="btn btn-primary"
-            (click)="register('Booth')">Register as Booth</button>
+            (click)="register('Booth')">{{'register.registerBooth' | translate}}</button>
     </div>
     <div class="col-12 w3-animate-left">
         <button type="button" class="btn btn-primary"
-            (click)="register('Farmer')">Register as
-            Farmer</button>
+            (click)="register('Farmer')">{{'register.registerFarmer' | translate}}</button>
     </div>
     <div class="col-12 w3-animate-right">
         <button type="button" class="btn btn-primary"
-            (click)="register('Seller')">Register as
-            Seller</button>
+            (click)="register('Seller')">{{'register.registerSeller' | translate}}</button>
     </div>
 </div>
 
 <ng-template #registerForm>
     <app-register-booth *ngIf="registerAs==='Booth'"
-        [registerAs]="registerAs" (cancel)="cancel()">
+        (cancel)="cancel()">
     </app-register-booth>
     <app-register-seller *ngIf="registerAs==='Seller'"
-        [registerAs]="registerAs" (cancel)="cancel()">
+        (cancel)="cancel()">
     </app-register-seller>
     <app-register-farmer *ngIf="registerAs==='Farmer'"
-        [registerAs]="registerAs" (cancel)="cancel()">
+        (cancel)="cancel()">
     </app-register-farmer>
 </ng-template>

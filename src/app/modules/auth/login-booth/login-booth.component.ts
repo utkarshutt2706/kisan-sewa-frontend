@@ -14,7 +14,6 @@ import { StorageService } from '../../core/services/storage.service';
 })
 export class LoginBoothComponent implements OnInit {
 
-    @Input() loginAs: string;
     @Output() cancel = new EventEmitter<any>();
 
     public loginBoothForm: FormGroup;

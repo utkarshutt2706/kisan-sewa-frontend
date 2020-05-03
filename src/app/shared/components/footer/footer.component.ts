@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { StorageService } from 'src/app/modules/core/services/storage.service';
 
 @Component({
     selector: 'app-footer',
@@ -8,11 +9,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FooterComponent implements OnInit {
 
     @Output() languageEmitter: EventEmitter<any> = new EventEmitter<any>();
-    public currentLang = 'en';
+    public currentLang: string;
 
-    constructor() { }
+    constructor(private storage: StorageService) { }
 
     ngOnInit(): void {
+        this.currentLang = this.storage.getCurrentLang();
     }
 
     public onLanguageChoose(lang: string) {

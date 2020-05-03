@@ -21,7 +21,9 @@
     "about": {
         "about": "About",
         "us": "Us",
-        "annapurnas": "All there for our Annapurnas"
+        "annapurnas": "All there for our Annapurnas",
+        "paraFirst": "'Agriculture is the backbone of the Indian Economy'- said Mahatma Gandhi six decades ago. Even today, the situation is still the same, with almost the entire economy being sustained by agriculture, which is the mainstay of the villages. It contributes 16% of the overall GDP and accounts for employment of approximately 52% of the Indian population. Rapid growth in agriculture is essential not only for self-reliance. Indian farmers are second to none in production and productivity despite of the fact that millions are marginal and small farmers. They adopt improved agriculture technology as efficiently as farmers in developed countries. It is felt that with provision of timely and adequate inputs such as fertilizers, seeds, pesticides and by making available affordable agricultural credit /crop insurance, Indian farmers are going to ensure food and nutritional security to the Nation.",
+        "paraSecond": "Indian farmers face lot of problems when it comes to buying seeds and fertilizer from authorized channel at right price. Same applies to selling farm produce at right price so that farming becomes profitable occupation. Need of an hour is to build e-portal for farms wherein they can buy seeds and fertilizers at the optimal price. This portal should also allow consumers to bid/ask for the farm produce thus eradicating middle man and benefiting both farmers and consumers."
     },
     "services": {
         "whyHere": "Why Here?",
@@ -65,6 +67,7 @@
         "enterMobile": "Enter your mobile number",
         "enterEmail": "Enter your email ID",
         "enterBoothAddress": "Enter your booth address",
+        "enterAddress": "Enter your address",
         "nameReq": "Name is required",
         "boothNameReq": "Booth name is required",
         "validMobile": "Please enter a valid mobile number",

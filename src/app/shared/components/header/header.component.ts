@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit {
             this.authService.isLoggedIn = true;
             this.authService.currentUserType = currentUserType;
         } else {
-            this.logout();
+            this.authService.isLoggedIn = false;
+            this.authService.currentUserType = '';
+            this.storage.removeCurrentUser();
         }
     }
 

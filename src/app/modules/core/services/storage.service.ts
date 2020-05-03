@@ -7,6 +7,14 @@ export class StorageService {
 
     constructor() { }
 
+    public setCurrentLang(lang: string) {
+        localStorage.setItem('currentLang', lang);
+    }
+
+    public getCurrentLang() {
+        return localStorage.getItem('currentLang');
+    }
+
     public setCurrentUserEmail(userEmail: string) {
         localStorage.setItem('currentUser', userEmail);
     }

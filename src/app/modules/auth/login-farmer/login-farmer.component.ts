@@ -14,7 +14,6 @@ import { StorageService } from '../../core/services/storage.service';
 })
 export class LoginFarmerComponent implements OnInit {
 
-    @Input() loginAs: string;
     @Output() cancel = new EventEmitter<any>();
 
     public loginFarmerForm: FormGroup;

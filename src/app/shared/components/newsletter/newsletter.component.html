@@ -4,8 +4,14 @@
     </div>
     <div class="newsletter-form">
         <form [formGroup]="newsLetterForm" (ngSubmit)="onSubscribe()">
-            <input type="email" formControlName="email" placeholder="{{'newsletter.enterEmail' | translate}}">
-            <input type="submit" value="{{'newsletter.subscribe' | translate}}">
+            <input type="email" formControlName="email"
+                placeholder="{{'newsletter.enterEmail' | translate}}">
+            <div class="alert alert-danger" style="width: 70%; margin-top: 10px;"
+                *ngIf="newsLetterForm.controls['email'].invalid && newsLetterForm.controls['email'].touched">
+                Please enter a valid email ID
+            </div>
+            <input type="submit" value="{{'newsletter.subscribe' | translate}}"
+                [disabled]="newsLetterForm.invalid">
         </form>
     </div>
 </div>

@@ -22,10 +22,10 @@
         </div>
     </div>
 </div> -->
-<div class="lang" *ngIf="currentLang=='hi'" (click)="onLanguageChoose('en')">
-    Click to view in English</div>
-<div class="lang" *ngIf="currentLang=='en'" (click)="onLanguageChoose('hi')">
-    हिंदी में देखने के लिए क्लिक करें</div>
+<div class="lang" *ngIf="currentLang=='hi'"><a (click)="onLanguageChoose('en')">
+        Click to view in English</a></div>
+<div class="lang" *ngIf="currentLang=='en'"><a (click)="onLanguageChoose('hi')">
+        हिंदी में देखने के लिए क्लिक करें</a></div>
 <div class="footer">
     <div class="foot-left">
         <div class="follow">
