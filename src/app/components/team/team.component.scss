@@ -32,6 +32,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
 }
+hr{
+  width: 80%;
+  border-top: 1px solid gray;
+  margin: 0 auto;
+}
 .team{
   margin-top: 50px;
 }
@@ -163,4 +168,31 @@ body {
   text-transform: uppercase;
   color: #a5a5a5;
   letter-spacing: 1px;
+}
+
+@media (max-width: 1199px) {
+  .team-img, .team-img img{
+    height: 350px;
+  }
+  .team-img img{
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .team-img, .team-img img{
+    height: 270px;
+  }
+  .team-img img{
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .team-img, .team-img img{
+    height: 230px;
+  }
+  .team-img img{
+    width: 100%;
+  }
 }
