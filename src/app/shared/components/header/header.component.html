@@ -2,7 +2,8 @@
 	<div class="container">
 		<nav class="navbar row">
 			<div class="navbar-header">
-				<a class="navbar-brand" [routerLink]="['/']">Kisaan Sewa</a>
+				<a class="navbar-brand"
+					[routerLink]="['/']">{{'title' | translate}}</a>
 				<button id="nav-toggle" type="button"
 					class="ui-navbar-toggle navbar-toggle"
 					data-toggle="collapse" data-target=".navbar-1">
@@ -17,51 +18,52 @@
 						<a [routerLink]="['/']" data-toggle="collapse"
 							data-target=".navbar-1"><i class="fa fa-home"
 								aria-hidden="true"
-								style="font-size: 25px;"></i>Home</a>
+								style="font-size: 25px;"></i>{{'navigation.home' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/about'}">
 						<a [routerLink]="['/about']" data-toggle="collapse"
 							data-target=".navbar-1"><i class="fa fa-info"
 								aria-hidden="true" style="font-size: 25px;"></i>
-							About</a>
+							{{'navigation.aboutUs' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/services'}">
 						<a [routerLink]="['/services']" data-toggle="collapse"
 							data-target=".navbar-1"><i class="fa fa-server"
 								aria-hidden="true" style="font-size: 25px;"></i>
-							Services</a>
+							{{'navigation.services' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/team'}">
 						<a [routerLink]="['/team']" data-toggle="collapse"
 							data-target=".navbar-1"><i class="fa fa-users"
 								aria-hidden="true" style="font-size: 25px;"></i>
-							Team</a>
+							{{'navigation.team' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/kisan/login'}"
 						*ngIf="!authService.isLoggedIn">
 						<a [routerLink]="['/kisan/login']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-sign-in" aria-hidden="true"
-								style="font-size: 25px;"></i> Login</a>
+								style="font-size: 25px;"></i> {{'navigation.login' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/kisan/register'}"
 						*ngIf="!authService.isLoggedIn">
 						<a [routerLink]="['/kisan/register']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-user-plus" aria-hidden="true"
-								style="font-size: 25px;"></i> Register</a>
+								style="font-size: 25px;"></i> {{'navigation.register' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/kisan/dashboard'}"
 						*ngIf="authService.isLoggedIn">
-						<a (click)="openDashBoard()"
-							data-toggle="collapse" data-target=".navbar-1"><i
-								class="fa fa-sign-in" aria-hidden="true"
-								style="font-size: 25px;"></i> Dashboard</a>
+						<a (click)="openDashBoard()" data-toggle="collapse"
+							data-target=".navbar-1"><i class="fa fa-sign-in"
+								aria-hidden="true" style="font-size: 25px;"></i>
+							{{'navigation.dashboard' | translate}}</a>
 					</li>
 					<li *ngIf="authService.isLoggedIn">
-						<a (click)="logout()" data-toggle="collapse" data-target=".navbar-1"><i
-								class="fa fa-sign-out" aria-hidden="true"
-								style="font-size: 25px;"></i> Logout</a>
+						<a (click)="logout()" data-toggle="collapse"
+							data-target=".navbar-1"><i class="fa fa-sign-out"
+								aria-hidden="true" style="font-size: 25px;"></i>
+							{{'navigation.logout' | translate}}</a>
 					</li>
 				</ul>
 			</div>

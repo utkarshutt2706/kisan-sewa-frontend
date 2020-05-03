@@ -1,0 +1,80 @@
+{
+    "title": "Kisaan Sewa",
+    "common": {
+        "cancel": "Cancel",
+        "submit": "Submit"
+    },
+    "navigation": {
+        "home": "Home",
+        "aboutUs": "About Us",
+        "services": "Services",
+        "team": "Team",
+        "login": "Login",
+        "register": "Register",
+        "dashboard": "Dashboard",
+        "logout": "Logout"
+    },
+    "home": {
+        "ourVision": "Our Vision",
+        "getStarted": "Get Started"
+    },
+    "about": {
+        "about": "About",
+        "us": "Us",
+        "annapurnas": "All there for our Annapurnas"
+    },
+    "services": {
+        "whyHere": "Why Here?",
+        "servicesAvail": "These are the services you can avail on this platform",
+        "pocketFriendly": "Pocket Friendly",
+        "rentEquipments": "Rent all the equipments you need at cheap and affordable rates",
+        "tipsAndTricks": "Tips and Tricks",
+        "getImportantInfo": "Get important information about farming from some farming experts",
+        "trackStatus": "Track Status",
+        "trackItem": "Track the status of whatever item you have purchased",
+        "forecasts": "Forecasts",
+        "futureReady": "Be future ready and plan ahead with our daily and seasonal weather forecasts",
+        "fertAndPests": "Fertilizers and Pesticides",
+        "purchasePests": "Purchase fertilizers and pesticides at a rate like never before",
+        "cashless": "Cashless Purchases",
+        "goCashless": "Now go cashless and make payments on the go by just a few finger taps"
+    },
+    "team": {
+
+    },
+    "login": {
+        "login": "Login",
+        "loginBooth": "Login as Booth",
+        "loginFarmer": "Login as Farmer",
+        "loginSeller": "Login as Seller",
+        "enterUserOrEmail": "Enter your username or registered email ID",
+        "enterPassword": "Enter your Password",
+        "validUserOrEmail": "Please enter a valid username or email ID",
+        "validPassword": "Please enter a valid password"
+    },
+    "register": {
+        "register": "Register",
+        "booth": "Booth",
+        "farmer": "Farmer",
+        "seller": "Seller",
+        "registerBooth": "Register as Booth",
+        "registerFarmer": "Register as Farmer",
+        "registerSeller": "Register as Seller",
+        "enterName": "Enter your name",
+        "enterBooth": "Enter your booth name",
+        "enterMobile": "Enter your mobile number",
+        "enterEmail": "Enter your email ID",
+        "enterBoothAddress": "Enter your booth address",
+        "nameReq": "Name is required",
+        "boothNameReq": "Booth name is required",
+        "validMobile": "Please enter a valid mobile number",
+        "validEmail": "Please enter a valid email ID",
+        "boothAddReq": "Booth address is required",
+        "addressReq": "Address is required"
+    },
+    "newsletter": {
+        "signUp": "Sign up for your Modern Farmer Weekly Newsletter",
+        "enterEmail": "Enter your email",
+        "subscribe": "Subscribe"
+    }
+}

@@ -1,11 +1,11 @@
 <div class="newsletter w3-animate-zoom">
     <div class="newsletter-title">
-        Sign up for your Modern Farmer Weekly Newsletter
+        {{'newsletter.signUp' | translate}}
     </div>
     <div class="newsletter-form">
         <form [formGroup]="newsLetterForm" (ngSubmit)="onSubscribe()">
-            <input type="email" formControlName="email" placeholder="Enter your email">
-            <input type="submit">
+            <input type="email" formControlName="email" placeholder="{{'newsletter.enterEmail' | translate}}">
+            <input type="submit" value="{{'newsletter.subscribe' | translate}}">
         </form>
     </div>
 </div>
