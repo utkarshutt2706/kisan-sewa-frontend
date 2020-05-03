@@ -8,6 +8,6 @@
         <app-newsletter *ngIf="!authService.isLoggedIn"></app-newsletter>
     </main>
     <footer class="w3-animate-bottom">
-        <app-footer></app-footer>
+        <app-footer (languageEmitter)="onLanguageChoose($event)"></app-footer>
     </footer>
 </div>

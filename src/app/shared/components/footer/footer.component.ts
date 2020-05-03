@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-footer',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+    @Output() languageEmitter: EventEmitter<any> = new EventEmitter<any>();
+    public currentLang = 'en';
+
     constructor() { }
 
     ngOnInit(): void {
+    }
+
+    public onLanguageChoose(lang: string) {
+        this.languageEmitter.emit(lang);
+        this.currentLang = lang;
     }
 
 }

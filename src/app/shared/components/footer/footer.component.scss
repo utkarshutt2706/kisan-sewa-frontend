@@ -2,9 +2,15 @@
   background-color: rgb(177, 177, 177);
 }
 
+.lang{
+  padding-top: 50px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .footer {
-  padding-top: 10px;
-  // text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
