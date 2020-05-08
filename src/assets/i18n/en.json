@@ -44,17 +44,18 @@
     "team": {
         "hi": "Hi There !",
         "ourProfessionals": "Our professionals",
-        "introDev": "I love to introduce myself as a hardcore developer.",
-        "introDesigner": "I love to introduce myself as a hardcore designer.",
-        "introWeb": "I love to introduce myself as a hardcore Web Designer.",
         "utkarsh": "Utkarsh Srivastava",
         "utkarshRole": "Full Stack Developer",
+        "introUtkarsh": "I love to introduce myself as a hardcore developer.",
         "rohan": "Rohan Dwivedi",
-        "rohanRole": "Person of little usefulness",
+        "rohanRole": "Mobile App Developer",
+        "introRohan": "I love to introduce myself as Android Developer.",
         "shivam": "Shivam Rajput",
-        "shivamRole": "Useless person",
+        "shivamRole": "Web Designer",
+        "introShivam": "I love to introduce myself as a hardcore Web Designer.",
         "abhishek": "Abhishek Singh",
-        "abhishekRole": "Not even a person.",
+        "abhishekRole": "Database Administrator",
+        "introAbhishek": "I love to introduce myself as a database administrator.",
         "slogan": "Talent wins games, Teamwork wins Championships! Teamwork divided the task and multiplies the success. Alone we can do so little; together we can do so much. The way a team plays as a whole determines its success."
     },
     "login": {
@@ -92,5 +93,8 @@
         "signUp": "Sign up for your Modern Farmer Weekly Newsletter",
         "enterEmail": "Enter your email",
         "subscribe": "Subscribe"
+    },
+    "footer": {
+        "follow": "FOLLOW US"
     }
 }
