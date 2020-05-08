@@ -45,13 +45,20 @@ export class StorageService {
         return localStorage.getItem('isVerified');
     }
 
+    public setSkipUpdatePassword() {
+        localStorage.setItem('skipUpdatePassword', 'true');
+    }
+
+    public getSkipUpdatePassword() {
+        return localStorage.getItem('skipUpdatePassword');
+    }
+
     public removeCurrentUser() {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isVerified');
         localStorage.removeItem('currentUserType');
+        localStorage.removeItem('skipUpdatePassword');
     }
-
-
 
     public clearStorage() {
         localStorage.clear();

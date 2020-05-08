@@ -1,5 +1,5 @@
 export const regex = {
-    address: '^[A-Za-z0-9 :&()\\-`.,/\]*$',
+    address: '^[A-Za-z0-9\\n :&()\\-`.,/\]*$',
     numeric: '[0-9]+',
     alphaNumeric: '[a-zA-Z0-9]+',
     emailId: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-.]{2,}$',

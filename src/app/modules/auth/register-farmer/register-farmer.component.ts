@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
@@ -24,7 +23,6 @@ export class RegisterFarmerComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private snackBar: MatSnackBar,
         private router: Router,
         private loaderService: LoaderService,
         private dialog: MatDialog

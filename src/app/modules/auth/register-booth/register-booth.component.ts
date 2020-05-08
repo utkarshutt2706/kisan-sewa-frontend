@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { regex } from '../../core/constants';
@@ -24,7 +23,6 @@ export class RegisterBoothComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private snackBar: MatSnackBar,
         private router: Router,
         private loaderService: LoaderService,
         private dialog: MatDialog

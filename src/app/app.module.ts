@@ -66,7 +66,8 @@ import { UpdatePasswordComponent } from './shared/components/update-password/upd
     ],
     entryComponents: [
         SuccessDialogComponent,
-        ErrorDialogComponent
+        ErrorDialogComponent,
+        UpdatePasswordComponent
     ],
     bootstrap: [AppComponent]
 })
