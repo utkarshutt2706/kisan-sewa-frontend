@@ -6,8 +6,7 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterName' | translate}}</mat-label>
-            <input matInput placeholder="Enter email/ mobile no."
-                formControlName="name">
+            <input matInput formControlName="name" autocomplete="name">
             <mat-error *ngIf="registerFarmerForm.controls['name'].invalid">
                 {{'register.nameReq' | translate}}</mat-error>
         </mat-form-field>
@@ -15,7 +14,8 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterMobile' | translate}}</mat-label>
-            <input matInput formControlName="phone" type="text">
+            <input matInput formControlName="phone" type="text"
+                inputmode="numeric" autocomplete="mobile">
             <mat-error *ngIf="registerFarmerForm.controls['phone'].invalid">
                 {{'register.validMobile' | translate}}</mat-error>
         </mat-form-field>
@@ -23,7 +23,8 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterEmail' | translate}}</mat-label>
-            <input matInput formControlName="email" type="email">
+            <input matInput formControlName="email" type="email"
+                inputmode="email" autocomplete="email">
             <mat-error *ngIf="registerFarmerForm.controls['phone'].invalid">
                 {{'register.validEmail' | translate}}</mat-error>
         </mat-form-field>
@@ -31,7 +32,8 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterAddress' | translate}}</mat-label>
-            <textarea matInput formControlName="address"></textarea>
+            <textarea matInput formControlName="address"
+                autocomplete="address-line3"></textarea>
             <mat-error *ngIf="registerFarmerForm.controls['address'].invalid">
                 {{'register.addressReq' | translate}}</mat-error>
         </mat-form-field>
