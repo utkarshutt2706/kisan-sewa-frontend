@@ -14,13 +14,10 @@
 </div>
 
 <ng-template #registerForm>
-    <app-register-booth *ngIf="registerAs==='Booth'"
-        (cancel)="cancel()">
+    <app-register-booth *ngIf="registerAs==='Booth'" (cancel)="cancel()">
     </app-register-booth>
-    <app-register-seller *ngIf="registerAs==='Seller'"
-        (cancel)="cancel()">
+    <app-register-seller *ngIf="registerAs==='Seller'" (cancel)="cancel()">
     </app-register-seller>
-    <app-register-farmer *ngIf="registerAs==='Farmer'"
-        (cancel)="cancel()">
+    <app-register-farmer *ngIf="registerAs==='Farmer'" (cancel)="cancel()">
     </app-register-farmer>
 </ng-template>

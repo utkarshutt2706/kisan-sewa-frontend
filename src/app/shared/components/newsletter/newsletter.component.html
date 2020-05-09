@@ -6,7 +6,8 @@
         <form [formGroup]="newsLetterForm" (ngSubmit)="onSubscribe()">
             <input type="email" formControlName="email"
                 placeholder="{{'newsletter.enterEmail' | translate}}">
-            <div class="alert alert-danger" style="width: 70%; margin-top: 10px;"
+            <div class="alert alert-danger"
+                style="width: 70%; margin-top: 10px;"
                 *ngIf="newsLetterForm.controls['email'].invalid && newsLetterForm.controls['email'].touched">
                 Please enter a valid email ID
             </div>

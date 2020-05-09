@@ -43,14 +43,16 @@
 						<a [routerLink]="['/kisan/login']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-sign-in" aria-hidden="true"
-								style="font-size: 25px;"></i> {{'navigation.login' | translate}}</a>
+								style="font-size: 25px;"></i>
+							{{'navigation.login' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/kisan/register'}"
 						*ngIf="!authService.isLoggedIn">
 						<a [routerLink]="['/kisan/register']"
 							data-toggle="collapse" data-target=".navbar-1"><i
 								class="fa fa-user-plus" aria-hidden="true"
-								style="font-size: 25px;"></i> {{'navigation.register' | translate}}</a>
+								style="font-size: 25px;"></i>
+							{{'navigation.register' | translate}}</a>
 					</li>
 					<li [ngClass]="{active: router.url==='/kisan/dashboard'}"
 						*ngIf="authService.isLoggedIn">
