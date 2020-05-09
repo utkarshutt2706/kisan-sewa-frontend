@@ -25,6 +25,10 @@ const routes: Routes = [
         component: TeamComponent
     },
     {
+        path: 'home',
+        redirectTo: ''
+    },
+    {
         path: 'kisan',
         loadChildren: () => import('./modules/auth/auth.module').then(mod => mod.AuthModule)
     },

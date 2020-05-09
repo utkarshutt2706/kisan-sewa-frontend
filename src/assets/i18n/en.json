@@ -96,5 +96,10 @@
     },
     "footer": {
         "follow": "FOLLOW US"
+    },
+    "farmer": {
+        "sellAgri": "Sell your agricultural products",
+        "rentMachines": "Rent your machineries",
+        "viewWeather": "View weather forecasts"
     }
 }

@@ -22,7 +22,7 @@
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterMobile' | translate}}</mat-label>
-            <input matInput formControlName="phone" type="text">
+            <input matInput formControlName="phone" type="text" inputmode="numeric">
             <mat-error *ngIf="registerBoothForm.controls['phone'].invalid">
                 {{'register.validMobile' | translate}}</mat-error>
         </mat-form-field>

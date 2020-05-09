@@ -46,7 +46,7 @@ export class LoginFarmerComponent implements OnInit {
                 this.loaderService.hideLoader();
                 this.storage.setCurrentUserEmail(response.email);
                 this.storage.setCurrentUserVerified(response.isVerified);
-                this.storage.setCurrentUserType('booth');
+                this.storage.setCurrentUserType('farmer');
                 this.authService.isLoggedIn = true;
                 this.authService.currentUserType = 'farmer';
                 this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);

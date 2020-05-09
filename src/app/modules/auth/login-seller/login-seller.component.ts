@@ -46,7 +46,7 @@ export class LoginSellerComponent implements OnInit {
                 this.loaderService.hideLoader();
                 this.storage.setCurrentUserEmail(response.email);
                 this.storage.setCurrentUserVerified(response.isVerified);
-                this.storage.setCurrentUserType('booth');
+                this.storage.setCurrentUserType('seller');
                 this.authService.isLoggedIn = true;
                 this.authService.currentUserType = 'seller';
                 this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);

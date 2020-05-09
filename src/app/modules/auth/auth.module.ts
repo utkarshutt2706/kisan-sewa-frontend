@@ -1,5 +1,4 @@
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +16,6 @@ import { RegisterSellerComponent } from './register-seller/register-seller.compo
 import { LoginSellerComponent } from './login-seller/login-seller.component';
 import { LoginFarmerComponent } from './login-farmer/login-farmer.component';
 import { LoginBoothComponent } from './login-booth/login-booth.component';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [
@@ -38,13 +36,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         ReactiveFormsModule,
         MatInputModule,
         MatFormFieldModule,
-        HttpClientModule,
         TranslateModule
     ]
 })
 export class AuthModule { }
-
-// // required for AOT compilation
-// export function HttpLoaderFactory(http: HttpClient) {
-//     return new TranslateHttpLoader(http);
-// }
