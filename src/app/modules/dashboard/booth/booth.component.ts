@@ -17,13 +17,13 @@ export class BoothComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        const isVerified = this.storage.getCurrentUserVerified();
-        const skipUpdatePassword = this.storage.getSkipUpdatePassword();
-        if(isVerified === 'false' && !skipUpdatePassword) {
-            this.dialog.open(UpdatePasswordComponent, {
-                data: {showCurrentPassword: false}
-            });
-        }
+        // const isVerified = this.storage.getCurrentUserVerified();
+        // const skipUpdatePassword = this.storage.getSkipUpdatePassword();
+        // if(isVerified === 'false' && !skipUpdatePassword) {
+        //     this.dialog.open(UpdatePasswordComponent, {
+        //         data: {showCurrentPassword: false}
+        //     });
+        // }
     }
 
 }

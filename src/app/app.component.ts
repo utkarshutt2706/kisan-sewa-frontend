@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
         } else {
             this.translate.setDefaultLang('en');
         }
+        this.findMe();
     }
 
     onLanguageChoose(lang: string) {
@@ -38,6 +39,16 @@ export class AppComponent implements OnInit {
             }
         );
         this.storage.setCurrentLang(lang);
+    }
+
+    private findMe() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position)
+            });
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
     }
 
 }
