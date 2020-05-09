@@ -27,4 +27,11 @@ export class FooterComponent implements OnInit {
         this.currentLang = lang;
     }
 
+    public backToTop() {
+        window.scroll({
+            behavior: 'smooth',
+            top: 0
+        });
+    }
+
 }

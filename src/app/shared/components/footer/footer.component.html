@@ -1,6 +1,6 @@
-<div class="lang" *ngIf="currentLang=='hi'"><a (click)="onLanguageChoose('en')">
+<div class="lang" *ngIf="currentLang=='hi'"><a (click)="onLanguageChoose('en'); backToTop();">
         Click to view in English</a></div>
-<div class="lang" *ngIf="currentLang=='en'"><a (click)="onLanguageChoose('hi')">
+<div class="lang" *ngIf="currentLang=='en'"><a (click)="onLanguageChoose('hi'); backToTop();">
         हिंदी में देखने के लिए क्लिक करें</a></div>
 <div class="footer">
     <div class="foot-left">
@@ -39,6 +39,6 @@
         </div>
     </div>
     <div class="foot-right">
-        <img src="./assets/images/web-icon.ico" height="100px">
+        <img src="./assets/images/web-icon.ico" height="100px" style="cursor: pointer;" (click)="backToTop()">
     </div>
 </div>
