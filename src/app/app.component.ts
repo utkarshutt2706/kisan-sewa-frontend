@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './modules/core/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from './modules/core/services/storage.service';
+import { LoaderService } from './modules/core/services/loader.service';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
     constructor(
         public authService: AuthService,
         private translate: TranslateService,
-        private storage: StorageService
+        private storage: StorageService,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -29,7 +31,12 @@ export class AppComponent implements OnInit {
     }
 
     onLanguageChoose(lang: string) {
-        this.translate.use(lang);
+        this.loaderService.showLoader();
+        this.translate.use(lang).subscribe(
+            res => {
+                this.loaderService.hideLoader();
+            }
+        );
         this.storage.setCurrentLang(lang);
     }
 
