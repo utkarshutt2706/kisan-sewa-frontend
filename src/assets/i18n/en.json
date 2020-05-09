@@ -100,6 +100,13 @@
     "farmer": {
         "sellAgri": "Sell your agricultural products",
         "rentMachines": "Rent your machineries",
-        "viewWeather": "View weather forecasts"
+        "viewWeather": "View weather forecasts",
+        "marketRate": "View market rates",
+        "search": "Search",
+        "searchPlaceholder": "Ex: Potato",
+        "sNo": "S. No.",
+        "name": "Name",
+        "localRate": "Local rate per 100 KGs",
+        "avgRate": "Average rate per 100 KGs"
     }
 }

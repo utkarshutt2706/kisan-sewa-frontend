@@ -6,20 +6,8 @@
                     <mat-panel-title>
                         {{'farmer.sellAgri' | translate}}
                     </mat-panel-title>
-                    <!-- <mat-panel-description>
-                    Type your name and age
-                </mat-panel-description> -->
                 </mat-expansion-panel-header>
-
-                <mat-form-field>
-                    <mat-label>First name</mat-label>
-                    <input matInput>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-label>Age</mat-label>
-                    <input matInput type="number" min="1">
-                </mat-form-field>
+                <app-sell></app-sell>
             </mat-expansion-panel>
         </mat-accordion>
     </div>
@@ -31,11 +19,8 @@
                     <mat-panel-title>
                         {{'farmer.rentMachines' | translate}}
                     </mat-panel-title>
-                    <!-- <mat-panel-description>
-            Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description> -->
                 </mat-expansion-panel-header>
-                <p>I'm visible because I am open</p>
+                <app-rent></app-rent>
             </mat-expansion-panel>
         </mat-accordion>
     </div>
@@ -47,11 +32,21 @@
                     <mat-panel-title>
                         {{'farmer.viewWeather' | translate}}
                     </mat-panel-title>
-                    <!-- <mat-panel-description>
-            Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description> -->
                 </mat-expansion-panel-header>
-                <p>I'm visible because I am open</p>
+                <app-weather></app-weather>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accor">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header class="accor-head">
+                    <mat-panel-title>
+                        {{'farmer.marketRate' | translate}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-market-rates></app-market-rates>
             </mat-expansion-panel>
         </mat-accordion>
     </div>
