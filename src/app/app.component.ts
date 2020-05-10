@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     private findMe() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position)
+                console.log(position);
             });
         } else {
             alert('Geolocation is not supported by this browser.');
