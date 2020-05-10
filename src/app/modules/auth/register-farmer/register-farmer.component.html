@@ -15,7 +15,7 @@
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterMobile' | translate}}</mat-label>
             <input matInput formControlName="phone" type="text"
-                inputmode="numeric" autocomplete="mobile">
+                inputmode="numeric" autocomplete="mobile" maxlength="10">
             <mat-error *ngIf="registerFarmerForm.controls['phone'].invalid">
                 {{'register.validMobile' | translate}}</mat-error>
         </mat-form-field>

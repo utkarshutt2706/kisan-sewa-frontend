@@ -1,0 +1,36 @@
+.btns{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media (min-height: 600px) {
+    agm-map {
+      height: 400px;
+    }
+  }
+
+@media (max-height: 599px) {
+  agm-map {
+    height: 380px;
+  }
+}
+
+@media (max-height: 499px) {
+  agm-map {
+    height: 260px;
+  }
+}
+
+@media (max-height: 399px) {
+  agm-map {
+    height: 210px;
+  }
+}
+
+@media (max-height: 329px) {
+  agm-map {
+    height: 170px;
+  }
+}

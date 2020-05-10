@@ -8,6 +8,8 @@ import { LoaderService } from '../../core/services/loader.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { LocationComponent } from 'src/app/shared/location/location.component';
+import { StorageService } from '../../core/services/storage.service';
 
 @Component({
     selector: 'app-register-booth',
@@ -25,7 +27,8 @@ export class RegisterBoothComponent implements OnInit {
         private authService: AuthService,
         private router: Router,
         private loaderService: LoaderService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private storage: StorageService
     ) { }
 
     ngOnInit(): void {
@@ -45,8 +48,34 @@ export class RegisterBoothComponent implements OnInit {
     }
 
     public onRegister() {
+        const dialogRaf = this.dialog.open(LocationComponent);
+        dialogRaf.afterClosed().subscribe(
+            coords => {
+                if (coords !== undefined) {
+                    this.registerBooth(coords);
+                } else {
+                    const currenLang = this.storage.getCurrentLang();
+                    if (currenLang === 'hi') {
+                        this.dialog.open(ErrorDialogComponent, {
+                            data: { message: 'आपने मानचित्र पर कोई स्थान नहीं चुना है। कृपया चुने!' }
+                        });
+                    } else {
+                        this.dialog.open(ErrorDialogComponent, {
+                            data: { message: 'You have not choosen a location on the map. Please choose!' }
+                        });
+                    }
+                }
+            }
+        )
+    }
+
+    public onCancel() {
+        this.cancel.emit();
+    }
+
+    private registerBooth(coords: any) {
         this.loaderService.showLoader();
-        this.authService.register(this.registerBoothForm, 'booth').subscribe(
+        this.authService.register(this.registerBoothForm, 'booth', coords).subscribe(
             (response: any) => {
                 this.loaderService.hideLoader();
                 const dialogRef = this.dialog.open(SuccessDialogComponent, {
@@ -62,12 +91,8 @@ export class RegisterBoothComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
-    }
-
-    public onCancel() {
-        this.cancel.emit();
     }
 
 }

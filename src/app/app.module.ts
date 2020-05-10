@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { SuccessDialogComponent } from './shared/components/success-dialog/succe
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdatePasswordComponent } from './shared/components/update-password/update-password.component';
+import { LocationComponent } from './shared/location/location.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,8 @@ import { UpdatePasswordComponent } from './shared/components/update-password/upd
         LoaderComponent,
         SuccessDialogComponent,
         ErrorDialogComponent,
-        UpdatePasswordComponent
+        UpdatePasswordComponent,
+        LocationComponent
     ],
     imports: [
         BrowserModule,
@@ -54,6 +57,9 @@ import { UpdatePasswordComponent } from './shared/components/update-password/upd
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
+        }),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDi4t47RZNs0ILUqUS5-xH3XpqbV-HYMpE'
         })
     ],
     providers: [

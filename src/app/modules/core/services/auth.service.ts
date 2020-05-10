@@ -15,12 +15,16 @@ export class AuthService {
 
     constructor(private http: HttpClient, private storage: StorageService) { }
 
-    public register(form: FormGroup, registerAs: string) {
+    public register(form: FormGroup, registerAs: string, coords?: any) {
         const currentLang = this.storage.getCurrentLang();
         if(currentLang) {
             form.value.lang = currentLang;
         } else {
             form.value.lang = 'en';
+        }
+        if(coords) {
+            form.value.lat = coords.lat;
+            form.value.lon = coords.lon;
         }
         form.value.registerAs = registerAs;
         return this.http.post(`${apiEndPoint.auth}register`, form.value);

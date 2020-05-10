@@ -1,0 +1,13 @@
+<h2>Please pin your location</h2>
+<agm-map [latitude]="lat" [longitude]="lon" [streetViewControl]="false"
+    [mapTypeControl]="true" [fullscreenControl]="true"
+    (mapClick)="placeMarker($event)">
+    <agm-marker [latitude]="lat" [longitude]="lon">
+    </agm-marker>
+</agm-map>
+<div class="btns">
+    <button (click)="onCancel()" mat-button
+        class="btn btn-default">Cancel</button>
+    <button (click)="onSubmit()" mat-button
+        class="btn btn-primary">Submit</button>
+</div>
