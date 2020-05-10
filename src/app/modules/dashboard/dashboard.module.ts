@@ -12,8 +12,8 @@ import { SellerComponent } from './seller/seller.component';
 import { FarmerComponent } from './farmer/farmer.component';
 import { MarketRatesComponent } from './market-rates/market-rates.component';
 import { WeatherComponent } from './weather/weather.component';
-import { RentComponent } from './rent/rent.component';
 import { SellComponent } from './sell/sell.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
     declarations: [
@@ -22,8 +22,8 @@ import { SellComponent } from './sell/sell.component';
         FarmerComponent,
         MarketRatesComponent,
         WeatherComponent,
-        RentComponent,
-        SellComponent
+        SellComponent,
+        ShopComponent
     ],
     imports: [
         CommonModule,

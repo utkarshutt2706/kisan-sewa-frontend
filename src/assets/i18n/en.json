@@ -98,8 +98,8 @@
         "follow": "FOLLOW US"
     },
     "farmer": {
-        "sellAgri": "Sell your agricultural products",
-        "rentMachines": "Rent your machineries",
+        "purchase": "Shop for your needs",
+        "sellRentAgri": "Sell or rent your agriculture related products",
         "viewWeather": "View weather forecasts",
         "marketRate": "View market rates",
         "search": "Search",

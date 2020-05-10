@@ -1,6 +1,8 @@
-<div class="lang" *ngIf="currentLang=='hi'"><a (click)="onLanguageChoose('en'); backToTop();">
+<div class="lang" *ngIf="currentLang=='hi'"><a
+        (click)="onLanguageChoose('en'); backToTop();">
         Click to view in English</a></div>
-<div class="lang" *ngIf="currentLang=='en'"><a (click)="onLanguageChoose('hi'); backToTop();">
+<div class="lang" *ngIf="currentLang=='en'"><a
+        (click)="onLanguageChoose('hi'); backToTop();">
         हिंदी में देखने के लिए क्लिक करें</a></div>
 <div class="footer">
     <div class="foot-left">
@@ -9,17 +11,20 @@
         </div>
         <div class="about-icons">
             <ul>
-                <li><a href="https://www.facebook.com/"><i id="social-fb"
+                <li><a href="https://www.facebook.com/" target="_blank"><i
+                            id="social-fb"
                             class="fa fa-facebook-square fa-3x social"></i></a>
                 </li>
-                <li><a href="https://twitter.com/"><i id="social-tw"
+                <li><a href="https://twitter.com/" target="_blank"><i
+                            id="social-tw"
                             class="fa fa-twitter-square fa-3x social"></i></a>
                 </li>
-                <li> <a href="https://plus.google.com/"><i id="social-gp"
+                <li> <a href="https://plus.google.com/" target="_blank"><i
+                            id="social-gp"
                             class="fa fa-google-plus-square fa-3x social"></i></a>
                 </li>
-                <li> <a href="mailto:utkarsh.srivastava@unthinkable.co"><i
-                            id="social-em"
+                <li> <a href="mailto:utkarsh.srivastava@unthinkable.co"
+                        target="_blank"><i id="social-em"
                             class="fa fa-envelope-square fa-3x social"></i></a>
                 </li>
             </ul>
@@ -39,6 +44,7 @@
         </div>
     </div>
     <div class="foot-right">
-        <img src="./assets/images/web-icon.ico" height="100px" style="cursor: pointer;" (click)="backToTop()">
+        <img src="./assets/images/web-icon.ico" height="100px"
+            style="cursor: pointer;" (click)="backToTop()">
     </div>
 </div>
