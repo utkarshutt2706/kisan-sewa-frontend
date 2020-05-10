@@ -19,14 +19,12 @@ export class LocationComponent implements OnInit {
     ngOnInit(): void {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position);
                 this.lon = +position.coords.longitude;
                 this.lat = +position.coords.latitude;
             });
         } else {
             alert('Geolocation is not supported by this browser.');
         }
-        console.log(this.lon);
     }
 
     public placeMarker(event) {
