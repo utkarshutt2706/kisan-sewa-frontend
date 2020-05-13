@@ -1,7 +1,9 @@
 {
     "title": "किसान सेवा",
     "common": {
-        "cancel": "रद्द करें"
+        "cancel": "रद्द करें",
+        "submit": "जमा करें",
+        "nearbyBooths": "आस-पास के बूथ देखें"
     },
     "navigation": {
         "home": "होम",

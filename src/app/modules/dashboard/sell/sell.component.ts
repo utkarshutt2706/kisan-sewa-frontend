@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sell',
-  templateUrl: './sell.component.html',
-  styleUrls: ['./sell.component.scss']
+    selector: 'app-sell',
+    templateUrl: './sell.component.html',
+    styleUrls: ['./sell.component.scss']
 })
 export class SellComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        alert('sell');
+    }
 
 }

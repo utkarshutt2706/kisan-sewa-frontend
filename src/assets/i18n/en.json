@@ -2,7 +2,8 @@
     "title": "Kisaan Sewa",
     "common": {
         "cancel": "Cancel",
-        "submit": "Submit"
+        "submit": "Submit",
+        "nearbyBooths": "View nearby booths"
     },
     "navigation": {
         "home": "Home",

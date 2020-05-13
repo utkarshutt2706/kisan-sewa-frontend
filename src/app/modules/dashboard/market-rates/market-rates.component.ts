@@ -60,6 +60,7 @@ export class MarketRatesComponent implements OnInit {
     constructor(public storage: StorageService) { }
 
     ngOnInit(): void {
+        alert('market');
     }
 
     public applyFilter(event: Event) {

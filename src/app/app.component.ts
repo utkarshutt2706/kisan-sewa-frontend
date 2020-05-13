@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { AuthService } from './modules/core/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,7 +10,7 @@ import { LoaderService } from './modules/core/services/loader.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
     title = 'Kisan Sewa';
 
@@ -38,6 +38,10 @@ export class AppComponent implements OnInit {
             }
         );
         this.storage.setCurrentLang(lang);
+    }
+
+    ngAfterViewInit(): void {
+        alert('Done loading');
     }
 
 }

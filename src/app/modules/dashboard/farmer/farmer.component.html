@@ -6,7 +6,9 @@
                     {{'farmer.purchase' | translate}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <app-shop></app-shop>
+            <ng-template matExpansionPanelContent>
+                <app-shop></app-shop>
+            </ng-template>
         </mat-expansion-panel>
         <mat-expansion-panel class="accor w3-animate-top">
             <mat-expansion-panel-header class="accor-head">
@@ -14,7 +16,19 @@
                     {{'farmer.sellRentAgri' | translate}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <app-sell></app-sell>
+            <ng-template matExpansionPanelContent>
+                <app-sell></app-sell>
+            </ng-template>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="accor w3-animate-top">
+            <mat-expansion-panel-header class="accor-head">
+                <mat-panel-title>
+                    {{'common.nearbyBooths' | translate}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <app-nearby-booths></app-nearby-booths>
+            </ng-template>
         </mat-expansion-panel>
         <mat-expansion-panel class="accor w3-animate-top">
             <mat-expansion-panel-header class="accor-head">
@@ -22,7 +36,9 @@
                     {{'farmer.viewWeather' | translate}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <app-weather></app-weather>
+            <ng-template matExpansionPanelContent>
+                <app-weather></app-weather>
+            </ng-template>
         </mat-expansion-panel>
         <mat-expansion-panel class="accor w3-animate-top">
             <mat-expansion-panel-header class="accor-head">
@@ -30,7 +46,9 @@
                     {{'farmer.marketRate' | translate}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <app-market-rates></app-market-rates>
+            <ng-template matExpansionPanelContent>
+                <app-market-rates></app-market-rates>
+            </ng-template>
         </mat-expansion-panel>
     </mat-accordion>
 </div>
