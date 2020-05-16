@@ -85,5 +85,10 @@
     <tr mat-row *matRowDef="let row; columns: ['expandedDetail']"
         class="example-detail-row"></tr>
 </table>
-<div style="padding-bottom: 30px;"></div>
+
+<div class="get-location" *ngIf="viewMoreBtn"><a
+    (click)="viewMore()">{{'nearBy.viewMore' | translate}}</a>
+</div>
+
+<div style="padding-bottom: 10px;"></div>
 <!-- <p>Booth works!</p> -->

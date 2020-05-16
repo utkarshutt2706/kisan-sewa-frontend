@@ -26,6 +26,10 @@ export class NearbyBoothsComponent implements OnInit {
     public dataSource = new MatTableDataSource();
     public columnsToDisplay = ['sNo', 'name', 'dist'];
     expandedElement: any;
+    private limit = 2;
+    private lat: number;
+    private lon: number;
+    public viewMoreBtn = true;
 
     constructor(
         private boothService: BoothService,
@@ -43,7 +47,9 @@ export class NearbyBoothsComponent implements OnInit {
         dialogRef.afterClosed().subscribe(
             coords => {
                 if (coords !== undefined && coords.lat !== undefined && coords.lon !== undefined) {
-                    this.getNearbyBooths(coords);
+                    this.lat = coords.lat;
+                    this.lon = coords.lon;
+                    this.getNearbyBooths(coords, this.limit);
                 } else {
                     const currenLang = this.storage.getCurrentLang();
                     if (currenLang === 'hi') {
@@ -60,12 +66,14 @@ export class NearbyBoothsComponent implements OnInit {
         )
     }
 
-    private getNearbyBooths(coords: any) {
+    private getNearbyBooths(coords: any, limitParam: number) {
         this.loaderService.showLoader();
+        coords.limit = limitParam;
         this.boothService.getNearbyBooths(coords).subscribe(
             (nearbyBooths: any) => {
                 this.loaderService.hideLoader();
-                this.dataSource = new MatTableDataSource(nearbyBooths);
+                this.dataSource = new MatTableDataSource(nearbyBooths.booths);
+                this.viewMoreBtn = nearbyBooths.viewMore;
             },
             error => {
                 this.loaderService.hideLoader();
@@ -74,6 +82,12 @@ export class NearbyBoothsComponent implements OnInit {
                 });
             },
             () => { }
+        );
+    }
+
+    public viewMore() {
+        this.getNearbyBooths(
+            { lat: this.lat, lon: this.lon }, this.limit + 2
         );
     }
 

@@ -13,7 +13,8 @@ export class BoothService {
     public getNearbyBooths(coords: any) {
         const params = new HttpParams()
             .set('lat', coords.lat)
-            .set('lon', coords.lon);
+            .set('lon', coords.lon)
+            .set('limit', coords.limit);
         return this.http.get(`${apiEndPoint.booth}nearby`, {
             params
         });

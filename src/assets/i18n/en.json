@@ -130,7 +130,8 @@
         "km": "KMs",
         "boothPhone": "Booth Phone",
         "boothAdd": "Booth Address",
-        "noBooth": "No nearby booths found!"
+        "noBooth": "No nearby booths found!",
+        "viewMore": "View more"
     },
     "weather": {
         "noWeather": "No weather data found!",
