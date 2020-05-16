@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { apiEndPoint } from '../constants';
 
@@ -11,7 +11,12 @@ export class BoothService {
     constructor(private http: HttpClient) { }
 
     public getNearbyBooths(coords: any) {
-        return this.http.post(`${apiEndPoint.booth}nearby`, coords);
+        const params = new HttpParams()
+            .set('lat', coords.lat)
+            .set('lon', coords.lon);
+        return this.http.get(`${apiEndPoint.booth}nearby`, {
+            params
+        });
     }
 
 }

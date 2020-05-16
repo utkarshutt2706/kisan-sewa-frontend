@@ -116,6 +116,7 @@
         "sellRentAgri": "Sell or rent your agriculture related products"
     },
     "marketRate": {
+        "noMarketRate": "No market rate to display!",
         "searchPlaceholder": "Ex: Potato",
         "name": "Name",
         "localRate": "Local rate per 100 KGs",
@@ -126,6 +127,7 @@
         "dist": "Distance from you",
         "boothRepr": "Booth representative",
         "boothEmail": "Booth Email",
+        "km": "KMs",
         "boothPhone": "Booth Phone",
         "boothAdd": "Booth Address",
         "noBooth": "No nearby booths found!"

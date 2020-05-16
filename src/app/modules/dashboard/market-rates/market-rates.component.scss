@@ -1,3 +1,14 @@
+.get-location {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.get-location a {
+  cursor: pointer;
+}
+
 table {
   width: 100%;
 }
@@ -5,4 +16,8 @@ table {
 .mat-form-field {
   font-size: 14px;
   width: 100%;
+}
+
+tr.mat-row:hover {
+  background: whitesmoke;
 }

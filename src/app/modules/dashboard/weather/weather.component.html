@@ -1,5 +1,7 @@
-<p (click)="getLocation()" class="get-location">
-    {{'common.updateLocation' | translate}}</p>
+<div class="get-location"><a
+        (click)="getLocation()">{{'common.updateLocation' | translate}}</a>
+</div>
+
 <p *ngIf="!weather">{{'weather.noWeather' | translate}}</p>
 <div *ngIf="weather">
     <h4><strong>{{'weather.weatherFor' | translate}}</strong></h4>
@@ -25,37 +27,47 @@
     <h4><strong>{{'weather.currentWeather' | translate}}</strong></h4>
     <div class="current">
         <div class="sun">
-            <span class="sun-flex"><span><strong>{{'weather.sunrise' | translate}}</strong></span>
+            <span
+                class="sun-flex"><span><strong>{{'weather.sunrise' | translate}}</strong></span>
                 <span>{{weather.current_observation.astronomy.sunrise}}</span></span>
-            <span class="sun-flex"><strong>{{'weather.sunset' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.sunset' | translate}}</strong>
                 {{weather.current_observation.astronomy.sunset}}</span>
         </div>
         <div class="sun">
-            <span class="sun-flex"><span><strong>{{'weather.cond' | translate}}</strong></span>
+            <span
+                class="sun-flex"><span><strong>{{'weather.cond' | translate}}</strong></span>
                 <span>{{weather.current_observation.condition.text}}</span></span>
-            <span class="sun-flex"><span><strong>{{'weather.temp' | translate}}</strong></span>
+            <span
+                class="sun-flex"><span><strong>{{'weather.temp' | translate}}</strong></span>
                 <span>{{weather.current_observation.condition.temperature}}
                     &#8451;</span></span>
         </div>
         <div class="sun">
-            <span class="sun-flex"><strong>{{'weather.speed' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.speed' | translate}}</strong>
                 {{weather.current_observation.wind.speed}}
                 {{'weather.kmph' | translate}}</span>
-            <span class="sun-flex"><strong>{{'weather.dir' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.dir' | translate}}</strong>
                 <span>{{weather.current_observation.wind.direction}}<sup>&#8728;</sup></span></span>
         </div>
         <div class="sun">
-            <span class="sun-flex"><strong>{{'weather.humid' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.humid' | translate}}</strong>
                 {{weather.current_observation.atmosphere.humidity}}%</span>
-            <span class="sun-flex"><strong>{{'weather.pres' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.pres' | translate}}</strong>
                 {{weather.current_observation.atmosphere.pressure}}
                 {{'weather.mb' | translate}}</span>
         </div>
         <div class="sun">
-            <span class="sun-flex"><strong>{{'weather.visib' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.visib' | translate}}</strong>
                 {{weather.current_observation.atmosphere.visibility}}
                 {{'weather.km' | translate}}</span>
-            <span class="sun-flex"><strong>{{'weather.lastUpdate' | translate}}</strong>
+            <span
+                class="sun-flex"><strong>{{'weather.lastUpdate' | translate}}</strong>
                 {{weather.current_observation.pubDate * 1000 | date: 'dd/MM/yyyy h:mm:ss a'}}</span>
         </div>
     </div>
@@ -77,13 +89,14 @@
                 <div class="example-element-description">
                     <tr class="tr">
                         <td><strong>{{'weather.date' | translate}}</strong></td>
-                        <td class="td">{{element.date * 1000 | date: 'dd/MM/yyyy'}}</td>
+                        <td class="td">
+                            {{element.date * 1000 | date: 'dd/MM/yyyy'}}</td>
                     </tr>
-                    <tr  class="tr">
+                    <tr class="tr">
                         <td><strong>{{'weather.day' | translate}}</strong></td>
                         <td class="td">{{element.day}}</td>
                     </tr>
-                    <tr  class="tr">
+                    <tr class="tr">
                         <td><strong>{{'weather.minTemp' | translate}}</strong>
                         </td>
                         <td class="td">{{element.low}} &#8451;</td>
