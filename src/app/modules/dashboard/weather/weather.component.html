@@ -1,51 +1,61 @@
-<p (click)="getLocation()" class="get-location">{{'common.updateLocation' | translate}}</p>
+<p (click)="getLocation()" class="get-location">
+    {{'common.updateLocation' | translate}}</p>
 <p *ngIf="!weather">{{'weather.noWeather' | translate}}</p>
 <div *ngIf="weather">
     <h4><strong>{{'weather.weatherFor' | translate}}</strong></h4>
     <p class="loc-info">
-        <span>{{weather.location.city}}, {{weather.location.region}},
+        <span
+            class="loc-flex"><strong>{{'weather.location' | translate}}</strong>
+            {{weather.location.city}},
+            {{weather.location.region}},
             {{weather.location.country}}.
         </span>
-        <span><strong>{{'weather.lat' | translate}}</strong>
-            {{weather.location.lat}},
-            <strong>{{'weather.lon' | translate}}</strong> {{weather.location.long}},
-            <strong>{{'weather.time' | translate}}</strong>
-            {{weather.location.timezone_id}}
+        <span class="loc-span"><span
+                class="loc-flex"><span><strong>{{'weather.lat' | translate}}</strong></span>
+                <span>{{weather.location.lat}},</span></span>
+            <span
+                class="loc-flex"><span><strong>{{'weather.lon' | translate}}</strong></span>
+                <span>{{weather.location.long}},</span></span>
+            <span
+                class="loc-flex"><span><strong>{{'weather.time' | translate}}</strong></span>
+                <span>{{weather.location.timezone_id}}</span></span>
         </span>
     </p>
     <hr>
     <h4><strong>{{'weather.currentWeather' | translate}}</strong></h4>
     <div class="current">
         <div class="sun">
-            <span><strong>{{'weather.sunrise' | translate}}</strong>
-                {{weather.current_observation.astronomy.sunrise}}</span>
-            <span><strong>{{'weather.sunset' | translate}}</strong>
+            <span class="sun-flex"><span><strong>{{'weather.sunrise' | translate}}</strong></span>
+                <span>{{weather.current_observation.astronomy.sunrise}}</span></span>
+            <span class="sun-flex"><strong>{{'weather.sunset' | translate}}</strong>
                 {{weather.current_observation.astronomy.sunset}}</span>
         </div>
         <div class="sun">
-            <span><strong>{{'weather.cond' | translate}}</strong>
-                {{weather.current_observation.condition.text}}</span>
-            <span><strong>{{'weather.temp' | translate}}</strong>
-                {{weather.current_observation.condition.temperature}}
-                &#8451;</span>
+            <span class="sun-flex"><span><strong>{{'weather.cond' | translate}}</strong></span>
+                <span>{{weather.current_observation.condition.text}}</span></span>
+            <span class="sun-flex"><span><strong>{{'weather.temp' | translate}}</strong></span>
+                <span>{{weather.current_observation.condition.temperature}}
+                    &#8451;</span></span>
         </div>
         <div class="sun">
-            <span><strong>{{'weather.speed' | translate}}</strong>
-                {{weather.current_observation.wind.speed}} {{'weather.kmph' | translate}}</span>
-            <span><strong>{{'weather.dir' | translate}}</strong>
-                {{weather.current_observation.wind.direction}}<sup>&#8728;</sup></span>
+            <span class="sun-flex"><strong>{{'weather.speed' | translate}}</strong>
+                {{weather.current_observation.wind.speed}}
+                {{'weather.kmph' | translate}}</span>
+            <span class="sun-flex"><strong>{{'weather.dir' | translate}}</strong>
+                <span>{{weather.current_observation.wind.direction}}<sup>&#8728;</sup></span></span>
         </div>
         <div class="sun">
-            <span><strong>{{'weather.humid' | translate}}</strong>
+            <span class="sun-flex"><strong>{{'weather.humid' | translate}}</strong>
                 {{weather.current_observation.atmosphere.humidity}}%</span>
-            <span><strong>{{'weather.pres' | translate}}</strong>
+            <span class="sun-flex"><strong>{{'weather.pres' | translate}}</strong>
                 {{weather.current_observation.atmosphere.pressure}}
                 {{'weather.mb' | translate}}</span>
         </div>
         <div class="sun">
-            <span><strong>{{'weather.visib' | translate}}</strong>
-                {{weather.current_observation.atmosphere.visibility}} {{'weather.km' | translate}}</span>
-            <span><strong>{{'weather.lastUpdate' | translate}}</strong>
+            <span class="sun-flex"><strong>{{'weather.visib' | translate}}</strong>
+                {{weather.current_observation.atmosphere.visibility}}
+                {{'weather.km' | translate}}</span>
+            <span class="sun-flex"><strong>{{'weather.lastUpdate' | translate}}</strong>
                 {{weather.current_observation.pubDate * 1000 | date: 'dd/MM/yyyy h:mm:ss a'}}</span>
         </div>
     </div>
@@ -54,34 +64,39 @@
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows
         class="mat-elevation-z8">
         <ng-container matColumnDef="sNo">
-            <th mat-header-cell *matHeaderCellDef> {{'common.sNo' | translate}} </th>
+            <th mat-header-cell *matHeaderCellDef> {{'common.sNo' | translate}}
+            </th>
             <td mat-cell *matCellDef="let element">
                 {{dataSource.filteredData.indexOf(element) + 1}} </td>
         </ng-container>
 
         <ng-container matColumnDef="details">
-            <th mat-header-cell *matHeaderCellDef> {{'weather.details' | translate}} </th>
+            <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+                {{'weather.details' | translate}} </th>
             <td mat-cell *matCellDef="let element" style="padding: 20px 0px;">
                 <div class="example-element-description">
-                    <tr>
+                    <tr class="tr">
                         <td><strong>{{'weather.date' | translate}}</strong></td>
-                        <td>{{element.date * 1000 | date: 'dd/MM/yyyy'}}</td>
+                        <td class="td">{{element.date * 1000 | date: 'dd/MM/yyyy'}}</td>
                     </tr>
-                    <tr>
+                    <tr  class="tr">
                         <td><strong>{{'weather.day' | translate}}</strong></td>
-                        <td>{{element.day}}</td>
+                        <td class="td">{{element.day}}</td>
                     </tr>
-                    <tr>
-                        <td><strong>{{'weather.minTemp' | translate}}</strong></td>
-                        <td>{{element.low}}</td>
+                    <tr  class="tr">
+                        <td><strong>{{'weather.minTemp' | translate}}</strong>
+                        </td>
+                        <td class="td">{{element.low}} &#8451;</td>
                     </tr>
-                    <tr>
-                        <td><strong>{{'weather.maxTemp' | translate}}</strong></td>
-                        <td>{{element.high}}</td>
+                    <tr class="tr">
+                        <td><strong>{{'weather.maxTemp' | translate}}</strong>
+                        </td>
+                        <td class="td">{{element.high}} &#8451;</td>
                     </tr>
-                    <tr>
-                        <td><strong>{{'weather.condition' | translate}}</strong></td>
-                        <td>{{element.text}}</td>
+                    <tr class="tr">
+                        <td><strong>{{'weather.condition' | translate}}</strong>
+                        </td>
+                        <td class="td">{{element.text}}</td>
                     </tr>
                 </div>
             </td>

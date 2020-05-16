@@ -133,6 +133,7 @@
     "weather": {
         "noWeather": "No weather data found!",
         "weatherFor": "Weather forecast for",
+        "location": "Location:",
         "lat": "Latitude:",
         "lon": "Longitude:",
         "time": "Timezone:",
