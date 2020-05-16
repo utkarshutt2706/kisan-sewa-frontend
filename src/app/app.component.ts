@@ -10,7 +10,7 @@ import { LoaderService } from './modules/core/services/loader.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
 
     title = 'Kisan Sewa';
 
@@ -22,7 +22,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     ) { }
 
     ngOnInit(): void {
-        this.loaderService.showLoader();
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
             this.translate.setDefaultLang(currentLang);
@@ -39,10 +38,6 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
         );
         this.storage.setCurrentLang(lang);
-    }
-
-    ngAfterViewInit(): void {
-        this.loaderService.hideLoader();
     }
 
 }

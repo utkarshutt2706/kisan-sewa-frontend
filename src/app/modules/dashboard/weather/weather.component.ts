@@ -17,7 +17,7 @@ export class WeatherComponent implements OnInit {
 
     public weather: any;
     public dataSource: any;
-    public columnsToDisplay = ['sNo', 'date'];
+    public columnsToDisplay = ['sNo'];
     expandedElement: any;
 
     constructor(
