@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     ) { }
 
     ngOnInit(): void {
-        alert('start');
+        this.loaderService.showLoader();
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
             this.translate.setDefaultLang(currentLang);
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        alert('Done loading');
+        this.loaderService.hideLoader();
     }
 
 }

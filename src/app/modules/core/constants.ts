@@ -12,6 +12,7 @@ const apiURL = 'https://kisan-sewa-api.herokuapp.com/';
 // const apiURL = 'http://localhost:3000/';
 
 export const apiEndPoint = {
+    baseUrl: `${apiURL}`,
     newsletter: `${apiURL}newsletter`,
     auth: `${apiURL}auth/`,
     booth: `${apiURL}booth/`,

@@ -1,1 +1,3 @@
-<p>weather works!</p>
+<p (click)="getLocation()" class="get-location">Click to update location</p>
+<p *ngIf="!weather">No weather data found!</p>
+<p *ngIf="weather">weather works!</p>

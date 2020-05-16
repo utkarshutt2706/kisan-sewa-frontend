@@ -10,7 +10,6 @@ export class SellComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-        alert('sell');
     }
 
 }

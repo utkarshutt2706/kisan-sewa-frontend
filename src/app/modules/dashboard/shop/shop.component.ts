@@ -10,7 +10,6 @@ export class ShopComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-        alert('shop');
     }
 
 }

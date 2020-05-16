@@ -23,7 +23,7 @@ import { LoaderService } from '../../core/services/loader.service';
 })
 export class NearbyBoothsComponent implements OnInit {
 
-    public dataSource: any;
+    public dataSource = new MatTableDataSource();
     public columnsToDisplay = ['sNo', 'name', 'dist'];
     expandedElement: any;
 
@@ -35,11 +35,14 @@ export class NearbyBoothsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        alert('nearby');
+        this.getLocation();
+    }
+
+    public getLocation() {
         const dialogRef = this.dialog.open(LocationComponent);
         dialogRef.afterClosed().subscribe(
             coords => {
-                if (coords !== undefined) {
+                if (coords !== undefined && coords.lat !== undefined && coords.lon !== undefined) {
                     this.getNearbyBooths(coords);
                 } else {
                     const currenLang = this.storage.getCurrentLang();
@@ -66,7 +69,9 @@ export class NearbyBoothsComponent implements OnInit {
             },
             error => {
                 this.loaderService.hideLoader();
-                this.dialog.open(ErrorDialogComponent);
+                this.dialog.open(ErrorDialogComponent, {
+                    data: error.error
+                });
             },
             () => { }
         );
