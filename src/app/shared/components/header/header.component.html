@@ -54,7 +54,7 @@
 								style="font-size: 25px;"></i>
 							{{'navigation.register' | translate}}</a>
 					</li>
-					<li [ngClass]="{active: router.url==='/kisan/dashboard'}"
+					<li [ngClass]="{active: router.url==='/dashboard/' + authService.currentUserType}"
 						*ngIf="authService.isLoggedIn">
 						<a (click)="openDashBoard()" data-toggle="collapse"
 							data-target=".navbar-1"><i class="fa fa-sign-in"

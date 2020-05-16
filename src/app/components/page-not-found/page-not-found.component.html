@@ -1,2 +1,10 @@
-<h3>URL you enetered was not found</h3>
-<h4><a [routerLink]="['/']">Click here</a> to go back</h4>
+<div id="notfound" class="w3-animate-zoom">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>4<span></span>4</h1>
+        </div>
+        <h2>{{'pageNotFound.title' | translate}}</h2>
+        <p>{{'pageNotFound.text' | translate}}</p>
+        <a [routerLink]="['/']">{{'pageNotFound.backHome' | translate}}</a>
+    </div>
+</div>

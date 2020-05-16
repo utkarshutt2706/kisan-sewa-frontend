@@ -3,7 +3,17 @@
     "common": {
         "cancel": "Cancel",
         "submit": "Submit",
-        "nearbyBooths": "View nearby booths"
+        "nearbyBooths": "View nearby booths",
+        "viewWeather": "View weather forecasts",
+        "marketRate": "View market rates",
+        "sNo": "S. No.",
+        "search": "Search",
+        "updateLocation": "Click to update location"
+    },
+    "pageNotFound": {
+        "title": "Oops! Page Not Found",
+        "text": "Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable",
+        "backHome": "Back to Homepage"
     },
     "navigation": {
         "home": "Home",
@@ -98,16 +108,53 @@
     "footer": {
         "follow": "FOLLOW US"
     },
+    "location": {
+        "pin": "Please pin your location"
+    },
     "farmer": {
         "purchase": "Shop for your needs",
-        "sellRentAgri": "Sell or rent your agriculture related products",
-        "viewWeather": "View weather forecasts",
-        "marketRate": "View market rates",
-        "search": "Search",
+        "sellRentAgri": "Sell or rent your agriculture related products"
+    },
+    "marketRate": {
         "searchPlaceholder": "Ex: Potato",
-        "sNo": "S. No.",
         "name": "Name",
         "localRate": "Local rate per 100 KGs",
         "avgRate": "Average rate per 100 KGs"
+    },
+    "nearBy": {
+        "boothName": "Booth Name",
+        "dist": "Distance from you",
+        "boothRepr": "Booth representative",
+        "boothEmail": "Booth Email",
+        "boothPhone": "Booth Phone",
+        "boothAdd": "Booth Address",
+        "noBooth": "No nearby booths found!"
+    },
+    "weather": {
+        "noWeather": "No weather data found!",
+        "weatherFor": "Weather forecast for",
+        "lat": "Latitude:",
+        "lon": "Longitude:",
+        "time": "Timezone:",
+        "currentWeather": "Current weather conditions",
+        "sunrise": "Sunrise:",
+        "sunset": "Sunset:",
+        "cond": "Condition:",
+        "temp": "Temperature:",
+        "speed": "Wind speed:",
+        "dir": "Wind direction:",
+        "humid": "Humidity:",
+        "pres": "Pressure:",
+        "visib": "Visibilty:",
+        "lastUpdate": "Last updated at:",
+        "mb": "millibars",
+        "kmph": "KMPH",
+        "km": "KMs",
+        "details": "Details",
+        "date": "Date",
+        "day": "Day",
+        "minTemp": "Minimum Temperature",
+        "maxTemp": "Maximum Temperature",
+        "condition": "Condition"
     }
 }

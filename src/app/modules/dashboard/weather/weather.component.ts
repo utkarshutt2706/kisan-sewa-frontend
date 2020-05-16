@@ -59,9 +59,7 @@ export class WeatherComponent implements OnInit {
             (data: any) => {
                 this.loaderService.hideLoader();
                 this.weather = JSON.parse(data);
-                console.log(this.weather);
                 this.dataSource = new MatTableDataSource(this.weather.forecasts);
-                console.log(this.dataSource)
             },
             error => {
                 this.loaderService.hideLoader();
