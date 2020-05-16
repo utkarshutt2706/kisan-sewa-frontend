@@ -150,6 +150,7 @@
         "mb": "millibars",
         "kmph": "KMPH",
         "km": "KMs",
+        "forecast": "Weather forecast for next 10 days",
         "details": "Details",
         "date": "Date",
         "day": "Day",
