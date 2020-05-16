@@ -1,3 +1,4 @@
+import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -15,6 +16,9 @@ import { MiscellaneousService } from '../../core/services/miscellaneous.service'
 export class WeatherComponent implements OnInit {
 
     public weather: any;
+    public dataSource: any;
+    public columnsToDisplay = ['sNo', 'date'];
+    expandedElement: any;
 
     constructor(
         private dialog: MatDialog,
@@ -53,10 +57,11 @@ export class WeatherComponent implements OnInit {
         this.loaderService.showLoader();
         this.miscService.getWeather(coords).subscribe(
             (data: any) => {
-                console.log(this.weather);
                 this.loaderService.hideLoader();
                 this.weather = JSON.parse(data);
                 console.log(this.weather);
+                this.dataSource = new MatTableDataSource(this.weather.forecasts);
+                console.log(this.dataSource)
             },
             error => {
                 this.loaderService.hideLoader();

@@ -36,7 +36,7 @@
                     <div class="example-element-dist"> {{element.dist}} KMs
                     </div> -->
                     <img
-                        [src]="'http://kisan-sewa-api.herokuapp.com/images/' + element.booth.profile">
+                        [src]="'http://kisan-sewa-api.herokuapp.com/images/' + element.booth.picture">
                 </div>
                 <div class="example-element-description">
                     <tr>
@@ -58,9 +58,6 @@
                     <tr>
                         <td><strong>Booth address</strong></td>
                         <td>{{element.booth.address}}</td>
-                    </tr>
-                    <tr>
-                        <td>{{dataSource.data.length}}</td>
                     </tr>
                 </div>
             </div>

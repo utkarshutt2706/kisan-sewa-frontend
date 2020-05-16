@@ -1,3 +1,56 @@
 <p (click)="getLocation()" class="get-location">Click to update location</p>
 <p *ngIf="!weather">No weather data found!</p>
-<p *ngIf="weather">weather works!</p>
+<div *ngIf="weather">
+    <h4><strong>Weather forecast for</strong></h4>
+    <p class="loc-info">
+        <span>{{weather.location.city}}, {{weather.location.region}},
+            {{weather.location.country}}.
+        </span>
+        <span><strong>Latitude:</strong>
+            {{weather.location.lat}},
+            <strong>Longitude:</strong> {{weather.location.long}},
+            <strong>Timezone:</strong>
+            {{weather.location.timezone_id}}
+        </span>
+    </p>
+    <hr>
+    <h4><strong>Current weather conditions</strong></h4>
+    <div class="current">
+        <div class="sun">
+            <span><strong>Sunrise:</strong>
+                {{weather.current_observation.astronomy.sunrise}}</span>
+            <span><strong>Sunset:</strong>
+                {{weather.current_observation.astronomy.sunset}}</span>
+        </div>
+        <div class="sun">
+            <span><strong>Condition:</strong>
+                {{weather.current_observation.condition.text}}</span>
+            <span><strong>Temperature:</strong>
+                {{weather.current_observation.condition.temperature}}
+                &#8451;</span>
+        </div>
+        <div class="sun">
+            <span><strong>Wind speed:</strong>
+                {{weather.current_observation.wind.speed}} KMPH</span>
+            <span><strong>Wind direction:</strong>
+                {{weather.current_observation.wind.direction}}<sup>&#8728;</sup></span>
+        </div>
+        <div class="sun">
+            <span><strong>Humidity:</strong>
+                {{weather.current_observation.atmosphere.humidity}}%</span>
+            <span><strong>Pressure:</strong>
+                {{weather.current_observation.atmosphere.pressure}}
+                millibars</span>
+        </div>
+        <div class="sun">
+            <span><strong>Visibilty:</strong>
+                {{weather.current_observation.atmosphere.visibility}} KMs</span>
+            <span><strong>Last updated at:</strong>
+                {{weather.current_observation.pubDate * 1000 | date: 'dd/MM/yyyy h:mm:ss a'}}</span>
+        </div>
+    </div>
+    <hr>
+    <div class="forecast">
+        forecast comes here
+    </div>
+</div>
