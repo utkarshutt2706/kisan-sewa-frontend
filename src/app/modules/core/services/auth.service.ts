@@ -17,12 +17,12 @@ export class AuthService {
 
     public register(form: FormGroup, registerAs: string, coords?: any) {
         const currentLang = this.storage.getCurrentLang();
-        if(currentLang) {
+        if (currentLang) {
             form.value.lang = currentLang;
         } else {
             form.value.lang = 'en';
         }
-        if(coords) {
+        if (coords) {
             form.value.lat = coords.lat;
             form.value.lon = coords.lon;
         }
@@ -32,7 +32,7 @@ export class AuthService {
 
     public login(form: FormGroup, loginAs: string) {
         const currentLang = this.storage.getCurrentLang();
-        if(currentLang) {
+        if (currentLang) {
             form.value.lang = currentLang;
         } else {
             form.value.lang = 'en';

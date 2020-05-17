@@ -1,15 +1,15 @@
-.btns{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.btns {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 @media (min-height: 600px) {
-    agm-map {
-      height: 400px;
-    }
+  agm-map {
+    height: 400px;
   }
+}
 
 @media (max-height: 599px) {
   agm-map {

@@ -55,7 +55,7 @@ export class LoginFarmerComponent implements OnInit {
                 this.loaderService.hideLoader();
                 this.snackBar.open(error.error.message, 'Ok');
             },
-            () => {}
+            () => { }
         );
     }
 

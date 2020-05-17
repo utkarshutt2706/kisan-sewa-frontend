@@ -37,7 +37,7 @@ export class PurchaseComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 

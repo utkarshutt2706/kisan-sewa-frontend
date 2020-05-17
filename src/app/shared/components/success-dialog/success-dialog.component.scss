@@ -1,55 +1,55 @@
-.m-0-auto{
-    margin : 0 auto ;
+.m-0-auto {
+  margin: 0 auto;
 }
 
 .mat-dialog-actions {
-    padding-bottom: 0;
-    margin-bottom: 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
 }
 
-.mat-dialog-style{
-    width: 350px;
+.mat-dialog-style {
+  width: 350px;
 }
 .content-style {
-    color: #999;
-    font-weight: 700;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+  color: #999;
+  font-weight: 700;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-.http-code{
-    span{
-        font-size: 80px;
-    }
+.http-code {
+  span {
+    font-size: 80px;
+  }
 }
-.http-text{
-    span {
-        font-size: 40px;
-        margin-top: 10px;
-    }
+.http-text {
+  span {
+    font-size: 40px;
+    margin-top: 10px;
+  }
 }
 @media screen and (max-width: 767px) {
-    .mat-dialog-style{
-        width: 100%;
+  .mat-dialog-style {
+    width: 100%;
+  }
+  .http-code {
+    span {
+      font-size: 65px;
     }
-    .http-code{
-        span{
-            font-size: 65px;
-        }
+  }
+  .http-text {
+    span {
+      font-size: 35px;
     }
-    .http-text{
-        span {
-            font-size: 35px;
-        }
-    }
-}  
+  }
+}
 
 .error-modal-icon {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

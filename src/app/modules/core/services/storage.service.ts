@@ -33,7 +33,7 @@ export class StorageService {
 
     public setCurrentUserVerified(status: boolean) {
         let isVerified: string;
-        if(status) {
+        if (status) {
             isVerified = 'true';
         } else {
             isVerified = 'false';

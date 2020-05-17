@@ -144,6 +144,83 @@
         class="example-detail-row"></tr>
 </table>
 
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows
+    class="mat-elevation-z8 extra-small" *ngIf="dataSource.data.length>0">
+    <ng-container matColumnDef="sNo">
+        <th mat-header-cell *matHeaderCellDef> {{'common.sNo' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let element">
+            {{dataSource.filteredData.indexOf(element) + 1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            {{'weather.details' | translate}} </th>
+        <td mat-cell *matCellDef="let element" style="padding: 20px 0px;">
+            <div class="example-element-description">
+                <tr>
+                    <td><strong>{{'nearBy.dist' | translate}}</strong></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">
+                        {{element.dist}} {{'nearBy.km' | translate}}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{'nearBy.boothName' | translate}}</strong></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">
+                        {{element.booth.boothName}}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{'nearBy.boothRepr' | translate}}</strong></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">{{element.booth.name}}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{'nearBy.boothEmail' | translate}}</strong>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">{{element.booth.email}}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{'nearBy.boothPhone' | translate}}</strong>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">{{element.booth.phone}}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{'nearBy.boothAdd' | translate}}</strong>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">{{element.booth.address}}</td>
+                </tr>
+            </div>
+        </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail2">
+        <td mat-cell *matCellDef="let element"
+            [attr.colspan]="columnsToDisplay2.length">
+
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay2"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay2;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement2 === element"
+        (click)="expandedElement2 = expandedElement2 === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail2']"
+        class="example-detail-row"></tr>
+</table>
+
 <div class="get-location" *ngIf="viewMoreBtn"><a
         (click)="viewMore()">{{'nearBy.viewMore' | translate}}</a>
 </div>

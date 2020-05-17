@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
 
     ngOnInit(): void {
         const currentLanguage = this.storage.getCurrentLang();
-        if(currentLanguage) {
+        if (currentLanguage) {
             this.currentLang = currentLanguage;
         } else {
             this.currentLang = 'en';

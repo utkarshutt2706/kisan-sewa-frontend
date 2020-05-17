@@ -61,7 +61,7 @@ export class RegisterSellerComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 

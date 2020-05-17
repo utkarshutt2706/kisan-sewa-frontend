@@ -20,10 +20,10 @@ export class ErrorDialogComponent implements OnInit {
     }
 
     ngOnInit() {
-        if(this.data.message) {
+        if (this.data.message) {
             this.message = this.data.message;
         } else {
-            if(this.storage.getCurrentLang()==='hi') {
+            if (this.storage.getCurrentLang() === 'hi') {
                 this.message = 'एक त्रुटि पाई गई';
             } else {
                 this.message = 'An error occured';

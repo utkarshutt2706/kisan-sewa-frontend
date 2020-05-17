@@ -37,7 +37,7 @@ export class RentComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 

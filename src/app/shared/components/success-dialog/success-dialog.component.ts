@@ -19,16 +19,16 @@ export class SuccessDialogComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        if(this.data.message) {
+        if (this.data.message) {
             this.message = this.data.message;
         } else {
-            if(this.storage.getCurrentLang()==='hi') {
+            if (this.storage.getCurrentLang() === 'hi') {
                 this.message = 'प्रक्रिया सफलतापूर्वक पूरी हुई';
             } else {
                 this.message = 'Success';
             }
         }
-        if(this.data.detail) {
+        if (this.data.detail) {
             this.detail = this.data.detail;
         }
     }

@@ -14,7 +14,7 @@ export class NewsletterService {
 
     public newsletterSubscribe(form: FormGroup) {
         const currentLang = this.storage.getCurrentLang();
-        if(currentLang) {
+        if (currentLang) {
             form.value.lang = currentLang;
         } else {
             form.value.lang = 'en';
