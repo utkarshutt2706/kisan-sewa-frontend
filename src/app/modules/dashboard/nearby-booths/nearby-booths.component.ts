@@ -25,11 +25,13 @@ export class NearbyBoothsComponent implements OnInit {
 
     public dataSource = new MatTableDataSource();
     public columnsToDisplay = ['sNo', 'name', 'dist'];
+    public columnsToDisplay2 = ['sNo', 'details'];
     expandedElement: any;
+    expandedElement2: any;
     private limit = 2;
     private lat: number;
     private lon: number;
-    public viewMoreBtn = true;
+    public viewMoreBtn = false;
 
     constructor(
         private boothService: BoothService,
