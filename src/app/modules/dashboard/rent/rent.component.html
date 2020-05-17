@@ -1,0 +1,7 @@
+<div class="empty" *ngIf="itemsForRent.length===0">
+    <p>{{'shop.noProducts' | translate}}</p>
+</div>
+
+<div class="empty" *ngIf="itemsForRent.length>0">
+    <p>There are products to show!</p>
+</div>

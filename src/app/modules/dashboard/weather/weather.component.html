@@ -68,7 +68,7 @@
                 {{'weather.km' | translate}}</span>
             <span
                 class="sun-flex"><strong>{{'weather.lastUpdate' | translate}}</strong>
-                {{weather.current_observation.pubDate * 1000 | date: 'dd/MM/yyyy h:mm:ss a'}}</span>
+                {{weather.current_observation.pubDate * 1000 | date: 'medium'}}</span>
         </div>
     </div>
     <hr>
@@ -90,7 +90,7 @@
                     <tr class="tr">
                         <td><strong>{{'weather.date' | translate}}</strong></td>
                         <td class="td">
-                            {{element.date * 1000 | date: 'dd/MM/yyyy'}}</td>
+                            {{element.date * 1000 | date: 'mediumDate'}}</td>
                     </tr>
                     <tr class="tr">
                         <td><strong>{{'weather.day' | translate}}</strong></td>

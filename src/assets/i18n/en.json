@@ -161,5 +161,11 @@
         "minTemp": "Minimum Temperature",
         "maxTemp": "Maximum Temperature",
         "condition": "Condition"
+    },
+    "shop": {
+        "takeShop": "Take me to the shop",
+        "purchase": "Purchase",
+        "rent": "Rent",
+        "noProducts": "No products to show"
     }
 }

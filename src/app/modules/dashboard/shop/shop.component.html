@@ -1,1 +1,17 @@
-<p>shop works!</p>
+<div class="shop container">
+
+    <mat-tab-group mat-stretch-tabs
+        class="example-stretched-tabs mat-elevation-z4">
+        <mat-tab label="{{'shop.purchase' | translate}}">
+            <ng-template matTabContent>
+                <app-purchase></app-purchase>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="{{'shop.rent' | translate}}">
+            <ng-template matTabContent>
+                <app-rent></app-rent>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

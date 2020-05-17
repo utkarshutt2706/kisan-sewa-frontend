@@ -43,6 +43,7 @@ export class NearbyBoothsComponent implements OnInit {
     }
 
     public getLocation() {
+        this.limit = 2;
         const dialogRef = this.dialog.open(LocationComponent);
         dialogRef.afterClosed().subscribe(
             coords => {
@@ -86,8 +87,9 @@ export class NearbyBoothsComponent implements OnInit {
     }
 
     public viewMore() {
+        this.limit += 2;
         this.getNearbyBooths(
-            { lat: this.lat, lon: this.lon }, this.limit + 2
+            { lat: this.lat, lon: this.lon }, this.limit
         );
     }
 
