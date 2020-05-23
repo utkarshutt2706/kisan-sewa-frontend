@@ -1,25 +1,25 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
 import { LoaderService } from '../../core/services/loader.service';
-import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 @Component({
-    selector: 'app-register-seller',
-    templateUrl: './register-seller.component.html',
-    styleUrls: ['./register-seller.component.scss']
+    selector: 'app-register-user',
+    templateUrl: './register-user.component.html',
+    styleUrls: ['./register-user.component.scss']
 })
-export class RegisterSellerComponent implements OnInit {
+export class RegisterUserComponent implements OnInit {
 
     @Input() registerAs: string;
     @Output() cancel = new EventEmitter<any>();
 
-    public registerSellerForm: FormGroup;
+    public registerUserForm: FormGroup;
 
     constructor(
         private authService: AuthService,
@@ -33,11 +33,12 @@ export class RegisterSellerComponent implements OnInit {
     }
 
     private initForm() {
-        this.registerSellerForm = new FormGroup(
+        this.registerUserForm = new FormGroup(
             {
                 name: new FormControl(null, Validators.required),
                 phone: new FormControl(null, [Validators.required, Validators.pattern(regex.mobileNo)]),
                 email: new FormControl(null, [Validators.required, Validators.pattern(regex.emailId)]),
+                occupation: new FormControl(null, Validators.required),
                 address: new FormControl(null, [Validators.required, Validators.pattern(regex.address)])
             }
         );
@@ -45,7 +46,7 @@ export class RegisterSellerComponent implements OnInit {
 
     public onRegister() {
         this.loaderService.showLoader();
-        this.authService.register(this.registerSellerForm, 'seller').subscribe(
+        this.authService.register(this.registerUserForm, 'user').subscribe(
             (response: any) => {
                 this.loaderService.hideLoader();
                 const dialogRef = this.dialog.open(SuccessDialogComponent, {
@@ -55,7 +56,7 @@ export class RegisterSellerComponent implements OnInit {
                     this.router.navigateByUrl('/kisan/login');
                 });
             },
-            error => {
+            (error: any) => {
                 this.loaderService.hideLoader();
                 this.dialog.open(ErrorDialogComponent, {
                     data: error.error

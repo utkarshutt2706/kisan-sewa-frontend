@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 import { regex } from '../../core/constants';
 import { AuthService } from '../../core/services/auth.service';
 import { LoaderService } from '../../core/services/loader.service';
-import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { LocationComponent } from 'src/app/shared/location/location.component';
+import { LocationComponent } from 'src/app/shared/components/location/location.component';
 import { StorageService } from '../../core/services/storage.service';
 
 @Component({

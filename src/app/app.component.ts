@@ -1,9 +1,14 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable, fromEvent } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './modules/core/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from './modules/core/services/storage.service';
 import { LoaderService } from './modules/core/services/loader.service';
+import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
+import { SuccessDialogComponent } from './shared/components/success-dialog/success-dialog.component';
+import { NoInternetComponent } from './shared/components/no-internet/no-internet.component';
 
 @Component({
     selector: 'app-root',
@@ -12,16 +17,20 @@ import { LoaderService } from './modules/core/services/loader.service';
 })
 export class AppComponent implements OnInit {
 
+    private onlineEvent: Observable<Event>;
+    private offlineEvent: Observable<Event>;
     title = 'Kisan Sewa';
 
     constructor(
         public authService: AuthService,
         private translate: TranslateService,
         private storage: StorageService,
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private dialog: MatDialog
     ) { }
 
     ngOnInit(): void {
+        this.checkInternetStatus();
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
             this.translate.setDefaultLang(currentLang);
@@ -30,14 +39,56 @@ export class AppComponent implements OnInit {
         }
     }
 
-    onLanguageChoose(lang: string) {
+    private checkInternetStatus() {
+
+        this.onlineEvent = fromEvent(window, 'online');
+        this.offlineEvent = fromEvent(window, 'offline');
+        let dialogRef: any;
+
+        this.onlineEvent.subscribe(
+            event => {
+                const currentLang = this.storage.getCurrentLang();
+                let message = 'Back online';
+                if (currentLang === 'hi') {
+                    message = 'hindi me back online';
+                }
+                const onlineDialogRef = this.dialog.open(SuccessDialogComponent, {
+                    data: { message }
+                });
+                dialogRef.close();
+                setTimeout(() => {
+                    onlineDialogRef.close();
+                }, 3000);
+            }
+        );
+        this.offlineEvent.subscribe(
+            event => {
+                const currentLang = this.storage.getCurrentLang();
+                let message = 'NO INTERNET';
+                if (currentLang === 'hi') {
+                    message = 'hindi me NO INTERNET';
+                }
+                dialogRef = this.dialog.open(NoInternetComponent, {
+                    disableClose: true
+                    // data: { message }
+                });
+            }
+        )
+    }
+
+    public onLanguageChoose(lang: string) {
         this.loaderService.showLoader();
         this.translate.use(lang).subscribe(
             res => {
                 this.loaderService.hideLoader();
+                this.storage.setCurrentLang(lang);
+            },
+            error => {
+                this.dialog.open(ErrorDialogComponent, {
+                    data: error.error
+                });
             }
         );
-        this.storage.setCurrentLang(lang);
     }
 
 }

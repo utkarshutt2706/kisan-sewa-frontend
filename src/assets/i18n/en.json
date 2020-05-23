@@ -72,8 +72,7 @@
     "login": {
         "login": "Login",
         "loginBooth": "Login as Booth",
-        "loginFarmer": "Login as Farmer",
-        "loginSeller": "Login as Seller",
+        "loginUser": "Login as User",
         "enterUserOrEmail": "Enter your username or registered email ID",
         "enterPassword": "Enter your Password",
         "validUserOrEmail": "Please enter a valid username or email ID",
@@ -83,22 +82,27 @@
         "register": "Register",
         "booth": "Booth",
         "farmer": "Farmer",
-        "seller": "Seller",
         "registerBooth": "Register as Booth",
-        "registerFarmer": "Register as Farmer",
-        "registerSeller": "Register as Seller",
+        "registerUser": "Register as User",
         "enterName": "Enter your name",
         "enterBooth": "Enter your booth name",
         "enterMobile": "Enter your mobile number",
         "enterEmail": "Enter your email ID",
+        "enterOccp": "Enter your occupation",
         "enterBoothAddress": "Enter your booth address",
         "enterAddress": "Enter your address",
         "nameReq": "Name is required",
         "boothNameReq": "Booth name is required",
         "validMobile": "Please enter a valid mobile number",
         "validEmail": "Please enter a valid email ID",
+        "validOccp": "Please enter a valid occupation",
         "boothAddReq": "Booth address is required",
         "addressReq": "Address is required"
+    },
+    "occupation": {
+        "choose1": "Choose one",
+        "farmer": "Farmer",
+        "other": "Other"
     },
     "newsletter": {
         "signUp": "Sign up for your Modern Farmer Weekly Newsletter",
@@ -107,6 +111,10 @@
     },
     "footer": {
         "follow": "FOLLOW US"
+    },
+    "welcome": {
+        "welcome": "Welcome,",
+        "update": "Update your profile"
     },
     "location": {
         "pin": "Please pin your location"

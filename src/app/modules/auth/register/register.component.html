@@ -5,19 +5,13 @@
     </div>
     <div class="col-12 w3-animate-left">
         <button type="button" class="btn btn-primary"
-            (click)="register('Farmer')">{{'register.registerFarmer' | translate}}</button>
-    </div>
-    <div class="col-12 w3-animate-right">
-        <button type="button" class="btn btn-primary"
-            (click)="register('Seller')">{{'register.registerSeller' | translate}}</button>
+            (click)="register('User')" [ngClass]="{smallText: storage.getCurrentLang()==='hi'}">{{'register.registerUser' | translate}}</button>
     </div>
 </div>
 
 <ng-template #registerForm>
     <app-register-booth *ngIf="registerAs==='Booth'" (cancel)="cancel()">
     </app-register-booth>
-    <app-register-seller *ngIf="registerAs==='Seller'" (cancel)="cancel()">
-    </app-register-seller>
-    <app-register-farmer *ngIf="registerAs==='Farmer'" (cancel)="cancel()">
-    </app-register-farmer>
+    <app-register-user *ngIf="registerAs==='User'" (cancel)="cancel()">
+    </app-register-user>
 </ng-template>

@@ -1,13 +1,13 @@
 <div class="row">
 
     <form class="col-md-6 col-sm-12 w3-animate-zoom"
-        [formGroup]="loginFarmerForm" (ngSubmit)="onLogin()">
-        <h2>{{ 'login.loginFarmer' | translate }}</h2>
+        [formGroup]="loginUserForm" (ngSubmit)="onLogin()">
+        <h2>{{ 'login.loginUser' | translate }}</h2>
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'login.enterUserOrEmail' | translate}}</mat-label>
             <input matInput formControlName="username" type="text">
-            <mat-error *ngIf="loginFarmerForm.controls['username'].invalid">
+            <mat-error *ngIf="loginUserForm.controls['username'].invalid">
                 {{'login.validUserOrEmail' | translate}}</mat-error>
         </mat-form-field>
 
@@ -15,13 +15,13 @@
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'login.enterPassword' | translate}}</mat-label>
             <input matInput formControlName="password" type="password">
-            <mat-error *ngIf="loginFarmerForm.controls['password'].invalid">
+            <mat-error *ngIf="loginUserForm.controls['password'].invalid">
                 {{'login.validPassword' | translate}}</mat-error>
         </mat-form-field>
 
         <div class="btns">
             <button mat-button class="btn btn-primary"
-                [disabled]="loginFarmerForm.invalid"
+                [disabled]="loginUserForm.invalid"
                 type="submit">{{'login.login' | translate}}</button>
             <button mat-button class="btn btn-default" type="reset"
                 (click)="onCancel()">{{'common.cancel' | translate}}</button>

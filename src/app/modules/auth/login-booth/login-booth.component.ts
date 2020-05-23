@@ -45,10 +45,10 @@ export class LoginBoothComponent implements OnInit {
             (response: any) => {
                 this.loaderService.hideLoader();
                 this.storage.setCurrentUserEmail(response.email);
-                this.storage.setCurrentUserVerified(response.isVerified);
+                this.storage.setCurrentUser(response);
                 this.storage.setCurrentUserType('booth');
-                this.authService.isLoggedIn = true;
                 this.authService.currentUserType = 'booth';
+                this.authService.isLoggedIn = true;
                 this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);
             },
             error => {

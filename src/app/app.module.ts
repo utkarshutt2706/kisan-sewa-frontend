@@ -23,7 +23,8 @@ import { SuccessDialogComponent } from './shared/components/success-dialog/succe
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdatePasswordComponent } from './shared/components/update-password/update-password.component';
-import { LocationComponent } from './shared/location/location.component';
+import { LocationComponent } from './shared/components/location/location.component';
+import { NoInternetComponent } from './shared/components/no-internet/no-internet.component';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import { LocationComponent } from './shared/location/location.component';
         SuccessDialogComponent,
         ErrorDialogComponent,
         UpdatePasswordComponent,
-        LocationComponent
+        LocationComponent,
+        NoInternetComponent
     ],
     imports: [
         BrowserModule,
@@ -73,7 +75,8 @@ import { LocationComponent } from './shared/location/location.component';
     entryComponents: [
         SuccessDialogComponent,
         ErrorDialogComponent,
-        UpdatePasswordComponent
+        UpdatePasswordComponent,
+        NoInternetComponent
     ],
     bootstrap: [AppComponent]
 })

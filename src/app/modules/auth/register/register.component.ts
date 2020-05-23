@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StorageService } from '../../core/services/storage.service';
+
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -10,7 +12,7 @@ export class RegisterComponent implements OnInit {
     public isRegistering = false;
     public registerAs: string;
 
-    constructor() { }
+    constructor(public storage: StorageService) { }
 
     ngOnInit(): void {
     }

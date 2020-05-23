@@ -1,13 +1,13 @@
 <div class="row">
 
     <form class="col-md-6 col-sm-12 w3-animate-zoom"
-        [formGroup]="registerSellerForm" (ngSubmit)="onRegister()">
-        <h2>{{ 'register.seller' | translate }}</h2>
+        [formGroup]="registerUserForm" (ngSubmit)="onRegister()">
+        <h2>{{ 'register.user' | translate }}</h2>
         <mat-form-field appearance="outline"
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterName' | translate}}</mat-label>
-            <input matInput autocomplete="name" formControlName="name">
-            <mat-error *ngIf="registerSellerForm.controls['name'].invalid">
+            <input matInput formControlName="name" autocomplete="name">
+            <mat-error *ngIf="registerUserForm.controls['name'].invalid">
                 {{'register.nameReq' | translate}}</mat-error>
         </mat-form-field>
 
@@ -16,7 +16,7 @@
             <mat-label>{{'register.enterMobile' | translate}}</mat-label>
             <input matInput formControlName="phone" type="text"
                 inputmode="numeric" autocomplete="mobile" maxlength="10">
-            <mat-error *ngIf="registerSellerForm.controls['phone'].invalid">
+            <mat-error *ngIf="registerUserForm.controls['phone'].invalid">
                 {{'register.validMobile' | translate}}</mat-error>
         </mat-form-field>
 
@@ -25,8 +25,20 @@
             <mat-label>{{'register.enterEmail' | translate}}</mat-label>
             <input matInput formControlName="email" type="email"
                 inputmode="email" autocomplete="email">
-            <mat-error *ngIf="registerSellerForm.controls['phone'].invalid">
+            <mat-error *ngIf="registerUserForm.controls['phone'].invalid">
                 {{'register.validEmail' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-md-6 col-sm-12">
+            <mat-label>{{'register.enterOccp' | translate}}</mat-label>
+            <mat-select formControlName="occupation">
+                <mat-option value="" disabled>{{'occupation.choose1' | translate}}</mat-option>
+                <mat-option value="Farmer">{{'occupation.farmer' | translate}}</mat-option>
+                <mat-option value="Other">{{'occupation.other' | translate}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerUserForm.controls['phone'].invalid">
+                {{'register.validOccp' | translate}}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline"
@@ -34,13 +46,13 @@
             <mat-label>{{'register.enterAddress' | translate}}</mat-label>
             <textarea matInput formControlName="address"
                 autocomplete="address-line3"></textarea>
-            <mat-error *ngIf="registerSellerForm.controls['address'].invalid">
+            <mat-error *ngIf="registerUserForm.controls['address'].invalid">
                 {{'register.addressReq' | translate}}</mat-error>
         </mat-form-field>
 
         <div class="btns">
             <button mat-button class="btn btn-primary"
-                [disabled]="registerSellerForm.invalid"
+                [disabled]="registerUserForm.invalid"
                 type="submit">{{'register.register' | translate}}</button>
             <button mat-button class="btn btn-default" type="reset"
                 (click)="onCancel()">{{'common.cancel' | translate}}</button>

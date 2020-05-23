@@ -1,0 +1,32 @@
+.cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.welcome {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+  color: #000000;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+.profile a{
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .cont {
+    flex-direction: column;
+  }
+
+  .profile {
+    text-align: right;
+  }
+}

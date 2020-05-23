@@ -31,19 +31,19 @@ export class StorageService {
         return localStorage.getItem('currentUserType');
     }
 
-    public setCurrentUserVerified(status: boolean) {
-        let isVerified: string;
-        if (status) {
-            isVerified = 'true';
-        } else {
-            isVerified = 'false';
-        }
-        localStorage.setItem('isVerified', isVerified);
-    }
+    // public setCurrentUserVerified(status: boolean) {
+    //     let isVerified: string;
+    //     if (status) {
+    //         isVerified = 'true';
+    //     } else {
+    //         isVerified = 'false';
+    //     }
+    //     localStorage.setItem('isVerified', isVerified);
+    // }
 
-    public getCurrentUserVerified() {
-        return localStorage.getItem('isVerified');
-    }
+    // public getCurrentUserVerified() {
+    //     return localStorage.getItem('isVerified');
+    // }
 
     public setSkipUpdatePassword() {
         localStorage.setItem('skipUpdatePassword', 'true');
@@ -53,9 +53,18 @@ export class StorageService {
         return localStorage.getItem('skipUpdatePassword');
     }
 
+    public setCurrentUser(obj: any) {
+        localStorage.setItem('userObj', JSON.stringify(obj));
+    }
+
+    public getCurrentUser() {
+        return localStorage.getItem('userObj');
+    }
+
     public removeCurrentUser() {
         localStorage.removeItem('currentUser');
-        localStorage.removeItem('isVerified');
+        // localStorage.removeItem('isVerified');
+        localStorage.removeItem('userObj');
         localStorage.removeItem('currentUserType');
         localStorage.removeItem('skipUpdatePassword');
     }

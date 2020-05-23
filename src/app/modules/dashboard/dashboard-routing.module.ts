@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BoothComponent } from './booth/booth.component';
-import { FarmerComponent } from './farmer/farmer.component';
-import { SellerComponent } from './seller/seller.component';
 import { ShopComponent } from './shop/shop.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
     {
@@ -12,12 +11,8 @@ const routes: Routes = [
         component: BoothComponent
     },
     {
-        path: 'farmer',
-        component: FarmerComponent
-    },
-    {
-        path: 'seller',
-        component: SellerComponent
+        path: 'user',
+        component: UserComponent
     },
     {
         path: 'shop',

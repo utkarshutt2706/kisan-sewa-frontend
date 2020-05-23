@@ -9,8 +9,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { BoothComponent } from './booth/booth.component';
-import { SellerComponent } from './seller/seller.component';
-import { FarmerComponent } from './farmer/farmer.component';
 import { MarketRatesComponent } from './market-rates/market-rates.component';
 import { WeatherComponent } from './weather/weather.component';
 import { SellComponent } from './sell/sell.component';
@@ -18,19 +16,22 @@ import { ShopComponent } from './shop/shop.component';
 import { NearbyBoothsComponent } from './nearby-booths/nearby-booths.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { RentComponent } from './rent/rent.component';
+import { UserComponent } from './user/user.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
     declarations: [
         BoothComponent,
-        SellerComponent,
-        FarmerComponent,
+        UserComponent,
         MarketRatesComponent,
         WeatherComponent,
         SellComponent,
         ShopComponent,
         NearbyBoothsComponent,
         PurchaseComponent,
-        RentComponent
+        RentComponent,
+        UserComponent,
+        WelcomeComponent
     ],
     imports: [
         CommonModule,

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { BoothService } from '../../core/services/booth.service';
-import { LocationComponent } from 'src/app/shared/location/location.component';
+import { LocationComponent } from 'src/app/shared/components/location/location.component';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { StorageService } from '../../core/services/storage.service';
 import { LoaderService } from '../../core/services/loader.service';
