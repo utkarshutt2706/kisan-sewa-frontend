@@ -166,3 +166,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.no-internet .mat-dialog-container {
+  /* add your styles */
+  padding: 0px !important;
+}

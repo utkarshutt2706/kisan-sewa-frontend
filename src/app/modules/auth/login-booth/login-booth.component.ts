@@ -49,7 +49,7 @@ export class LoginBoothComponent implements OnInit {
                 this.storage.setCurrentUserType('booth');
                 this.authService.currentUserType = 'booth';
                 this.authService.isLoggedIn = true;
-                this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);
+                this.router.navigateByUrl('dashboard/booth');
             },
             error => {
                 this.loaderService.hideLoader();

@@ -1,0 +1,74 @@
+<div class="row w3-animate-zoom">
+
+    <h2>{{ 'register.booth' | translate }}</h2>
+    <form class="col-sm-12" [formGroup]="updateBoothForm">
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterName' | translate}}</mat-label>
+            <input matInput type="text" autocomplete="name"
+                formControlName="name">
+            <mat-error *ngIf="updateBoothForm.controls['name'].invalid">
+                {{'register.nameReq' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterBooth' | translate}}</mat-label>
+            <input matInput type="text" autocomplete="additional-name"
+                formControlName="boothName">
+            <mat-error *ngIf="updateBoothForm.controls['boothName'].invalid">
+                {{'register.boothNameReq' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterMobile' | translate}}</mat-label>
+            <input matInput type="text" inputmode="numeric"
+                autocomplete="mobile" maxlength="10" formControlName="phone">
+            <mat-error *ngIf="updateBoothForm.controls['phone'].invalid">
+                {{'register.validMobile' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterEmail' | translate}}</mat-label>
+            <input matInput type="email" autocomplete="email" inputmode="email"
+                formControlName="email" readonly>
+            <mat-error *ngIf="updateBoothForm.controls['email'].invalid">
+                {{'register.validEmail' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
+            <mat-label>{{'register.enterBoothAddress' | translate}}</mat-label>
+            <textarea matInput autocomplete="address-line3"
+                formControlName="address"></textarea>
+            <mat-error *ngIf="updateBoothForm.controls['address'].invalid">
+                {{'register.boothAddReq' | translate}}</mat-error>
+        </mat-form-field>
+
+        <div class="text-center">
+            <button mat-button class="btn btn-default profile"
+                (click)="imgFileInput.click()">Click to choose your profile
+                picture</button>
+            <input hidden type="file" #imgFileInput
+                (change)="onFileSelect($event)" style="display: none;"/>
+            <p><strong>Note: </strong>Only JPEG, PNG, JPG images are allowed of
+                maximum size 200kb.</p>
+        </div>
+
+        <div *ngIf="uploadedImage" class="xs-12 sm-6 text-center image">
+            <img [src]="uploadedImage" />
+            <!-- <i class="fa fa-times-circle-o close" aria-hidden="true"></i> -->
+        </div>
+
+        <div class="btns">
+            <button mat-button class="btn btn-primary" type="submit"
+                [disabled]="updateBoothForm.invalid" (click)="onUpdate()">{{'common.update' | translate}}</button>
+            <button mat-button class="btn btn-default" (click)="onCancel()"
+                type="reset">{{'common.cancel' | translate}}</button>
+        </div>
+
+    </form>
+</div>
+
+<hr>

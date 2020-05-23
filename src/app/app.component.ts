@@ -48,14 +48,16 @@ export class AppComponent implements OnInit {
         this.onlineEvent.subscribe(
             event => {
                 const currentLang = this.storage.getCurrentLang();
-                let message = 'Back online';
+                let message = 'You are now connected to the internet.';
                 if (currentLang === 'hi') {
-                    message = 'hindi me back online';
+                    message = 'अब आप इंटरनेट से जुड़े हैं।';
                 }
                 const onlineDialogRef = this.dialog.open(SuccessDialogComponent, {
                     data: { message }
                 });
-                dialogRef.close();
+                if(dialogRef) {
+                    dialogRef.close();
+                }
                 setTimeout(() => {
                     onlineDialogRef.close();
                 }, 3000);
@@ -63,14 +65,9 @@ export class AppComponent implements OnInit {
         );
         this.offlineEvent.subscribe(
             event => {
-                const currentLang = this.storage.getCurrentLang();
-                let message = 'NO INTERNET';
-                if (currentLang === 'hi') {
-                    message = 'hindi me NO INTERNET';
-                }
                 dialogRef = this.dialog.open(NoInternetComponent, {
-                    disableClose: true
-                    // data: { message }
+                    disableClose: true,
+                    panelClass: 'no-internet'
                 });
             }
         )

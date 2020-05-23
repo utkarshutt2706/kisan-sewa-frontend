@@ -35,7 +35,7 @@
             <mat-label>{{'register.enterEmail' | translate}}</mat-label>
             <input matInput formControlName="email" type="email"
                 autocomplete="email" inputmode="email">
-            <mat-error *ngIf="registerBoothForm.controls['phone'].invalid">
+            <mat-error *ngIf="registerBoothForm.controls['email'].invalid">
                 {{'register.validEmail' | translate}}</mat-error>
         </mat-form-field>
 

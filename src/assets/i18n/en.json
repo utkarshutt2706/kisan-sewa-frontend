@@ -8,7 +8,9 @@
         "marketRate": "View market rates",
         "sNo": "S. No.",
         "search": "Search",
-        "updateLocation": "Click to update location"
+        "updateLocation": "Click to update location",
+        "update": "Update",
+        "close": "Close"
     },
     "pageNotFound": {
         "title": "Oops! Page Not Found",

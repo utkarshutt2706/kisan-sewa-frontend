@@ -1,0 +1,52 @@
+.row {
+  margin-top: 50px;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.btns {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btns button {
+  margin: 0px 30px;
+}
+
+hr {
+  width: 80%;
+  border-top: 1px solid gray;
+  margin: 0px auto;
+  margin-top: 50px;
+}
+
+.profile {
+  margin: 0 auto;
+}
+
+.text-center p {
+  font-size: 10px;
+}
+
+.image {
+}
+
+.image img {
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+  padding: 8px;
+  position: relative;
+}
+
+.image .close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}

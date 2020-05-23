@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,6 +19,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { RentComponent } from './rent/rent.component';
 import { UserComponent } from './user/user.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { UpdateBoothComponent } from './update-booth/update-booth.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +34,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
         PurchaseComponent,
         RentComponent,
         UserComponent,
-        WelcomeComponent
+        WelcomeComponent,
+        UpdateBoothComponent,
+        UpdateUserComponent
     ],
     imports: [
         CommonModule,
@@ -41,7 +46,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
         MatFormFieldModule,
         TranslateModule,
         MatTableModule,
-        MatTabsModule
+        MatTabsModule,
+        ReactiveFormsModule
     ]
 })
 export class DashboardModule { }

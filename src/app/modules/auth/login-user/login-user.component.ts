@@ -49,7 +49,7 @@ export class LoginFarmerComponent implements OnInit {
                 this.storage.setCurrentUserType('user');
                 this.authService.currentUserType = 'user';
                 this.authService.isLoggedIn = true;
-                this.router.navigateByUrl('dashboard/' + this.authService.currentUserType);
+                this.router.navigateByUrl('dashboard/user');
             },
             error => {
                 this.loaderService.hideLoader();

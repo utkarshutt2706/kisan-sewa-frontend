@@ -20,4 +20,8 @@ export class BoothService {
         });
     }
 
+    public updateBooth(formdata: FormData) {
+        return this.http.post(`${apiEndPoint.booth}update`, formdata);
+    }
+
 }
