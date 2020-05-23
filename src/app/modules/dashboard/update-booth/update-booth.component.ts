@@ -88,12 +88,14 @@ export class UpdateBoothComponent implements OnInit {
             const validSize = this.checkFileSize(fileSize);
             const validType = this.checkFileFormat(fileName);
             if (validSize && validType) {
+                this.loaderService.showLoader();
                 const file = event.target.files[0];
                 this.selectedFile = file;
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
                 reader.onload = (param) => {
                     this.uploadedImage = reader.result;
+                    this.loaderService.hideLoader();
                 };
             }
             else {
@@ -111,18 +113,18 @@ export class UpdateBoothComponent implements OnInit {
     }
 
     private checkFileSize(fileSize: number) {
-        // if (fileSize > 200000) {
-        //     let message = this.message.fileSize.en;
-        //     if (this.currentLang === 'hi') {
-        //         message = this.message.fileSize.hi;
-        //     }
-        //     this.dialog.open(ErrorDialogComponent, {
-        //         data: { message }
-        //     });
-        //     return false;
-        // } else {
+        if (fileSize > 200000) {
+            let message = this.message.fileSize.en;
+            if (this.currentLang === 'hi') {
+                message = this.message.fileSize.hi;
+            }
+            this.dialog.open(ErrorDialogComponent, {
+                data: { message }
+            });
+            return false;
+        } else {
             return true;
-        // }
+        }
     }
 
     private checkFileFormat(fileName: string) {
