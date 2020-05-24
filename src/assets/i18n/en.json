@@ -180,5 +180,15 @@
         "purchase": "Purchase",
         "rent": "Rent",
         "noProducts": "No products to show"
+    },
+    "updatePass": {
+        "click": "Click to update your password",
+        "update": "Update your password",
+        "enterCurr": "Enter your current password",
+        "currReq": "Current password is required",
+        "enterNew": "Enter your new password",
+        "newReq": "New password is required",
+        "reEnterNew": "Re-enter your new password",
+        "notMatch": "Passwords do not match"
     }
 }

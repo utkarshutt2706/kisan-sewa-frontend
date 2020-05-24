@@ -3,8 +3,8 @@
     <h2>{{ 'register.booth' | translate }}</h2>
     <p style="text-align: right; font-size: 12px; margin-right: 5%;"><a
             (click)="updatePassword()"><i class="fa fa-key"
-                aria-hidden="true"></i> Click to update your
-            password</a></p>
+                aria-hidden="true"></i> {{'updatePass.click' | translate}}</a>
+    </p>
     <form class="col-sm-12" [formGroup]="updateBoothForm">
         <mat-form-field appearance="outline"
             class="mat-no-padding col-sm-6 col-xs-12">
