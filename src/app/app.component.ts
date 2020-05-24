@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
                 }
                 setTimeout(() => {
                     onlineDialogRef.close();
-                }, 3000);
+                }, 5000);
             }
         );
         this.offlineEvent.subscribe(

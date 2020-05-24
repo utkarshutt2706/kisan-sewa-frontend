@@ -1,0 +1,30 @@
+.text-center p {
+  font-size: 10px;
+}
+
+.images {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images .image {
+  height: 250px;
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.images .image img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.image .close {
+  position: absolute;
+  font-size: 24px;
+}
