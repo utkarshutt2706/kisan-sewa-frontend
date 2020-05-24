@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { apiEndPoint } from '../constants';
 import { StorageService } from './storage.service';
@@ -8,28 +8,18 @@ import { StorageService } from './storage.service';
 @Injectable({
     providedIn: 'root'
 })
-export class BoothService {
+export class UserService {
 
-    constructor(private http: HttpClient, private storage: StorageService) { }
+    constructor(private storage: StorageService, private http: HttpClient) { }
 
-    public getNearbyBooths(coords: any) {
-        const params = new HttpParams()
-            .set('lat', coords.lat)
-            .set('lon', coords.lon)
-            .set('limit', coords.limit);
-        return this.http.get(`${apiEndPoint.booth}nearby`, {
-            params
-        });
-    }
-
-    public updateBooth(formdata: FormData) {
+    public updateUser(formdata: FormData) {
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
             formdata.append('lang', currentLang);
         } else {
             formdata.append('lang', 'en');
         }
-        return this.http.post(`${apiEndPoint.booth}update`, formdata);
+        return this.http.post(`${apiEndPoint.user}update`, formdata);
     }
 
     public updatePassword(form: FormGroup, email: string) {
@@ -40,7 +30,7 @@ export class BoothService {
             form.value.lang = 'en';
         }
         form.value.email = email;
-        return this.http.post(`${apiEndPoint.booth}password`, form.value);
+        return this.http.post(`${apiEndPoint.user}password`, form.value);
     }
 
 }

@@ -35,6 +35,9 @@ hr {
 }
 
 .image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .image img {
@@ -45,8 +48,6 @@ hr {
   position: relative;
 }
 
-.image .close {
-  position: absolute;
-  top: 1px;
-  right: 1px;
+.close {
+  font-size: 24px;
 }

@@ -1,3 +1,4 @@
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
@@ -47,6 +48,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
         TranslateModule,
         MatTableModule,
         MatTabsModule,
+        MatSelectModule,
         ReactiveFormsModule
     ]
 })

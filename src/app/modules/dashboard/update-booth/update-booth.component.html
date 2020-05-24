@@ -1,6 +1,10 @@
 <div class="row w3-animate-zoom">
 
     <h2>{{ 'register.booth' | translate }}</h2>
+    <p style="text-align: right; font-size: 12px; margin-right: 5%;"><a
+            (click)="updatePassword()"><i class="fa fa-key"
+                aria-hidden="true"></i> Click to update your
+            password</a></p>
     <form class="col-sm-12" [formGroup]="updateBoothForm">
         <mat-form-field appearance="outline"
             class="mat-no-padding col-sm-6 col-xs-12">
@@ -48,22 +52,23 @@
 
         <div class="text-center">
             <button mat-button class="btn btn-default profile"
-                (click)="imgFileInput.click()">Click to choose your profile
-                picture</button>
+                (click)="imgFileInput.click()">{{'common.chooseFile' | translate}}</button>
             <input hidden type="file" #imgFileInput
-                (change)="onFileSelect($event)" style="display: none;"/>
-            <p><strong>Note: </strong>Only JPEG, PNG, JPG images are allowed of
-                maximum size 200kb.</p>
+                (change)="onFileSelect($event)" style="display: none;" />
+            <p><strong>{{'common.note' | translate}}</strong>{{'common.noteFile' | translate}}
+            </p>
         </div>
 
         <div *ngIf="uploadedImage" class="xs-12 sm-6 text-center image">
             <img [src]="uploadedImage" />
-            <!-- <i class="fa fa-times-circle-o close" aria-hidden="true"></i> -->
+            <i class="fa fa-times-circle-o close" aria-hidden="true"
+                (click)="removeImage()"></i>
         </div>
 
         <div class="btns">
             <button mat-button class="btn btn-primary" type="submit"
-                [disabled]="updateBoothForm.invalid" (click)="onUpdate()">{{'common.update' | translate}}</button>
+                [disabled]="updateBoothForm.invalid"
+                (click)="onUpdate()">{{'common.update' | translate}}</button>
             <button mat-button class="btn btn-default" (click)="onCancel()"
                 type="reset">{{'common.cancel' | translate}}</button>
         </div>

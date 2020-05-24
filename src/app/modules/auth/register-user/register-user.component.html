@@ -33,9 +33,12 @@
             class="mat-no-padding col-md-6 col-sm-12">
             <mat-label>{{'register.enterOccp' | translate}}</mat-label>
             <mat-select formControlName="occupation">
-                <mat-option value="" disabled>{{'occupation.choose1' | translate}}</mat-option>
-                <mat-option value="Farmer">{{'occupation.farmer' | translate}}</mat-option>
-                <mat-option value="Other">{{'occupation.other' | translate}}</mat-option>
+                <mat-option value="" disabled>
+                    {{'occupation.choose1' | translate}}</mat-option>
+                <mat-option value="Farmer">{{'occupation.farmer' | translate}}
+                </mat-option>
+                <mat-option value="Other">{{'occupation.other' | translate}}
+                </mat-option>
             </mat-select>
             <mat-error *ngIf="registerUserForm.controls['phone'].invalid">
                 {{'register.validOccp' | translate}}</mat-error>

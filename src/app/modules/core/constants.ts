@@ -16,6 +16,5 @@ export const apiEndPoint = {
     newsletter: `${apiURL}newsletter`,
     auth: `${apiURL}auth/`,
     booth: `${apiURL}booth/`,
-    seller: `${apiURL}seller/`,
-    farmer: `${apiURL}farmer/`
+    user: `${apiURL}user/`
 };

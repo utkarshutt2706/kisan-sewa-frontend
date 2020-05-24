@@ -1,3 +1,5 @@
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,6 +51,8 @@ import { NoInternetComponent } from './shared/components/no-internet/no-internet
         AppRoutingModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
+        MatInputModule,
+        MatFormFieldModule,
         HttpClientModule,
         MatSnackBarModule,
         MatDialogModule,

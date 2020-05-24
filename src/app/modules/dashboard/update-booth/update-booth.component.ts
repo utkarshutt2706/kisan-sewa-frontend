@@ -8,6 +8,8 @@ import { BoothService } from '../../core/services/booth.service';
 import { StorageService } from '../../core/services/storage.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { LoaderService } from '../../core/services/loader.service';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
+import { UpdatePasswordComponent } from 'src/app/shared/components/update-password/update-password.component';
 
 @Component({
     selector: 'app-update-booth',
@@ -50,9 +52,9 @@ export class UpdateBoothComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        this.currentLang = this.storage.getCurrentLang();
         this.currentUser = JSON.parse(this.storage.getCurrentUser());
         this.initForm();
-        this.currentLang = this.storage.getCurrentLang();
     }
 
     private initForm() {
@@ -157,20 +159,32 @@ export class UpdateBoothComponent implements OnInit {
         this.boothService.updateBooth(formData).subscribe(
             response => {
                 this.loaderService.hideLoader();
-                console.log(response);
+                const dialogRef = this.dialog.open(SuccessDialogComponent, {
+                    data: response
+                });
+                dialogRef.afterClosed().subscribe(
+                    close => {
+                        this.router.navigateByUrl('dashboard/user');
+                    }
+                );
             },
             error => {
                 this.loaderService.hideLoader();
-                console.log(error);
+                this.dialog.open(ErrorDialogComponent, {
+                    data: {}
+                });
             },
             () => { }
         );
-        this.loaderService.hideLoader();
     }
 
     public removeImage() {
         this.selectedFile = null;
         this.uploadedImage = null;
+    }
+
+    public updatePassword() {
+        this.dialog.open(UpdatePasswordComponent);
     }
 
 }

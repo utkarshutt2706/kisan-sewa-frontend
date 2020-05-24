@@ -1,1 +1,84 @@
-<p>update-user works!</p>
+<div class="row w3-animate-zoom">
+
+    <h2>{{ 'register.user' | translate }}</h2>
+    <p style="text-align: right; font-size: 12px; margin-right: 5%;"><a
+            (click)="updatePassword()"><i class="fa fa-key"
+                aria-hidden="true"></i> Click to update your
+            password</a></p>
+    <form class="col-sm-12" [formGroup]="updateUserForm">
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterName' | translate}}</mat-label>
+            <input matInput formControlName="name" autocomplete="name">
+            <mat-error *ngIf="updateUserForm.controls['name'].invalid">
+                {{'register.nameReq' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterMobile' | translate}}</mat-label>
+            <input matInput formControlName="phone" type="text"
+                inputmode="numeric" autocomplete="mobile" maxlength="10">
+            <mat-error *ngIf="updateUserForm.controls['phone'].invalid">
+                {{'register.validMobile' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterEmail' | translate}}</mat-label>
+            <input matInput formControlName="email" type="email"
+                inputmode="email" autocomplete="email" readonly>
+            <mat-error *ngIf="updateUserForm.controls['phone'].invalid">
+                {{'register.validEmail' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+            class="mat-no-padding col-sm-6 col-xs-12">
+            <mat-label>{{'register.enterOccp' | translate}}</mat-label>
+            <mat-select formControlName="occupation">
+                <mat-option value="" disabled>
+                    {{'occupation.choose1' | translate}}</mat-option>
+                <mat-option value="Farmer">{{'occupation.farmer' | translate}}
+                </mat-option>
+                <mat-option value="Other">{{'occupation.other' | translate}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="updateUserForm.controls['phone'].invalid">
+                {{'register.validOccp' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
+            <mat-label>{{'register.enterAddress' | translate}}</mat-label>
+            <textarea matInput formControlName="address"
+                autocomplete="address-line3"></textarea>
+            <mat-error *ngIf="updateUserForm.controls['address'].invalid">
+                {{'register.addressReq' | translate}}</mat-error>
+        </mat-form-field>
+
+        <div class="text-center">
+            <button mat-button class="btn btn-default profile"
+                (click)="imgFileInput.click()">{{'common.chooseFile' | translate}}</button>
+            <input hidden type="file" #imgFileInput
+                (change)="onFileSelect($event)" style="display: none;" />
+            <p><strong>{{'common.note' | translate}}</strong>{{'common.noteFile' | translate}}
+            </p>
+        </div>
+
+        <div *ngIf="uploadedImage" class="xs-12 sm-6 text-center image">
+            <img [src]="uploadedImage" />
+            <i class="fa fa-times-circle-o close" aria-hidden="true"
+                (click)="removeImage()"></i>
+        </div>
+
+        <div class="btns">
+            <button mat-button class="btn btn-primary"
+                [disabled]="updateUserForm.invalid" type="submit"
+                (click)="onUpdate()">{{'register.register' | translate}}</button>
+            <button mat-button class="btn btn-default"
+                type="reset">{{'common.cancel' | translate}}</button>
+        </div>
+
+    </form>
+</div>
+
+<hr>

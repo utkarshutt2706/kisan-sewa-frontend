@@ -1,0 +1,24 @@
+.container {
+  margin-top: 50px;
+}
+.accor {
+  margin: 30px 0px;
+}
+.accor-head {
+  background-color: #90caf9 !important;
+  transition: 0.5s;
+}
+.accor-head:hover,
+.mat-expansion-panel-header.mat-expanded {
+  background-color: #33a3ff !important;
+}
+
+.shop {
+  text-align: center;
+  padding: 30px 0px;
+  font-size: 20px;
+}
+
+.shop a {
+  text-decoration: underline;
+}

@@ -63,7 +63,6 @@ export class StorageService {
 
     public removeCurrentUser() {
         localStorage.removeItem('currentUser');
-        // localStorage.removeItem('isVerified');
         localStorage.removeItem('userObj');
         localStorage.removeItem('currentUserType');
         localStorage.removeItem('skipUpdatePassword');

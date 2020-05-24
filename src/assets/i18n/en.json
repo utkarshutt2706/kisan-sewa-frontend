@@ -10,7 +10,10 @@
         "search": "Search",
         "updateLocation": "Click to update location",
         "update": "Update",
-        "close": "Close"
+        "close": "Close",
+        "chooseFile": "Click to choose your profile picture",
+        "note": "Note: ",
+        "noteFile": "Only JPEG, PNG, JPG images are allowed of maximum size 200kb."
     },
     "pageNotFound": {
         "title": "Oops! Page Not Found",
@@ -83,7 +86,7 @@
     "register": {
         "register": "Register",
         "booth": "Booth",
-        "farmer": "Farmer",
+        "user": "User",
         "registerBooth": "Register as Booth",
         "registerUser": "Register as User",
         "enterName": "Enter your name",
