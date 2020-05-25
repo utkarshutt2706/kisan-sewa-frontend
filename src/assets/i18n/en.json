@@ -190,5 +190,29 @@
         "newReq": "New password is required",
         "reEnterNew": "Re-enter your new password",
         "notMatch": "Passwords do not match"
+    },
+    "sellOrRent": {
+        "enterTitle": "Enter a title for your product",
+        "titleReq": "Title is required",
+        "enterDesc": "Enter description of your product",
+        "descReq": "Description is required",
+        "enterCateg": "Choose a category",
+        "choose1":"Choose one",
+        "fertAndPest": "Fertilizers and pesticides",
+        "seed": "Seeds",
+        "equipAndMachi": "Equipments and machineries",
+        "other": "Others",
+        "categReq": "Category is required",
+        "want": "You want to",
+        "sell": "Sell",
+        "rent": "Rent",
+        "plsChoose": "Please choose",
+        "enterPrice": "Enter a price for your product",
+        "priceReq": "Please enter a valid price",
+        "enterUnit": "Enter unit of price for your product",
+        "unitReq": "Unit price is required",
+        "enterQuan": "Enter quantity of product",
+        "quanReq": "Quantity is required",
+        "upload": "Click to upload photos of your product"
     }
 }

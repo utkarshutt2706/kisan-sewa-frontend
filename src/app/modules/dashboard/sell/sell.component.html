@@ -1,67 +1,77 @@
 <form class="col-xs-10" [formGroup]="sellRentForm" style="margin-top: 50px;">
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>Enter a title for your product</mat-label>
+        <mat-label>{{'sellOrRent.enterTitle' | translate}}</mat-label>
         <input matInput formControlName="title">
         <mat-error *ngIf="sellRentForm.controls['title'].invalid">
-            Title is required</mat-error>
+            {{'sellOrRent.titleReq' | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>Enter description of your product</mat-label>
+        <mat-label>{{'sellOrRent.enterDesc' | translate}}</mat-label>
         <textarea matInput formControlName="desc"></textarea>
         <mat-error *ngIf="sellRentForm.controls['desc'].invalid">
-            Description is required</mat-error>
+            {{'sellOrRent.descReq' | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>Choose a category</mat-label>
+        <mat-label>{{'sellOrRent.enterCateg' | translate}}</mat-label>
         <mat-select formControlName="category">
             <mat-option value="" disabled>
-                Choose one</mat-option>
-            <mat-option value="fertAndPest">Fertilizers and Pesticides
+                {{'sellOrRent.choose1' | translate}}</mat-option>
+            <mat-option value="fertAndPest">
+                {{'sellOrRent.fertAndPest' | translate}}
             </mat-option>
-            <mat-option value="seeds">Seeds
+            <mat-option value="seeds">{{'sellOrRent.seed' | translate}}
             </mat-option>
-            <mat-option value="equipAndMach">Equipments and Machineries
+            <mat-option value="equipAndMach">
+                {{'sellOrRent.equipAndMachi' | translate}}
+            </mat-option>
+            <mat-option value="other">{{'sellOrRent.other' | translate}}
             </mat-option>
         </mat-select>
         <mat-error *ngIf="sellRentForm.controls['category'].invalid">
-            Category is required</mat-error>
+            {{'sellOrRent.categReq' | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>You want to</mat-label>
+        <mat-label>{{'sellOrRent.want' | translate}}</mat-label>
         <mat-select formControlName="shop">
             <mat-option value="" disabled>
-                Choose one</mat-option>
-            <mat-option value="sell">Sell
+                {{'sellOrRent.choose1' | translate}}</mat-option>
+            <mat-option value="sell">{{'sellOrRent.sell' | translate}}
             </mat-option>
-            <mat-option value="rent">Rent
+            <mat-option value="rent">{{'sellOrRent.rent' | translate}}
             </mat-option>
         </mat-select>
         <mat-error *ngIf="sellRentForm.controls['shop'].invalid">
-            Please choose</mat-error>
+            {{'sellOrRent.plsChoose' | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>Enter a price for your product</mat-label>
-        <input matInput formControlName="price" type="number">
+        <mat-label>{{'sellOrRent.enterPrice' | translate}}</mat-label>
+        <input matInput formControlName="price" type="number" min="1">
         <mat-error *ngIf="sellRentForm.controls['price'].invalid">
-            Price is required</mat-error>
+            {{'sellOrRent.priceReq' | translate}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
-        <mat-label>Enter unit of price for your product</mat-label>
+        <mat-label>{{'sellOrRent.enterUnit' | translate}}</mat-label>
         <input matInput formControlName="unit" type="text">
         <mat-error *ngIf="sellRentForm.controls['unit'].invalid">
-            Unit is required</mat-error>
+            {{'sellOrRent.unitReq' | translate}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
+        <mat-label>{{'sellOrRent.enterQuan' | translate}}</mat-label>
+        <input matInput formControlName="quantity" type="text">
+        <mat-error *ngIf="sellRentForm.controls['quantity'].invalid">
+            {{'sellOrRent.quanReq' | translate}}</mat-error>
     </mat-form-field>
 
     <div class="text-center">
         <button mat-button class="btn btn-default profile"
-            (click)="imgFileInput.click()">Click to upload photos of your
-            product</button>
+            (click)="imgFileInput.click()">{{'sellOrRent.upload' | translate}}</button>
         <input hidden type="file" #imgFileInput (change)="onFileSelect($event)"
             style="display: none;" multiple />
         <p><strong>{{'common.note' | translate}}</strong>{{'common.noteFile' | translate}}
@@ -69,11 +79,18 @@
     </div>
 
     <div class="images">
-        <div *ngFor="let image of uploadedImages; let index = index;" class="image">
+        <div *ngFor="let image of uploadedImages; let index = index;"
+            class="image">
             <img [src]="image">
             <i class="fa fa-times-circle-o close" aria-hidden="true"
                 (click)="removeImage(index)"></i>
         </div>
+    </div>
+
+    <div class="btns">
+        <button mat-button class="btn btn-primary"
+            [disabled]="sellRentForm.invalid" (click)="onSell()"
+            type="submit">{{'common.submit' | translate}}</button>
     </div>
 
 </form>

@@ -1,10 +1,14 @@
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { regex } from './../../core/constants';
 import { LoaderService } from '../../core/services/loader.service';
 import { StorageService } from '../../core/services/storage.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ShopService } from '../../core/services/shop.service';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
 
 @Component({
     selector: 'app-sell',
@@ -14,7 +18,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class SellComponent implements OnInit {
 
     public sellRentForm: FormGroup;
-    private selectedFile: File;
+    private selectedFiles = [];
     public uploadedImages = [];
     private currentLang: string;
 
@@ -40,7 +44,9 @@ export class SellComponent implements OnInit {
     constructor(
         private loaderService: LoaderService,
         private dialog: MatDialog,
-        private storage: StorageService
+        private storage: StorageService,
+        private shopService: ShopService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -55,8 +61,9 @@ export class SellComponent implements OnInit {
                 desc: new FormControl(null, Validators.required),
                 category: new FormControl(null, Validators.required),
                 shop: new FormControl(null, Validators.required),
-                price: new FormControl(null, Validators.required),
-                unit: new FormControl(null, Validators.required)
+                unit: new FormControl(null, Validators.required),
+                quantity: new FormControl(null, Validators.required),
+                price: new FormControl(null, [Validators.required, Validators.pattern(regex.numeric)])
             }
         );
     }
@@ -64,7 +71,7 @@ export class SellComponent implements OnInit {
     public onFileSelect(event) {
         this.uploadedImages = [];
         if (event.target.files.length > 0) {
-            if(event.target.files.length > 5) {
+            if (event.target.files.length > 5) {
                 let message = this.message.maxFive.en;
                 if (this.currentLang === 'hi') {
                     message = this.message.maxFive.hi;
@@ -87,7 +94,7 @@ export class SellComponent implements OnInit {
                 for (let i = 0; i < event.target.files.length; i++) {
                     const element = event.target.files[i];
                     const file = element;
-                    this.selectedFile = file;
+                    this.selectedFiles.push(file);
                     const reader = new FileReader();
                     reader.readAsDataURL(file);
                     reader.onload = (param) => {
@@ -149,6 +156,59 @@ export class SellComponent implements OnInit {
 
     public removeImage(index: number) {
         this.uploadedImages.splice(index, 1);
+        this.selectedFiles.splice(index, 1);
+    }
+
+    public onSell() {
+        this.loaderService.showLoader();
+        const formData = new FormData();
+        const currentUser = JSON.parse(this.storage.getCurrentUser());
+        formData.append('title', this.sellRentForm.value.title);
+        formData.append('desc', this.sellRentForm.value.desc);
+        formData.append('category', this.sellRentForm.value.category);
+        formData.append('price', this.sellRentForm.value.price);
+        formData.append('unit', this.sellRentForm.value.unit);
+        formData.append('quantity', this.sellRentForm.value.quantity);
+        formData.append('soldBy', currentUser._id);
+        for (let i = 0; i < this.selectedFiles.length; i++) {
+            const element = this.selectedFiles[i];
+            formData.append('picture[]', element, element.name);
+        }
+        if (this.sellRentForm.value.shop === 'sell') {
+            this.shopService.setItemForSale(formData).subscribe(
+                response => {
+                    this.loaderService.hideLoader();
+                    this.dialog.open(SuccessDialogComponent, {
+                        data: response
+                    });
+                    this.router.navigateByUrl('');
+                },
+                error => {
+                    this.loaderService.hideLoader();
+                    this.dialog.open(ErrorDialogComponent, {
+                        data: error.error
+                    });
+                }
+            )
+        } else if (this.sellRentForm.value.shop === 'rent') {
+            this.shopService.setItemForRent(formData).subscribe(
+                response => {
+                    this.loaderService.hideLoader();
+                    this.dialog.open(SuccessDialogComponent, {
+                        data: response
+                    });
+                    this.router.navigateByUrl('');
+                },
+                error => {
+                    this.loaderService.hideLoader();
+                    this.dialog.open(ErrorDialogComponent, {
+                        data: error.error
+                    });
+                }
+            )
+        } else {
+            this.dialog.open(ErrorDialogComponent, {});
+        }
     }
 
 }
