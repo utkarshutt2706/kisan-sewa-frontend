@@ -167,7 +167,7 @@ export class SellComponent implements OnInit {
         formData.append('desc', this.sellRentForm.value.desc);
         formData.append('category', this.sellRentForm.value.category);
         formData.append('price', this.sellRentForm.value.price);
-        formData.append('unit', this.sellRentForm.value.unit);
+        formData.append('unit', 'per ' + this.sellRentForm.value.unit);
         formData.append('quantity', this.sellRentForm.value.quantity);
         formData.append('soldBy', currentUser._id);
         for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -178,10 +178,14 @@ export class SellComponent implements OnInit {
             this.shopService.setItemForSale(formData).subscribe(
                 response => {
                     this.loaderService.hideLoader();
-                    this.dialog.open(SuccessDialogComponent, {
+                    const dialogRef = this.dialog.open(SuccessDialogComponent, {
                         data: response
                     });
-                    this.router.navigateByUrl('');
+                    dialogRef.afterClosed().subscribe(
+                        change => {
+                            this.router.navigateByUrl('');
+                        }
+                    );
                 },
                 error => {
                     this.loaderService.hideLoader();
@@ -194,10 +198,14 @@ export class SellComponent implements OnInit {
             this.shopService.setItemForRent(formData).subscribe(
                 response => {
                     this.loaderService.hideLoader();
-                    this.dialog.open(SuccessDialogComponent, {
+                    const dialogRef = this.dialog.open(SuccessDialogComponent, {
                         data: response
                     });
-                    this.router.navigateByUrl('');
+                    dialogRef.afterClosed().subscribe(
+                        change => {
+                            this.router.navigateByUrl('');
+                        }
+                    );
                 },
                 error => {
                     this.loaderService.hideLoader();

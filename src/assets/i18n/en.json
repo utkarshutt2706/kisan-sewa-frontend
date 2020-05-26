@@ -179,7 +179,8 @@
         "takeShop": "Take me to the shop",
         "purchase": "Purchase",
         "rent": "Rent",
-        "noProducts": "No products to show"
+        "noProducts": "No products to show",
+        "buy": "Buy now"
     },
     "updatePass": {
         "click": "Click to update your password",
