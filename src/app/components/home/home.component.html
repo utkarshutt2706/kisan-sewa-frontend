@@ -26,7 +26,9 @@
                             </h2>
                             <br>
                             <div class="">
-                                <a [routerLink]="['/kisan/login']"
+                                <a (click)="getStarted()" *ngIf="authService.isLoggedIn"
+                                    class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
+                                <a [routerLink]="['/kisan/login']" *ngIf="!authService.isLoggedIn"
                                     class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
                             </div>
                         </div>
@@ -42,7 +44,9 @@
                             </h2>
                             <br>
                             <div class="">
-                                <a [routerLink]="['/kisan/login']"
+                                <a (click)="getStarted()" *ngIf="authService.isLoggedIn"
+                                    class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
+                                <a [routerLink]="['/kisan/login']" *ngIf="!authService.isLoggedIn"
                                     class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
                             </div>
                         </div>
@@ -58,7 +62,9 @@
                             </h2>
                             <br>
                             <div class="">
-                                <a [routerLink]="['/kisan/login']"
+                                <a (click)="getStarted()" *ngIf="authService.isLoggedIn"
+                                    class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
+                                <a [routerLink]="['/kisan/login']" *ngIf="!authService.isLoggedIn"
                                     class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
                             </div>
                         </div>
@@ -74,7 +80,9 @@
                             </h2>
                             <br>
                             <div class="">
-                                <a [routerLink]="['/kisan/login']"
+                                <a (click)="getStarted()" *ngIf="authService.isLoggedIn"
+                                    class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
+                                <a [routerLink]="['/kisan/login']" *ngIf="!authService.isLoggedIn"
                                     class="btn btn-theme btn-sm btn-min-block">{{'home.getStarted' | translate}}</a>
                             </div>
                         </div>
