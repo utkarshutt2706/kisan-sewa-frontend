@@ -12,14 +12,15 @@ export class UserService {
 
     constructor(private storage: StorageService, private http: HttpClient) { }
 
-    public updateUser(formdata: FormData) {
+    public updateUser(form: FormGroup, image: string) {
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
-            formdata.append('lang', currentLang);
+            form.value.lang = currentLang;
         } else {
-            formdata.append('lang', 'en');
+            form.value.lang = 'en';
         }
-        return this.http.post(`${apiEndPoint.user}update`, formdata);
+        form.value.picture = image;
+        return this.http.post(`${apiEndPoint.user}update`, form.value);
     }
 
     public updatePassword(form: FormGroup, email: string) {

@@ -9,6 +9,7 @@ import { StorageService } from '../../core/services/storage.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ShopService } from '../../core/services/shop.service';
 import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog.component';
+import { format } from 'url';
 
 @Component({
     selector: 'app-sell',
@@ -18,7 +19,6 @@ import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog
 export class SellComponent implements OnInit {
 
     public sellRentForm: FormGroup;
-    private selectedFiles = [];
     public uploadedImages = [];
     private currentLang: string;
 
@@ -82,6 +82,10 @@ export class SellComponent implements OnInit {
             }
             const fileNames = [];
             const fileSizes = [];
+            // event.target.files.forEach(element => {
+            //     fileNames.push(element.name);
+            //     fileSizes.push(element.size);
+            // });
             for (let i = 0; i < event.target.files.length; i++) {
                 const element = event.target.files[i];
                 fileNames.push(element.name);
@@ -94,7 +98,6 @@ export class SellComponent implements OnInit {
                 for (let i = 0; i < event.target.files.length; i++) {
                     const element = event.target.files[i];
                     const file = element;
-                    this.selectedFiles.push(file);
                     const reader = new FileReader();
                     reader.readAsDataURL(file);
                     reader.onload = (param) => {
@@ -120,8 +123,8 @@ export class SellComponent implements OnInit {
     }
 
     private checkFileSize(fileSizes: number[]) {
-        for (let i = 0; i < fileSizes.length; i++) {
-            const element = fileSizes[i];
+        let returnVal = true;
+        fileSizes.forEach(element => {
             if (element > 200000) {
                 let message = this.message.fileSize.en;
                 if (this.currentLang === 'hi') {
@@ -130,15 +133,28 @@ export class SellComponent implements OnInit {
                 this.dialog.open(ErrorDialogComponent, {
                     data: { message }
                 });
-                return false;
+                returnVal = false;
             }
-        }
-        return true;
+        });
+        // for (let i = 0; i < fileSizes.length; i++) {
+        //     const element = fileSizes[i];
+        //     if (element > 200000) {
+        //         let message = this.message.fileSize.en;
+        //         if (this.currentLang === 'hi') {
+        //             message = this.message.fileSize.hi;
+        //         }
+        //         this.dialog.open(ErrorDialogComponent, {
+        //             data: { message }
+        //         });
+        //         return false;
+        //     }
+        // }
+        return returnVal;
     }
 
     private checkFileFormat(fileNames: string[]) {
-        for (let i = 0; i < fileNames.length; i++) {
-            const element = fileNames[i];
+        let returnVal = true;
+        fileNames.forEach(element => {
             const ext = element.substr(element.lastIndexOf('.') + 1).toLowerCase();
             if (ext !== 'jpeg' && ext !== 'jpg' && ext !== 'png') {
                 let message = this.message.fileType.en;
@@ -148,34 +164,21 @@ export class SellComponent implements OnInit {
                 this.dialog.open(ErrorDialogComponent, {
                     data: { message }
                 });
-                return false;
+                returnVal = false;
             }
-        }
-        return true;
+        });
+        return returnVal;
     }
 
     public removeImage(index: number) {
         this.uploadedImages.splice(index, 1);
-        this.selectedFiles.splice(index, 1);
     }
 
     public onSell() {
         this.loaderService.showLoader();
-        const formData = new FormData();
-        const currentUser = JSON.parse(this.storage.getCurrentUser());
-        formData.append('title', this.sellRentForm.value.title);
-        formData.append('desc', this.sellRentForm.value.desc);
-        formData.append('category', this.sellRentForm.value.category);
-        formData.append('price', this.sellRentForm.value.price);
-        formData.append('unit', 'per ' + this.sellRentForm.value.unit);
-        formData.append('quantity', this.sellRentForm.value.quantity);
-        formData.append('soldBy', currentUser._id);
-        for (let i = 0; i < this.selectedFiles.length; i++) {
-            const element = this.selectedFiles[i];
-            formData.append('picture[]', element, element.name);
-        }
+        this.sellRentForm.value.unit = `per ${this.sellRentForm.value.unit}`
         if (this.sellRentForm.value.shop === 'sell') {
-            this.shopService.setItemForSale(formData).subscribe(
+            this.shopService.setItemForSale(this.sellRentForm, this.uploadedImages).subscribe(
                 response => {
                     this.loaderService.hideLoader();
                     const dialogRef = this.dialog.open(SuccessDialogComponent, {
@@ -195,7 +198,7 @@ export class SellComponent implements OnInit {
                 }
             )
         } else if (this.sellRentForm.value.shop === 'rent') {
-            this.shopService.setItemForRent(formData).subscribe(
+            this.shopService.setItemForRent(this.sellRentForm, this.uploadedImages).subscribe(
                 response => {
                     this.loaderService.hideLoader();
                     const dialogRef = this.dialog.open(SuccessDialogComponent, {
@@ -215,7 +218,9 @@ export class SellComponent implements OnInit {
                 }
             )
         } else {
-            this.dialog.open(ErrorDialogComponent, {});
+            this.dialog.open(ErrorDialogComponent, {
+                data: ''
+            });
         }
     }
 

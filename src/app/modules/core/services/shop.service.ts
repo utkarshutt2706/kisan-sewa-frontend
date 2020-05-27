@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -19,24 +20,72 @@ export class ShopService {
         return this.http.get(`${apiEndPoint.baseUrl}rent`);
     }
 
-    public setItemForSale(formData: FormData) {
+    public setItemForSale(form: FormGroup, imageArr: string[]) {
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
-            formData.append('lang', currentLang);
+            form.value.lang = currentLang;
         } else {
-            formData.append('lang', 'en');
+            form.value.lang = 'en';
         }
-        return this.http.post(`${apiEndPoint.baseUrl}sell`, formData);
+        for (let i = 0; i < imageArr.length; i++) {
+            const element = imageArr[i];
+            switch (i) {
+                case 0:
+                    form.value.picture0 = element;
+                    break;
+                case 1:
+                    form.value.picture1 = element;
+                    break;
+                case 2:
+                    form.value.picture2 = element;
+                    break;
+                case 3:
+                    form.value.picture3 = element;
+                    break;
+                case 4:
+                    form.value.picture4 = element;
+                    break;
+                default:
+                    break;
+            }
+        }
+        const currentUser = JSON.parse(this.storage.getCurrentUser());
+        form.value.soldBy = currentUser._id;
+        return this.http.post(`${apiEndPoint.baseUrl}sell`, form.value);
     }
 
-    public setItemForRent(formData: FormData) {
+    public setItemForRent(form: FormGroup, imageArr: string[]) {
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
-            formData.append('lang', currentLang);
+            form.value.lang = currentLang;
         } else {
-            formData.append('lang', 'en');
+            form.value.lang = 'en';
         }
-        return this.http.post(`${apiEndPoint.baseUrl}rent`, formData);
+        for (let i = 0; i < imageArr.length; i++) {
+            const element = imageArr[i];
+            switch (i) {
+                case 0:
+                    form.value.picture0 = element;
+                    break;
+                case 1:
+                    form.value.picture1 = element;
+                    break;
+                case 2:
+                    form.value.picture2 = element;
+                    break;
+                case 3:
+                    form.value.picture3 = element;
+                    break;
+                case 4:
+                    form.value.picture4 = element;
+                    break;
+                default:
+                    break;
+            }
+        }
+        const currentUser = JSON.parse(this.storage.getCurrentUser());
+        form.value.soldBy = currentUser._id;
+        return this.http.post(`${apiEndPoint.baseUrl}rent`, form.value);
     }
 
 }

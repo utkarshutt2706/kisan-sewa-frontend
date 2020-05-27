@@ -22,14 +22,15 @@ export class BoothService {
         });
     }
 
-    public updateBooth(formdata: FormData) {
+    public updateBooth(form: FormGroup, image: string) {
         const currentLang = this.storage.getCurrentLang();
         if (currentLang) {
-            formdata.append('lang', currentLang);
+            form.value.lang = currentLang;
         } else {
-            formdata.append('lang', 'en');
+            form.value.lang = 'en';
         }
-        return this.http.post(`${apiEndPoint.booth}update`, formdata);
+        form.value.picture = image;
+        return this.http.post(`${apiEndPoint.booth}update`, form.value);
     }
 
     public updatePassword(form: FormGroup, email: string) {

@@ -22,7 +22,6 @@ export class UpdateUserComponent implements OnInit {
     private currentUser: any;
     private currentLang: string;
     public uploadedImage = null;
-    private selectedFile: File;
 
     private message = {
         error: {
@@ -92,7 +91,6 @@ export class UpdateUserComponent implements OnInit {
             if (validSize && validType) {
                 this.loaderService.showLoader();
                 const file = event.target.files[0];
-                this.selectedFile = file;
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
                 reader.onload = (param) => {
@@ -147,16 +145,16 @@ export class UpdateUserComponent implements OnInit {
 
     public onUpdate() {
         this.loaderService.showLoader();
-        const formData = new FormData();
-        formData.append('name', this.updateUserForm.value.name);
-        formData.append('email', this.updateUserForm.value.email);
-        formData.append('occupation', this.updateUserForm.value.occupation);
-        formData.append('address', this.updateUserForm.value.address);
-        formData.append('phone', this.updateUserForm.value.phone);
-        if (this.selectedFile) {
-            formData.append('picture', this.selectedFile);
-        }
-        this.userService.updateUser(formData).subscribe(
+        // const formData = new FormData();
+        // formData.append('name', this.updateUserForm.value.name);
+        // formData.append('email', this.updateUserForm.value.email);
+        // formData.append('occupation', this.updateUserForm.value.occupation);
+        // formData.append('address', this.updateUserForm.value.address);
+        // formData.append('phone', this.updateUserForm.value.phone);
+        // if (this.selectedFile) {
+        //     formData.append('picture', this.selectedFile);
+        // }
+        this.userService.updateUser(this.updateUserForm, this.uploadedImage).subscribe(
             response => {
                 this.loaderService.hideLoader();
                 const dialogRef = this.dialog.open(SuccessDialogComponent, {
@@ -179,7 +177,6 @@ export class UpdateUserComponent implements OnInit {
     }
 
     public removeImage() {
-        this.selectedFile = null;
         this.uploadedImage = null;
     }
 

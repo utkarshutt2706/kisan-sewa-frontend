@@ -147,16 +147,16 @@ export class UpdateBoothComponent implements OnInit {
 
     public onUpdate() {
         this.loaderService.showLoader();
-        const formData = new FormData();
-        formData.append('name', this.updateBoothForm.value.name);
-        formData.append('email', this.updateBoothForm.value.email);
-        formData.append('boothName', this.updateBoothForm.value.boothName);
-        formData.append('address', this.updateBoothForm.value.address);
-        formData.append('phone', this.updateBoothForm.value.phone);
-        if (this.selectedFile) {
-            formData.append('picture', this.selectedFile);
-        }
-        this.boothService.updateBooth(formData).subscribe(
+        // const formData = new FormData();
+        // formData.append('name', this.updateBoothForm.value.name);
+        // formData.append('email', this.updateBoothForm.value.email);
+        // formData.append('boothName', this.updateBoothForm.value.boothName);
+        // formData.append('address', this.updateBoothForm.value.address);
+        // formData.append('phone', this.updateBoothForm.value.phone);
+        // if (this.selectedFile) {
+        //     formData.append('picture', this.selectedFile);
+        // }
+        this.boothService.updateBooth(this.updateBoothForm, this.uploadedImage).subscribe(
             response => {
                 this.loaderService.hideLoader();
                 const dialogRef = this.dialog.open(SuccessDialogComponent, {
