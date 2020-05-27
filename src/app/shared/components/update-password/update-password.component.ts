@@ -9,6 +9,7 @@ import { UserService } from 'src/app/modules/core/services/user.service';
 import { StorageService } from 'src/app/modules/core/services/storage.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { LoaderService } from 'src/app/modules/core/services/loader.service';
 
 @Component({
     selector: 'app-update-password',
@@ -25,7 +26,8 @@ export class UpdatePasswordComponent implements OnInit {
         private boothService: BoothService,
         private userService: UserService,
         private storage: StorageService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        private loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {
@@ -46,18 +48,21 @@ export class UpdatePasswordComponent implements OnInit {
     }
 
     public onUpdatePass() {
+        this.loaderService.showLoader();
         const userType = this.storage.getCurrentUserType();
         const userEmail = this.storage.getCurrentUserEmail();
         switch (userType) {
             case 'booth':
                 this.boothService.updatePassword(this.updatePasswordForm, userEmail).subscribe(
                     response => {
+                        this.loaderService.hideLoader();
                         this.dialogRef.close();
                         this.dialog.open(SuccessDialogComponent, {
                             data: response
                         });
                     },
                     error => {
+                        this.loaderService.hideLoader();
                         this.dialog.open(ErrorDialogComponent, {
                             data: error.error
                         });
@@ -68,12 +73,14 @@ export class UpdatePasswordComponent implements OnInit {
             case 'user':
                 this.userService.updatePassword(this.updatePasswordForm, userEmail).subscribe(
                     response => {
+                        this.loaderService.hideLoader();
                         this.dialogRef.close();
                         this.dialog.open(SuccessDialogComponent, {
                             data: response
                         });
                     },
                     error => {
+                        this.loaderService.hideLoader();
                         this.dialog.open(ErrorDialogComponent, {
                             data: error.error
                         });
@@ -82,6 +89,7 @@ export class UpdatePasswordComponent implements OnInit {
                 );
                 break;
             default:
+                this.loaderService.hideLoader();
                 this.dialog.open(ErrorDialogComponent);
                 break;
         }
