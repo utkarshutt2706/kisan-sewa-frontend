@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { regex } from '../../../modules/core/constants';
-import { NewsletterService } from 'src/app/modules/core/services/newsletter.service';
 import { LoaderService } from 'src/app/modules/core/services/loader.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { MiscellaneousService } from 'src/app/modules/core/services/miscellaneous.service';
 
 @Component({
     selector: 'app-newsletter',
@@ -18,7 +18,7 @@ export class NewsletterComponent implements OnInit {
     newsLetterForm: FormGroup;
 
     constructor(
-        private newsLetterService: NewsletterService,
+        private miscService: MiscellaneousService,
         private loaderService: LoaderService,
         private dialog: MatDialog,
         private snackBar: MatSnackBar
@@ -38,7 +38,7 @@ export class NewsletterComponent implements OnInit {
 
     public onSubscribe() {
         this.loaderService.showLoader();
-        this.newsLetterService.newsletterSubscribe(this.newsLetterForm).subscribe(
+        this.miscService.newsletterSubscribe(this.newsLetterForm).subscribe(
             response => {
                 this.loaderService.hideLoader();
                 this.dialog.open(SuccessDialogComponent, {

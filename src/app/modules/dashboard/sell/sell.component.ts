@@ -24,7 +24,7 @@ export class SellComponent implements OnInit {
 
     private message = {
         error: {
-            en: 'An error occured while choosing the image, please try again.',
+            en: 'An error occurred while choosing the image, please try again.',
             hi: 'छवि चुनते समय एक त्रुटि हुई, कृपया पुनः प्रयास करें।'
         },
         fileSize: {

@@ -43,7 +43,7 @@ export class MarketRatesComponent implements OnInit {
                         });
                     } else {
                         this.dialog.open(ErrorDialogComponent, {
-                            data: { message: 'You have not choosen a location on the map. Please choose!' }
+                            data: { message: 'You have not chosen a location on the map. Please choose!' }
                         });
                     }
                 }

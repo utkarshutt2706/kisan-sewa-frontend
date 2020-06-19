@@ -26,7 +26,7 @@ export class UpdateBoothComponent implements OnInit {
 
     private message = {
         error: {
-            en: 'An error occured while choosing the image, please try again.',
+            en: 'An error occurred while choosing the image, please try again.',
             hi: 'छवि चुनते समय एक त्रुटि हुई, कृपया पुनः प्रयास करें।'
         },
         fileNo: {
@@ -147,15 +147,6 @@ export class UpdateBoothComponent implements OnInit {
 
     public onUpdate() {
         this.loaderService.showLoader();
-        // const formData = new FormData();
-        // formData.append('name', this.updateBoothForm.value.name);
-        // formData.append('email', this.updateBoothForm.value.email);
-        // formData.append('boothName', this.updateBoothForm.value.boothName);
-        // formData.append('address', this.updateBoothForm.value.address);
-        // formData.append('phone', this.updateBoothForm.value.phone);
-        // if (this.selectedFile) {
-        //     formData.append('picture', this.selectedFile);
-        // }
         this.boothService.updateBooth(this.updateBoothForm, this.uploadedImage).subscribe(
             response => {
                 this.loaderService.hideLoader();

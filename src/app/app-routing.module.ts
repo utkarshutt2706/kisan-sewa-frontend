@@ -6,11 +6,13 @@ import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { TeamComponent } from './components/team/team.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthGuard } from './modules/core/guards/auth.guard';
 
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        redirectTo: 'home',
+        pathMatch: 'full'
     },
     {
         path: 'about',
@@ -26,7 +28,7 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        redirectTo: ''
+        component: HomeComponent
     },
     {
         path: 'kisan',
@@ -34,7 +36,8 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(mod => mod.DashboardModule)
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(mod => mod.DashboardModule),
+        canActivate: [AuthGuard]
     },
     {
         path: '**',
