@@ -214,6 +214,13 @@
         "unitReq": "Unit price is required",
         "enterQuan": "Enter quantity of product",
         "quanReq": "Quantity is required",
-        "upload": "Click to upload photos of your product"
+        "upload": "Click to upload photos of your product",
+        "per": "per - "
+    },
+    "product": {
+        "sellerId": "Seller ID",
+        "sellerDetail": "(Click to view seller details)",
+        "left": "left in stock",
+        "buy":"Buy now"
     }
 }

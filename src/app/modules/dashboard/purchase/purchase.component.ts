@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -17,7 +18,8 @@ export class PurchaseComponent implements OnInit {
     constructor(
         private shopService: ShopService,
         private dialog: MatDialog,
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -26,7 +28,7 @@ export class PurchaseComponent implements OnInit {
 
     private getItemsForSale() {
         this.loaderService.showLoader();
-        this.shopService.getItemsForSale({}).subscribe(
+        this.shopService.getItemsForSale().subscribe(
             (list: any) => {
                 this.loaderService.hideLoader();
                 this.itemsForSale = list;
@@ -39,6 +41,10 @@ export class PurchaseComponent implements OnInit {
             },
             () => { }
         );
+    }
+
+    public viewProduct(id: string) {
+        this.router.navigateByUrl(`/dashboard/product/sell/${id}`);
     }
 
 }

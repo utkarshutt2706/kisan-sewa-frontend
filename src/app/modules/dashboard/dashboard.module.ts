@@ -22,6 +22,7 @@ import { UserComponent } from './user/user.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UpdateBoothComponent } from './update-booth/update-booth.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
         UserComponent,
         WelcomeComponent,
         UpdateBoothComponent,
-        UpdateUserComponent
+        UpdateUserComponent,
+        ProductComponent
     ],
     imports: [
         CommonModule,

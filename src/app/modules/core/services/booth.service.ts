@@ -30,7 +30,7 @@ export class BoothService {
             form.value.lang = 'en';
         }
         form.value.picture = image;
-        return this.http.post(`${apiEndPoint.booth}update`, form.value);
+        return this.http.put(`${apiEndPoint.booth}update`, form.value);
     }
 
     public updatePassword(form: FormGroup, email: string) {
@@ -41,7 +41,7 @@ export class BoothService {
             form.value.lang = 'en';
         }
         form.value.email = email;
-        return this.http.post(`${apiEndPoint.booth}password`, form.value);
+        return this.http.put(`${apiEndPoint.booth}password`, form.value);
     }
 
 }

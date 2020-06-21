@@ -36,8 +36,12 @@ export class SellComponent implements OnInit {
             hi: 'फ़ाइल प्रकार समर्थित नहीं है।'
         },
         maxFive: {
-            en: 'You can choose a maximum of five images',
-            hi: 'आप अधिकतम पाँच चित्र चुन सकते हैं'
+            en: 'You can choose a maximum of five images.',
+            hi: 'आप अधिकतम पाँच चित्र चुन सकते हैं।'
+        },
+        remove: {
+            en: 'You can upload a maximum of five images, please remove any of the selected images to upload others.',
+            hi: 'आप अधिकतम पांच चित्र अपलोड कर सकते हैं, कृपया दूसरों को अपलोड करने के लिए चयनित चित्रों में से कोई भी हटा दें।'
         }
     }
 
@@ -69,7 +73,16 @@ export class SellComponent implements OnInit {
     }
 
     public onFileSelect(event) {
-        this.uploadedImages = [];
+        if (this.uploadedImages.length === 5 || this.uploadedImages.length + event.target.files.length > 5) {
+            let message = this.message.remove.en;
+            if (this.currentLang === 'hi') {
+                message = this.message.remove.hi;
+            }
+            this.dialog.open(ErrorDialogComponent, {
+                data: { message }
+            });
+            return;
+        }
         if (event.target.files.length > 0) {
             if (event.target.files.length > 5) {
                 let message = this.message.maxFive.en;
@@ -82,10 +95,6 @@ export class SellComponent implements OnInit {
             }
             const fileNames = [];
             const fileSizes = [];
-            // event.target.files.forEach(element => {
-            //     fileNames.push(element.name);
-            //     fileSizes.push(element.size);
-            // });
             for (let i = 0; i < event.target.files.length; i++) {
                 const element = event.target.files[i];
                 fileNames.push(element.name);
@@ -136,19 +145,6 @@ export class SellComponent implements OnInit {
                 returnVal = false;
             }
         });
-        // for (let i = 0; i < fileSizes.length; i++) {
-        //     const element = fileSizes[i];
-        //     if (element > 200000) {
-        //         let message = this.message.fileSize.en;
-        //         if (this.currentLang === 'hi') {
-        //             message = this.message.fileSize.hi;
-        //         }
-        //         this.dialog.open(ErrorDialogComponent, {
-        //             data: { message }
-        //         });
-        //         return false;
-        //     }
-        // }
         return returnVal;
     }
 

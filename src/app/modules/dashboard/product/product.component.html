@@ -1,0 +1,87 @@
+<div class="container">
+
+    <!-- Left Column / Headphones Image -->
+    <div class="left-column">
+        <div id="carousel-example-generic" class="carousel slide"
+            data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0"
+                    class="active" *ngIf="product && product.picture1">
+                </li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"
+                    *ngIf="product && product.picture1">
+                </li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"
+                    *ngIf="product && product.picture2">
+                </li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"
+                    *ngIf="product && product.picture3">
+                </li>
+                <li data-target="#carousel-example-generic" data-slide-to="4"
+                    *ngIf="product && product.picture4">
+                </li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active" *ngIf="product">
+                    <img [src]="product && product.picture0" alt="First image">
+                </div>
+                <div class="item" *ngIf="product && product.picture1">
+                    <img [src]="product.picture1" alt="Second image">
+                </div>
+                <div class="item" *ngIf="product && product.picture2">
+                    <img [src]="product.picture2" alt="Third image">
+                </div>
+                <div class="item" *ngIf="product && product.picture3">
+                    <img [src]="product.picture3" alt="Fourth image">
+                </div>
+                <div class="item" *ngIf="product && product.picture4">
+                    <img [src]="product.picture4" alt="Fifth image">
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic"
+                data-slide="prev" *ngIf="product && product.picture1">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic"
+                data-slide="next" *ngIf="product && product.picture1">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+        <!-- Product Description -->
+        <div class="product-description" *ngIf="product">
+            <span *ngIf="product.category==='fertAndPest'">{{'sellOrRent.fertAndPest' | translate}}</span>
+            <span *ngIf="product.category==='seeds'">{{'sellOrRent.seed' | translate}}</span>
+            <span *ngIf="product.category==='equipAndMach'">{{'sellOrRent.equipAndMachi' | translate}}</span>
+            <span *ngIf="product.category==='other'">{{'sellOrRent.other' | translate}}</span>
+            <h1>{{product.title}}</h1>
+            <p>{{product.desc}}</p>
+        </div>
+
+        <!-- Seller Description -->
+        <div class="product-description" *ngIf="product">
+            <span>{{'product.sellerId' | translate}}</span>
+            <p>{{product.soldBy}}<br><span
+                    style="text-transform: none; cursor: pointer;">{{'product.sellerDetail' | translate}}</span></p>
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-description" *ngIf="product">
+            <p>{{product.quantity}} {{'product.left' | translate}}</p>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price" *ngIf="product">
+            <span>&#8377; {{product.price}} {{product.unit}}</span>
+            <a class="cart-btn">{{'product.buy' | translate}}</a>
+        </div>
+    </div>
+</div>

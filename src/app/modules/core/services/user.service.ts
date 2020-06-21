@@ -20,7 +20,7 @@ export class UserService {
             form.value.lang = 'en';
         }
         form.value.picture = image;
-        return this.http.post(`${apiEndPoint.user}update`, form.value);
+        return this.http.put(`${apiEndPoint.user}update`, form.value);
     }
 
     public updatePassword(form: FormGroup, email: string) {
@@ -31,7 +31,7 @@ export class UserService {
             form.value.lang = 'en';
         }
         form.value.email = email;
-        return this.http.post(`${apiEndPoint.user}password`, form.value);
+        return this.http.put(`${apiEndPoint.user}password`, form.value);
     }
 
 }

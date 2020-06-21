@@ -12,12 +12,20 @@ export class ShopService {
 
     constructor(private http: HttpClient, private storage: StorageService) { }
 
-    public getItemsForSale(params: any) {
+    public getItemsForSale() {
         return this.http.get(`${apiEndPoint.baseUrl}sell`);
     }
 
-    public getItemsForRent(params: any) {
+    public getItemsForRent() {
         return this.http.get(`${apiEndPoint.baseUrl}rent`);
+    }
+
+    public getItemForSaleById(id: string) {
+        return this.http.get(`${apiEndPoint.baseUrl}sell/${id}`);
+    }
+
+    public getItemForRentById(id: string) {
+        return this.http.get(`${apiEndPoint.baseUrl}rent/${id}`);
     }
 
     public setItemForSale(form: FormGroup, imageArr: string[]) {

@@ -28,28 +28,23 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img [src]="item.picture0"
-                            alt="First image"
+                        <img [src]="item.picture0" alt="First image"
                             style="width: 300px; height: 350px; min-height: 350px;">
                     </div>
                     <div class="item" *ngIf="item.picture1">
-                        <img [src]="item.picture1"
-                            alt="Second image"
+                        <img [src]="item.picture1" alt="Second image"
                             style="width: 300px; height: 350px; min-height: 350px;">
                     </div>
                     <div class="item" *ngIf="item.picture2">
-                        <img [src]="item.picture2"
-                            alt="Third image"
+                        <img [src]="item.picture2" alt="Third image"
                             style="width: 300px; height: 350px; min-height: 350px;">
                     </div>
                     <div class="item" *ngIf="item.picture3">
-                        <img [src]="item.picture3"
-                            alt="Fourth image"
+                        <img [src]="item.picture3" alt="Fourth image"
                             style="width: 300px; height: 350px; min-height: 350px;">
                     </div>
                     <div class="item" *ngIf="item.picture4">
-                        <img [src]="item.picture4"
-                            alt="Fifth image"
+                        <img [src]="item.picture4" alt="Fifth image"
                             style="width: 300px; height: 350px; min-height: 350px;">
                     </div>
                 </div>
@@ -66,8 +61,10 @@
                 </a>
             </div>
 
-            <h3>{{item.title}}</h3>
-            <p class="price">&#8377; {{item.price}} {{item.unit}}</p>
+            <div (click)="viewProduct(item._id)" style="cursor: pointer;">
+                <h3>{{item.title}}</h3>
+                <p class="price">&#8377; {{item.price}} {{item.unit}}</p>
+            </div>
             <!-- <p>{{item.desc}}</p> -->
             <p><button>{{'shop.buy' | translate}}</button></p>
         </div>

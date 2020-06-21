@@ -52,7 +52,8 @@
 
         <div class="text-center">
             <button mat-button class="btn btn-default profile"
-                (click)="imgFileInput.click()">{{'common.chooseFile' | translate}}</button>
+                (click)="imgFileInput.click()"
+                type="button">{{'common.chooseFile' | translate}}</button>
             <input hidden type="file" #imgFileInput
                 (change)="onFileSelect($event)" style="display: none;" />
             <p><strong>{{'common.note' | translate}}</strong>{{'common.noteFile' | translate}}

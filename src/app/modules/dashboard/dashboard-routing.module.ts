@@ -6,6 +6,7 @@ import { ShopComponent } from './shop/shop.component';
 import { UserComponent } from './user/user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UpdateBoothComponent } from './update-booth/update-booth.component';
+import { ProductComponent } from './product/product.component';
 import { BoothGuard } from 'src/app/modules/core/guards/booth.guard';
 import { UserGuard } from 'src/app/modules/core/guards/user.guard';
 
@@ -21,11 +22,6 @@ const routes: Routes = [
         canActivate: [BoothGuard]
     },
     {
-        path: 'shop',
-        component: ShopComponent,
-        canActivate: [UserGuard]
-    },
-    {
         path: 'user',
         component: UserComponent,
         canActivate: [UserGuard]
@@ -33,6 +29,16 @@ const routes: Routes = [
     {
         path: 'user/update',
         component: UpdateUserComponent,
+        canActivate: [UserGuard]
+    },
+    {
+        path: 'shop',
+        component: ShopComponent,
+        canActivate: [UserGuard]
+    },
+    {
+        path: 'product/:type/:id',
+        component: ProductComponent,
         canActivate: [UserGuard]
     }
 ];

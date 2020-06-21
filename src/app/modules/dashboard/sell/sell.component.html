@@ -1,4 +1,4 @@
-<form class="col-xs-10" [formGroup]="sellRentForm" style="margin-top: 50px;">
+<form class="col-xs-10" [formGroup]="sellRentForm">
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
         <mat-label>{{'sellOrRent.enterTitle' | translate}}</mat-label>
@@ -50,6 +50,7 @@
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
         <mat-label>{{'sellOrRent.enterPrice' | translate}}</mat-label>
+        <span matPrefix>&#8377; &nbsp; </span>
         <input matInput formControlName="price" type="number" min="1">
         <mat-error *ngIf="sellRentForm.controls['price'].invalid">
             {{'sellOrRent.priceReq' | translate}}</mat-error>
@@ -57,7 +58,7 @@
 
     <mat-form-field appearance="outline" class="mat-no-padding col-xs-12">
         <mat-label>{{'sellOrRent.enterUnit' | translate}}</mat-label>
-        <span matPrefix>per- &nbsp;</span>
+        <span matPrefix>{{'sellOrRent.per' | translate}} &nbsp; </span>
         <input matInput formControlName="unit" type="text">
         <mat-error *ngIf="sellRentForm.controls['unit'].invalid">
             {{'sellOrRent.unitReq' | translate}}</mat-error>
@@ -72,7 +73,8 @@
 
     <div class="text-center">
         <button mat-button class="btn btn-default profile"
-            (click)="imgFileInput.click()">{{'sellOrRent.upload' | translate}}</button>
+            (click)="imgFileInput.click()"
+            type="button">{{'sellOrRent.upload' | translate}}</button>
         <input hidden type="file" #imgFileInput (change)="onFileSelect($event)"
             style="display: none;" multiple />
         <p><strong>{{'common.note' | translate}}</strong>{{'common.noteFile' | translate}}
