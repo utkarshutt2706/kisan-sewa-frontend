@@ -43,8 +43,4 @@ export class PurchaseComponent implements OnInit {
         );
     }
 
-    public viewProduct(id: string) {
-        this.router.navigateByUrl(`/dashboard/product/sell/${id}`);
-    }
-
 }
