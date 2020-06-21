@@ -58,19 +58,26 @@
 
         <!-- Product Description -->
         <div class="product-description" *ngIf="product">
-            <span *ngIf="product.category==='fertAndPest'">{{'sellOrRent.fertAndPest' | translate}}</span>
-            <span *ngIf="product.category==='seeds'">{{'sellOrRent.seed' | translate}}</span>
-            <span *ngIf="product.category==='equipAndMach'">{{'sellOrRent.equipAndMachi' | translate}}</span>
-            <span *ngIf="product.category==='other'">{{'sellOrRent.other' | translate}}</span>
+            <span
+                *ngIf="product.category==='fertAndPest'">{{'sellOrRent.fertAndPest' | translate}}</span>
+            <span
+                *ngIf="product.category==='seeds'">{{'sellOrRent.seed' | translate}}</span>
+            <span
+                *ngIf="product.category==='equipAndMach'">{{'sellOrRent.equipAndMachi' | translate}}</span>
+            <span
+                *ngIf="product.category==='other'">{{'sellOrRent.other' | translate}}</span>
             <h1>{{product.title}}</h1>
             <p>{{product.desc}}</p>
         </div>
 
         <!-- Seller Description -->
         <div class="product-description" *ngIf="product">
-            <span style="color: black;"><strong>{{'product.sellerId' | translate}}</strong></span>
+            <span
+                style="color: black;"><strong>{{'product.sellerId' | translate}}</strong></span>
             <p>{{product.soldBy}}<br><span
-                    style="text-transform: none; cursor: pointer;">{{'product.sellerDetail' | translate}}</span></p>
+                    style="text-transform: none; cursor: pointer;"
+                    (click)="viewSeller(product.soldBy)">{{'product.sellerDetail' | translate}}</span>
+            </p>
         </div>
 
         <!-- Product Configuration -->

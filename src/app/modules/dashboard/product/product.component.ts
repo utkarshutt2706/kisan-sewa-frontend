@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ShopService } from '../../core/services/shop.service';
 import { LoaderService } from '../../core/services/loader.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { StorageService } from '../../core/services/storage.service';
 
 @Component({
     selector: 'app-product',
@@ -19,7 +20,8 @@ export class ProductComponent implements OnInit {
         private shopService: ShopService,
         private loaderService: LoaderService,
         private dialog: MatDialog,
-        private router: Router
+        private router: Router,
+        private storage: StorageService
     ) { }
 
     ngOnInit(): void {
@@ -38,7 +40,30 @@ export class ProductComponent implements OnInit {
                         this.loaderService.hideLoader();
                     },
                     error => {
-                        console.log(error);
+                        if (error.error.message === 'invalidUrl' || error.error.message === 'null') {
+                            const currentLang = this.storage.getCurrentLang();
+                            let message = 'No product found for given ID';
+                            if (currentLang === 'hi') {
+                                message = 'दी गई आईडी के लिए कोई उत्पाद नहीं मिला';
+                            }
+                            const dialogRef = this.dialog.open(ErrorDialogComponent, {
+                                data: { message }
+                            });
+                            dialogRef.afterClosed().subscribe(
+                                change => {
+                                    this.router.navigateByUrl('/dashboard/shop');
+                                }
+                            );
+                        } else {
+                            const dialogRef = this.dialog.open(ErrorDialogComponent, {
+                                data: error.error
+                            });
+                            dialogRef.afterClosed().subscribe(
+                                change => {
+                                    this.router.navigateByUrl('/dashboard/shop');
+                                }
+                            );
+                        }
                         this.loaderService.hideLoader();
                     },
                     () => { }
@@ -51,7 +76,9 @@ export class ProductComponent implements OnInit {
                         this.loaderService.hideLoader();
                     },
                     error => {
-                        console.log(error);
+                        this.dialog.open(ErrorDialogComponent, {
+                            data: error.error
+                        });
                         this.loaderService.hideLoader();
                     },
                     () => { }
@@ -62,6 +89,10 @@ export class ProductComponent implements OnInit {
                 this.router.navigateByUrl('404');
                 break;
         }
+    }
+
+    public viewSeller(id: string) {
+        this.router.navigateByUrl(`/dashboard/seller/${id}`)
     }
 
 }

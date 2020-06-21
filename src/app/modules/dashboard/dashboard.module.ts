@@ -24,6 +24,7 @@ import { UpdateBoothComponent } from './update-booth/update-booth.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { SellerComponent } from './seller/seller.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { ProductListComponent } from './product-list/product-list.component';
         UpdateBoothComponent,
         UpdateUserComponent,
         ProductComponent,
-        ProductListComponent
+        ProductListComponent,
+        SellerComponent
     ],
     imports: [
         CommonModule,

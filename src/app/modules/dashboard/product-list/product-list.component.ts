@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductListComponent implements OnInit {
 
     @Input() products: any;
+    @Input() productType: string;
 
     constructor(private router: Router) { }
 
@@ -17,7 +18,7 @@ export class ProductListComponent implements OnInit {
     }
 
     public viewProduct(id: string) {
-        this.router.navigateByUrl(`/dashboard/product/sell/${id}`);
+        this.router.navigateByUrl(`/dashboard/product/${this.productType}/${id}`);
     }
 
 }

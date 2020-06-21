@@ -34,4 +34,24 @@ export class UserService {
         return this.http.put(`${apiEndPoint.user}password`, form.value);
     }
 
+    public getUserById(id: string) {
+        return this.http.get(`${apiEndPoint.user}${id}`);
+    }
+
+    public reportUser(param: any) {
+        return this.http.put(`${apiEndPoint.user}report`, param);
+    }
+
+    public unReportUser(param: any) {
+        return this.http.put(`${apiEndPoint.user}un-report`, param);
+    }
+
+    public followUser(param: any) {
+        return this.http.put(`${apiEndPoint.user}follow`, param);
+    }
+
+    public unFollowUser(param: any) {
+        return this.http.put(`${apiEndPoint.user}un-follow`, param);
+    }
+
 }

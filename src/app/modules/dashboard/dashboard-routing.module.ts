@@ -10,6 +10,7 @@ import { ProductComponent } from './product/product.component';
 import { BoothGuard } from 'src/app/modules/core/guards/booth.guard';
 import { UserGuard } from 'src/app/modules/core/guards/user.guard';
 import { AuthGuard } from 'src/app/modules/core/guards/auth.guard';
+import { SellerComponent } from './seller/seller.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,11 @@ const routes: Routes = [
     {
         path: 'product/:type/:id',
         component: ProductComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'seller/:id',
+        component: SellerComponent,
         canActivate: [AuthGuard]
     }
 ];
