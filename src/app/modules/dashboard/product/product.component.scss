@@ -209,7 +209,8 @@ body {
 /* Product Price */
 .product-price {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .product-price span {
@@ -228,6 +229,7 @@ body {
   text-decoration: none;
   padding: 12px 30px;
   transition: all 0.5s;
+  margin-top: 10px;
 }
 .cart-btn:hover {
   background-color: #64af3d;

@@ -17,6 +17,8 @@ export class SellerComponent implements OnInit {
     public seller: any;
     public currentUser: any;
     private param: any;
+    public isFollowing = false;
+    public isReporting = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -38,6 +40,8 @@ export class SellerComponent implements OnInit {
             seller => {
                 this.loaderService.hideLoader();
                 this.seller = seller;
+                this.isFollowing = this.seller.followers.includes(this.currentUser._id);
+                this.isReporting = this.seller.reportedBy.includes(this.currentUser._id);
                 this.param = {
                     currentUser: this.currentUser._id,
                     reportedUser: this.seller._id
@@ -54,24 +58,36 @@ export class SellerComponent implements OnInit {
     }
 
     public reportSeller() {
-        this.loaderService.showLoader();
-        this.userService.reportUser(this.param).subscribe(
-            result => {
-                this.seller = result;
-                this.param = {
-                    currentUser: this.currentUser._id,
-                    reportedUser: this.seller._id
-                }
-                this.loaderService.hideLoader();
-            },
-            error => {
-                this.loaderService.hideLoader();
-                this.dialog.open(ErrorDialogComponent, {
-                    data: error.error
-                });
-            },
-            () => {}
-        );
+        if (this.param.currentUser !== this.param.reportedUser) {
+            this.loaderService.showLoader();
+            this.userService.reportUser(this.param).subscribe(
+                result => {
+                    this.seller = result;
+                    this.isFollowing = this.seller.followers.includes(this.currentUser._id);
+                    this.isReporting = this.seller.reportedBy.includes(this.currentUser._id);
+                    this.param = {
+                        currentUser: this.currentUser._id,
+                        reportedUser: this.seller._id
+                    }
+                    this.loaderService.hideLoader();
+                },
+                error => {
+                    this.loaderService.hideLoader();
+                    this.dialog.open(ErrorDialogComponent, {
+                        data: error.error
+                    });
+                },
+                () => { }
+            );
+        } else {
+            let message = 'You cannot report yourself';
+            if (this.storage.getCurrentLang() === 'hi') {
+                message = 'आप खुद को रिपोर्ट नहीं कर सकते';
+            }
+            this.dialog.open(ErrorDialogComponent, {
+                data: { message }
+            });
+        }
     }
 
     public unReportSeller() {
@@ -79,6 +95,8 @@ export class SellerComponent implements OnInit {
         this.userService.unReportUser(this.param).subscribe(
             result => {
                 this.seller = result;
+                this.isFollowing = this.seller.followers.includes(this.currentUser._id);
+                this.isReporting = this.seller.reportedBy.includes(this.currentUser._id);
                 this.param = {
                     currentUser: this.currentUser._id,
                     reportedUser: this.seller._id
@@ -91,7 +109,7 @@ export class SellerComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 
@@ -100,6 +118,8 @@ export class SellerComponent implements OnInit {
         this.userService.followUser(this.param).subscribe(
             result => {
                 this.seller = result;
+                this.isFollowing = this.seller.followers.includes(this.currentUser._id);
+                this.isReporting = this.seller.reportedBy.includes(this.currentUser._id);
                 this.param = {
                     currentUser: this.currentUser._id,
                     reportedUser: this.seller._id
@@ -112,7 +132,7 @@ export class SellerComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 
@@ -121,6 +141,8 @@ export class SellerComponent implements OnInit {
         this.userService.unFollowUser(this.param).subscribe(
             result => {
                 this.seller = result;
+                this.isFollowing = this.seller.followers.includes(this.currentUser._id);
+                this.isReporting = this.seller.reportedBy.includes(this.currentUser._id);
                 this.param = {
                     currentUser: this.currentUser._id,
                     reportedUser: this.seller._id
@@ -133,7 +155,7 @@ export class SellerComponent implements OnInit {
                     data: error.error
                 });
             },
-            () => {}
+            () => { }
         );
     }
 

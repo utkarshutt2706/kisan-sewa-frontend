@@ -7,7 +7,9 @@
                         <h2>{{seller.name}}</h2>
                         <p><strong>Occupation: </strong> {{seller.occupation}}
                         </p>
-                        <p><strong>Email: </strong> <a [href]="'mailto:' + seller.email">{{seller.email}}</a> </p>
+                        <p><strong>Email: </strong> <a
+                                [href]="'mailto:' + seller.email">{{seller.email}}</a>
+                        </p>
                         <p><strong>Address: </strong> {{seller.address}} </p>
                         <p><strong>Phone: </strong> {{seller.phone}} </p>
                         <!-- <p><strong>Skills: </strong>
@@ -22,7 +24,7 @@
                             <img [src]="seller.picture" alt=""
                                 class="img-circle img-responsive">
                             <figcaption class="ratings">
-                                <p>Ratings: 
+                                <p>Ratings:
                                     <a href="#">
                                         <span class="fa fa-star-o"></span>
                                     </a>
@@ -45,24 +47,35 @@
                 </div>
                 <div class="col-xs-12 divider text-center">
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong> 20,7K </strong></h2>
+                        <h2><strong> {{seller.followers.length}} </strong></h2>
                         <p><small>Followers</small></p>
-                        <a class="btn btn-success btn-block" (click)="followSeller()"><span
+                        <a class="btn btn-success btn-block"
+                            (click)="followSeller()" *ngIf="!isFollowing"><span
                                 class="fa fa-plus-circle"></span> Follow
+                        </a>
+                        <a class="btn btn-danger btn-block"
+                            (click)="unFollowSeller()" *ngIf="isFollowing"><span
+                                class="fa fa-minus-circle"></span> Unfollow
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong>245</strong></h2>
+                        <h2><strong> {{seller.following.length}} </strong></h2>
                         <p><small>Following</small></p>
-                        <a class="btn btn-info btn-block" [href]="'mailto:' + seller.email"><span
+                        <a class="btn btn-info btn-block"
+                            [href]="'mailto:' + seller.email"><span
                                 class="fa fa-envelope"></span> Send email
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-4 emphasis">
-                        <h2><strong>43</strong></h2>
+                        <h2><strong> {{seller.reportedBy.length}} </strong></h2>
                         <p><small>Reported this seller</small></p>
-                        <a class="btn btn-warning btn-block" (click)="reportSeller()"><span
+                        <a class="btn btn-warning btn-block"
+                            (click)="reportSeller()" *ngIf="!isReporting"><span
                                 class="fa fa-warning"></span> Report seller
+                        </a>
+                        <a class="btn btn-default btn-block"
+                            (click)="unReportSeller()" *ngIf="isReporting"><span
+                                class="fa fa-trash-o"></span> Delete report
                         </a>
                         <!-- <div class="btn-group dropup btn-block">
                             <button type="button" class="btn btn-primary"><span
