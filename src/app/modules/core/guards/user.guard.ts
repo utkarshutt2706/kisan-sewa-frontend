@@ -7,7 +7,7 @@ import { StorageService } from '../services/storage.service';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
     constructor(private storage: StorageService, private router: Router) {
     }
@@ -15,10 +15,10 @@ export class AuthGuard implements CanActivate {
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        if (this.storage.getCurrentUser() && this.storage.getCurrentUserType() && this.storage.getCurrentUserEmail()) {
+        if (this.storage.getCurrentUserType() === 'user') {
             return true;
         } else {
-            this.router.navigateByUrl('/kisan/login');
+            this.router.navigateByUrl('/dashboard/booth');
             return false;
         }
     }

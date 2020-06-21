@@ -6,27 +6,34 @@ import { ShopComponent } from './shop/shop.component';
 import { UserComponent } from './user/user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UpdateBoothComponent } from './update-booth/update-booth.component';
+import { BoothGuard } from 'src/app/modules/core/guards/booth.guard';
+import { UserGuard } from 'src/app/modules/core/guards/user.guard';
 
 const routes: Routes = [
     {
         path: 'booth',
-        component: BoothComponent
+        component: BoothComponent,
+        canActivate: [BoothGuard]
     },
     {
         path: 'booth/update',
-        component: UpdateBoothComponent
+        component: UpdateBoothComponent,
+        canActivate: [BoothGuard]
     },
     {
         path: 'shop',
-        component: ShopComponent
+        component: ShopComponent,
+        canActivate: [UserGuard]
     },
     {
         path: 'user',
-        component: UserComponent
+        component: UserComponent,
+        canActivate: [UserGuard]
     },
     {
         path: 'user/update',
-        component: UpdateUserComponent
+        component: UpdateUserComponent,
+        canActivate: [UserGuard]
     }
 ];
 

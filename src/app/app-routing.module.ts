@@ -7,6 +7,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { TeamComponent } from './components/team/team.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './modules/core/guards/auth.guard';
+import { LoginGuard } from './modules/core/guards/login.guard';
 
 const routes: Routes = [
     {
@@ -32,7 +33,8 @@ const routes: Routes = [
     },
     {
         path: 'kisan',
-        loadChildren: () => import('./modules/auth/auth.module').then(mod => mod.AuthModule)
+        loadChildren: () => import('./modules/auth/auth.module').then(mod => mod.AuthModule),
+        canActivate: [LoginGuard]
     },
     {
         path: 'dashboard',
