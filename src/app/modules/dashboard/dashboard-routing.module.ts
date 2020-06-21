@@ -9,6 +9,7 @@ import { UpdateBoothComponent } from './update-booth/update-booth.component';
 import { ProductComponent } from './product/product.component';
 import { BoothGuard } from 'src/app/modules/core/guards/booth.guard';
 import { UserGuard } from 'src/app/modules/core/guards/user.guard';
+import { AuthGuard } from 'src/app/modules/core/guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -34,7 +35,7 @@ const routes: Routes = [
     {
         path: 'shop',
         component: ShopComponent,
-        canActivate: [UserGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'product/:type/:id',
